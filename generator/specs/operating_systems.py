@@ -5,11 +5,10 @@ from __future__ import annotations
 from generator.models import GHCR_NAMESPACE, EggSpec, VariableSpec
 
 LINUX_NAT_SECURITY_VI = (
-    "- **Phân biệt rõ Container và KVM VPS:** Đây là môi trường **Linux Container không đặc quyền** chạy trên kernel chia sẻ của máy chủ Node (Pterodactyl Wings), **không phải KVM VPS**.\n"
-    "- **Không có quyền root thực sự trên host:** Không chạy `--privileged`, không cấp `CAP_SYS_ADMIN`, không mount Docker Socket, không dùng `host` network, không tắt AppArmor/Seccomp và không sử dụng `systemd`.\n"
-    "- **Cài đặt phần mềm:** Các gói hệ thống đã được tích hợp khi build Docker Image. Trong container, người dùng cài công cụ trong thư mục `/home/container` qua user-space package managers (`pip --user`, `uv`, `npm`, `cargo`, `mise`, `nix`, static binaries). Không giả mạo quyền `apt install`/`dnf install` root.\n"
-    "- **Nhu cầu toàn quyền root / systemd / kernel riêng:** Khách hàng cần sử dụng dịch vụ **KVM VPS riêng biệt** của Vietnam Hosting thay vì vượt giới hạn bảo mật Wings.\n"
-    "- **Đăng nhập NAT SSH qua `readme.md`:** Tài khoản mặc định là `ubuntu` (`ssh -p <PORT> ubuntu@<NODE_IP>`) với mật khẩu mặc định `vietnam999` được lưu tại `/home/container/readme.md`. Khi người dùng chỉnh sửa dòng `PASSWORD:` trong `/home/container/readme.md`, mật khẩu SSH NAT tự động đồng bộ ngay lập tức (không cần restart server). Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc bật SSH Public Key (`~/.ssh/authorized_keys`) và đặt `ENABLE_SSH_PASSWORD=0`. Đăng nhập `root` qua SSH luôn bị vô hiệu hóa."
+    "- **Phân biệt rõ Container và KVM VPS:** Container vẫn chạy hoàn toàn **không đặc quyền trên máy chủ Node** (`Privileged=false`, `ReadonlyRootfs=true`, không `CAP_SYS_ADMIN`, không Docker Socket, không tắt AppArmor/Seccomp).\n"
+    "- **Chế độ PRoot Writable RootFS (`ENABLE_PROOT=1`):** Ở lần khởi động đầu tiên, hệ thống khởi tạo bản sao rootfs có thể ghi bền vững tại `/home/container/rootfs` bằng **PRoot user-space**. Người dùng đăng nhập vào `root@vietnam-hosting:~#`, có thể chạy trực tiếp `apt update && apt install ...`, sửa `/etc`, `/usr`, `/var` như VPS thông thường và giữ nguyên gói đã cài sau khi restart — mà **không cần quyền root thật trên Host**.\n"
+    "- **Giới hạn kỹ thuật minh bạch:** Vì vẫn dùng chung kernel máy chủ Node, các tính năng tầng kernel (`systemd` PID 1, nạp kernel module, `iptables`, WireGuard/OpenVPN TUN, Docker-in-Docker) cần sử dụng dịch vụ **KVM VPS riêng biệt** của Vietnam Hosting.\n"
+    "- **Đăng nhập NAT SSH qua `readme.md`:** Tài khoản mặc định `ubuntu` (`ssh -p <PORT> ubuntu@<NODE_IP>`) với mật khẩu mặc định `vietnam999` tại `/home/container/readme.md` (cũng mount vào `/root/readme.md`). Sửa dòng `PASSWORD:` trong `readme.md` tự động đổi mật khẩu SSH NAT ngay lập tức (2 giây, không cần restart). Tài khoản `root` qua SSH luôn bị chặn ở tầng đăng nhập."
 )
 
 LINUX_NAT_INSTALL_BODY = r'''
@@ -90,6 +89,13 @@ LINUX_NAT_VARS = [
         env_variable="SSH_AUTHORIZED_KEYS",
         default_value="",
         rules="nullable|string|max:2048",
+    ),
+    VariableSpec(
+        name="Enable Writable PRoot RootFS (VPS Mode)",
+        description="Set to 1 to enter persistent writable /home/container/rootfs via unprivileged PRoot (enables apt/dnf install as virtual root while keeping host isolated).",
+        env_variable="ENABLE_PROOT",
+        default_value="1",
+        rules="required|boolean",
     ),
     VariableSpec(
         name="Enable User-Space Scheduler",

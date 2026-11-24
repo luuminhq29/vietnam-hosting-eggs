@@ -47,8 +47,8 @@ def _render_debian_dockerfile(
             "    && mkdir -p /opt/vnh /home/container \\",
             "    && chown -R container:container /home/container",
             "",
-            "COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh /opt/vnh/",
-            "RUN chmod 755 /opt/vnh/*.sh",
+            "COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh core/vps-shell.sh /opt/vnh/",
+            "RUN chmod 755 /opt/vnh/*.sh && echo '/opt/vnh/vps-shell.sh' >> /etc/shells",
             "",
         ]
     )
@@ -101,8 +101,8 @@ def _render_alpine_dockerfile(
             "    && mkdir -p /opt/vnh /home/container \\",
             "    && chown -R container:container /home/container",
             "",
-            "COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh /opt/vnh/",
-            "RUN chmod 755 /opt/vnh/*.sh",
+            "COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh core/vps-shell.sh /opt/vnh/",
+            "RUN chmod 755 /opt/vnh/*.sh && echo '/opt/vnh/vps-shell.sh' >> /etc/shells",
             "",
         ]
     )
@@ -172,8 +172,8 @@ def _render_rpm_dockerfile(
             "    && mkdir -p /opt/vnh /home/container \\",
             "    && chown -R container:container /home/container",
             "",
-            "COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh /opt/vnh/",
-            "RUN chmod 755 /opt/vnh/*.sh",
+            "COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh core/vps-shell.sh /opt/vnh/",
+            "RUN chmod 755 /opt/vnh/*.sh && echo '/opt/vnh/vps-shell.sh' >> /etc/shells",
             "",
         ]
     )

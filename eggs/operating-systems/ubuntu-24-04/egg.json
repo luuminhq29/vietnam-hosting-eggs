@@ -71,6 +71,16 @@
       "field_type": "text"
     },
     {
+      "name": "Enable Writable PRoot RootFS (VPS Mode)",
+      "description": "Set to 1 to enter persistent writable /home/container/rootfs via unprivileged PRoot (enables apt/dnf install as virtual root while keeping host isolated).",
+      "env_variable": "ENABLE_PROOT",
+      "default_value": "1",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|boolean",
+      "field_type": "text"
+    },
+    {
       "name": "Enable User-Space Scheduler",
       "description": "Set to 1 to enable container-safe scheduled tasks from ~/crontab.",
       "env_variable": "ENABLE_CRON",

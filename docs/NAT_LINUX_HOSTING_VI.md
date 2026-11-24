@@ -17,13 +17,13 @@ Internet
 
 Vietnam Hosting minh bạch hoàn toàn với khách hàng về sự khác biệt kỹ thuật:
 
-| Tính năng | NAT Linux Container (Pterodactyl Wings) | KVM VPS Thực Sự |
+| Tính năng | NAT Linux Container (Wings + PRoot Writable RootFS) | KVM VPS Thực Sự |
 | :--- | :---: | :---: |
+| Quyền `root@` trong container & cài đặt gói `apt` / `dnf` / `dpkg` bền vững | **Có** (qua PRoot rootfs trong `/home/container/rootfs`, an toàn không cần host root) | **Có** |
 | Kernel riêng & nạp module kernel (`iptables`, WireGuard, TUN/TAP) | **Không** (chia sẻ kernel host) | **Có** |
-| Toàn quyền `root` hệ thống & chạy `apt install` / `dnf install` runtime | **Không** (gói hệ thống cài lúc build image) | **Có** |
-| Chạy `systemd` đầy đủ (`systemctl`) | **Không** (dùng `tini` + process supervisor) | **Có** |
+| Chạy `systemd` đầy đủ (`systemctl` PID 1) | **Không** (dùng `tini` + process supervisor) | **Có** |
 | Chạy Docker-in-Docker / mount Docker Socket | **Không** (bị chặn vì bảo mật multi-tenant) | **Có** |
-| Terminal trực tiếp, SSH Public Key, Wings SFTP, lưu trữ bền vững | **Có** | **Có** |
+| Terminal trực tiếp, SSH (`ubuntu@` + `readme.md` hot-reload), Wings SFTP, lưu trữ bền vững | **Có** | **Có** |
 | Cài đặt công cụ user-space (`pip`, `uv`, `npm`, `cargo`, `go`, `mise`, binary tĩnh) | **Có** (trong `/home/container`) | **Có** |
 | Chi phí & mật độ triển khai | Rất tối ưu cho ứng dụng & dev workspace | Cao hơn do ảo hóa phần cứng |
 

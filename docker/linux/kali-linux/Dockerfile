@@ -14,15 +14,15 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        ca-certificates curl wget git tini procps iproute2 dnsutils unzip zip tar nano vim dropbear-bin jq libnss-wrapper openssh-client openssl tmux \
+        ca-certificates curl wget git tini procps iproute2 dnsutils unzip zip tar nano vim dropbear-bin jq libnss-wrapper openssh-client openssl proot tmux \
     && rm -rf /var/lib/apt/lists/*
 
 RUN (id -u container >/dev/null 2>&1 || useradd -m -d /home/container -s /bin/bash container) \
     && mkdir -p /opt/vnh /home/container \
     && chown -R container:container /home/container
 
-COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh /opt/vnh/
-RUN chmod 755 /opt/vnh/*.sh
+COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh core/vps-shell.sh /opt/vnh/
+RUN chmod 755 /opt/vnh/*.sh && echo '/opt/vnh/vps-shell.sh' >> /etc/shells
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \
     VNH_OS_LABEL="Kali Linux Minimal"

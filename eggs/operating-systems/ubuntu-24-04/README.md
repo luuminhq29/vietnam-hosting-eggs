@@ -42,6 +42,7 @@ Unprivileged Ubuntu 24.04 LTS NAT Linux container compatible with Pterodactyl Co
 | `ENABLE_SSH_PASSWORD` | Enable readme.md Password SSH | `(bí mật / để trống)` | Có | `required|boolean` | Set to 1 to allow NAT SSH password login synced live from /home/container/readme.md (default ubuntu / vietnam999). Set 0 for pubkey-only. |
 | `SSH_PORT` | SSH Allocation Port | `(trống)` | Có | `nullable|integer|between:1024,65535` | Dedicated Pterodactyl allocation port for SSH (leave blank to reuse SERVER_PORT). |
 | `SSH_AUTHORIZED_KEYS` | SSH Authorized Public Key | `(bí mật / để trống)` | Có | `nullable|string|max:2048` | OpenSSH public key (ssh-ed25519 / ssh-rsa) added to ~/.ssh/authorized_keys. |
+| `ENABLE_PROOT` | Enable Writable PRoot RootFS (VPS Mode) | `1` | Có | `required|boolean` | Set to 1 to enter persistent writable /home/container/rootfs via unprivileged PRoot (enables apt/dnf install as virtual root while keeping host isolated). |
 | `ENABLE_CRON` | Enable User-Space Scheduler | `1` | Có | `required|boolean` | Set to 1 to enable container-safe scheduled tasks from ~/crontab. |
 | `STARTUP_SCRIPT` | User Startup Script | `startup.sh` | Có | `nullable|string|max:128` | Relative path to user startup script managed with restart-loop protection. |
 | `VNH_MAX_RESTARTS` | Max Restart Attempts | `5` | Có | `required|integer|between:1,20` | Maximum restarts within 60 seconds before halting to prevent restart loops. |
@@ -60,11 +61,10 @@ Unprivileged Ubuntu 24.04 LTS NAT Linux container compatible with Pterodactyl Co
 
 ## 7. Ranh giới bảo mật & Vận hành
 
-- **Phân biệt rõ Container và KVM VPS:** Đây là môi trường **Linux Container không đặc quyền** chạy trên kernel chia sẻ của máy chủ Node (Pterodactyl Wings), **không phải KVM VPS**.
-- **Không có quyền root thực sự trên host:** Không chạy `--privileged`, không cấp `CAP_SYS_ADMIN`, không mount Docker Socket, không dùng `host` network, không tắt AppArmor/Seccomp và không sử dụng `systemd`.
-- **Cài đặt phần mềm:** Các gói hệ thống đã được tích hợp khi build Docker Image. Trong container, người dùng cài công cụ trong thư mục `/home/container` qua user-space package managers (`pip --user`, `uv`, `npm`, `cargo`, `mise`, `nix`, static binaries). Không giả mạo quyền `apt install`/`dnf install` root.
-- **Nhu cầu toàn quyền root / systemd / kernel riêng:** Khách hàng cần sử dụng dịch vụ **KVM VPS riêng biệt** của Vietnam Hosting thay vì vượt giới hạn bảo mật Wings.
-- **Đăng nhập NAT SSH qua `readme.md`:** Tài khoản mặc định là `ubuntu` (`ssh -p <PORT> ubuntu@<NODE_IP>`) với mật khẩu mặc định `vietnam999` được lưu tại `/home/container/readme.md`. Khi người dùng chỉnh sửa dòng `PASSWORD:` trong `/home/container/readme.md`, mật khẩu SSH NAT tự động đồng bộ ngay lập tức (không cần restart server). Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc bật SSH Public Key (`~/.ssh/authorized_keys`) và đặt `ENABLE_SSH_PASSWORD=0`. Đăng nhập `root` qua SSH luôn bị vô hiệu hóa.
+- **Phân biệt rõ Container và KVM VPS:** Container vẫn chạy hoàn toàn **không đặc quyền trên máy chủ Node** (`Privileged=false`, `ReadonlyRootfs=true`, không `CAP_SYS_ADMIN`, không Docker Socket, không tắt AppArmor/Seccomp).
+- **Chế độ PRoot Writable RootFS (`ENABLE_PROOT=1`):** Ở lần khởi động đầu tiên, hệ thống khởi tạo bản sao rootfs có thể ghi bền vững tại `/home/container/rootfs` bằng **PRoot user-space**. Người dùng đăng nhập vào `root@vietnam-hosting:~#`, có thể chạy trực tiếp `apt update && apt install ...`, sửa `/etc`, `/usr`, `/var` như VPS thông thường và giữ nguyên gói đã cài sau khi restart — mà **không cần quyền root thật trên Host**.
+- **Giới hạn kỹ thuật minh bạch:** Vì vẫn dùng chung kernel máy chủ Node, các tính năng tầng kernel (`systemd` PID 1, nạp kernel module, `iptables`, WireGuard/OpenVPN TUN, Docker-in-Docker) cần sử dụng dịch vụ **KVM VPS riêng biệt** của Vietnam Hosting.
+- **Đăng nhập NAT SSH qua `readme.md`:** Tài khoản mặc định `ubuntu` (`ssh -p <PORT> ubuntu@<NODE_IP>`) với mật khẩu mặc định `vietnam999` tại `/home/container/readme.md` (cũng mount vào `/root/readme.md`). Sửa dòng `PASSWORD:` trong `readme.md` tự động đổi mật khẩu SSH NAT ngay lập tức (2 giây, không cần restart). Tài khoản `root` qua SSH luôn bị chặn ở tầng đăng nhập.
 
 - Container chạy không đặc quyền (`container` user, `/home/container`), không yêu cầu `--privileged`, không mount Docker Socket, không dùng `host` network và không thay đổi firewall/iptables của Node.
 - Giới hạn CPU, RAM, PID, Disk Quota và bảo vệ mạng tầng Host do **Pterodactyl Wings, Docker Daemon và Firewall của Node** đảm nhiệm.

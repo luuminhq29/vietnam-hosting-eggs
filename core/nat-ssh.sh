@@ -28,16 +28,19 @@ if [[ -r "${VNH_CORE_DIR}/environment.sh" ]]; then
 fi
 
 HOME_DIR="${HOME:-/home/container}"
+ROOTFS_DIR="${HOME_DIR}/rootfs"
 SSH_DIR="${HOME_DIR}/.ssh"
 HOSTKEY_DIR="${SSH_DIR}/host_keys"
 README_CRED_FILE="${HOME_DIR}/readme.md"
 SSH_PORT="${SSH_PORT:-${SERVER_PORT:-}}"
 ENABLE_SSH="${ENABLE_SSH:-1}"
 ENABLE_SSH_PASSWORD="${ENABLE_SSH_PASSWORD:-1}"
+ENABLE_PROOT="${ENABLE_PROOT:-1}"
 ENABLE_CRON="${ENABLE_CRON:-1}"
 SSH_AUTHORIZED_KEYS="${SSH_AUTHORIZED_KEYS:-}"
 STARTUP_SCRIPT="${STARTUP_SCRIPT:-startup.sh}"
 CURRENT_SSH_USER="ubuntu"
+VPS_SHELL="/opt/vnh/vps-shell.sh"
 
 declare -a CHILD_PIDS=()
 
@@ -59,6 +62,90 @@ cleanup() {
 }
 
 trap cleanup TERM INT HUP
+
+# Seed persistent writable rootfs inside /home/container/rootfs once for unprivileged PRoot VPS mode.
+ensure_proot_rootfs() {
+    if [[ "${ENABLE_PROOT}" != "1" ]] && [[ "${ENABLE_PROOT}" != "true" ]]; then
+        return 0
+    fi
+    if ! command -v proot >/dev/null 2>&1; then
+        vnh_log_warn "proot binary not available in this image; running standard user-space shell."
+        return 0
+    fi
+
+    if [[ ! -f "${ROOTFS_DIR}/.vnh_rootfs_ready" ]]; then
+        vnh_log_info "Initializing persistent writable Linux rootfs at ${ROOTFS_DIR} (first boot only)..."
+        mkdir -p "${ROOTFS_DIR}" "${HOME_DIR}/tmp"
+        # Copy container OS files into persistent writable volume (ignores root-only files like /etc/shadow cleanly)
+        tar --one-file-system \
+            --exclude='./proc' \
+            --exclude='./sys' \
+            --exclude='./dev' \
+            --exclude='./tmp' \
+            --exclude='./run' \
+            --exclude='./mnt' \
+            --exclude='./media' \
+            --exclude='./home/container' \
+            --exclude='./opt/vnh' \
+            --ignore-failed-read \
+            --warning=no-file-ignored \
+            -C / -cf - . 2>/dev/null | tar --no-same-owner -C "${ROOTFS_DIR}" -xf - 2>/dev/null || true
+
+        mkdir -p \
+            "${ROOTFS_DIR}/dev" \
+            "${ROOTFS_DIR}/proc" \
+            "${ROOTFS_DIR}/sys" \
+            "${ROOTFS_DIR}/tmp" \
+            "${ROOTFS_DIR}/run" \
+            "${ROOTFS_DIR}/root" \
+            "${ROOTFS_DIR}/mnt/container" \
+            "${ROOTFS_DIR}/var/lib/apt/lists/partial" \
+            "${ROOTFS_DIR}/var/cache/apt/archives/partial" \
+            "${ROOTFS_DIR}/var/log/apt" \
+            "${ROOTFS_DIR}/etc/apt/apt.conf.d"
+        chmod 1777 "${ROOTFS_DIR}/tmp" 2>/dev/null || true
+
+        # Ensure root user entries and clean apt configuration inside writable rootfs
+        printf 'root:x:0:0:root:/root:/bin/bash\n' > "${ROOTFS_DIR}/etc/passwd.vnh"
+        grep -v '^root:' "${ROOTFS_DIR}/etc/passwd" >> "${ROOTFS_DIR}/etc/passwd.vnh" 2>/dev/null || true
+        mv -f "${ROOTFS_DIR}/etc/passwd.vnh" "${ROOTFS_DIR}/etc/passwd"
+        chmod 644 "${ROOTFS_DIR}/etc/passwd"
+
+        printf 'root:*:19000:0:99999:7:::\n' > "${ROOTFS_DIR}/etc/shadow"
+        chmod 600 "${ROOTFS_DIR}/etc/shadow"
+
+        # Prevent apt from attempting setgroups/_apt drop-privs errors inside PRoot
+        cat > "${ROOTFS_DIR}/etc/apt/apt.conf.d/99vnh-proot" <<'EOF'
+APT::Sandbox::User "root";
+Acquire::AllowInsecureRepositories "false";
+EOF
+
+        # Clean interactive root prompt & helpful paths
+        cat > "${ROOTFS_DIR}/root/.bashrc" <<'EOF'
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export LANG=C.UTF-8
+export TERM="${TERM:-xterm-256color}"
+export PS1='\[\033[01;32m\]root@vietnam-hosting\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]# '
+alias ll='ls -alF --color=auto'
+alias ls='ls --color=auto'
+EOF
+        cat > "${ROOTFS_DIR}/root/.profile" <<'EOF'
+if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+fi
+EOF
+        # Provide lightweight sudo passthrough if real sudo is not installed (user is already virtual uid=0)
+        if [[ ! -x "${ROOTFS_DIR}/usr/bin/sudo" ]] && [[ ! -x "${ROOTFS_DIR}/usr/local/bin/sudo" ]]; then
+            mkdir -p "${ROOTFS_DIR}/usr/local/bin"
+            printf '#!/bin/sh\nexec "$@"\n' > "${ROOTFS_DIR}/usr/local/bin/sudo"
+            chmod 755 "${ROOTFS_DIR}/usr/local/bin/sudo"
+        fi
+
+        cp -f /etc/resolv.conf "${ROOTFS_DIR}/etc/resolv.conf" 2>/dev/null || true
+        date -u +%Y-%m-%dT%H:%M:%SZ > "${ROOTFS_DIR}/.vnh_rootfs_ready"
+        vnh_log_info "Persistent writable rootfs ready! Full 'apt update && apt install' is now available."
+    fi
+}
 
 ensure_readme_credentials() {
     if [[ ! -f "${README_CRED_FILE}" ]]; then
@@ -134,12 +221,19 @@ sync_nss_passwd_from_readme() {
     tmp_pw="${HOME_DIR}/run/passwd.tmp.$$"
     tmp_gr="${HOME_DIR}/run/group.tmp.$$"
 
+    local login_shell="/bin/bash"
+    if [[ "${ENABLE_PROOT}" == "1" || "${ENABLE_PROOT}" == "true" ]] \
+        && [[ -x "${VPS_SHELL}" ]] \
+        && grep -Fqx "${VPS_SHELL}" /etc/shells 2>/dev/null; then
+        login_shell="${VPS_SHELL}"
+    fi
+
     # Put the active NAT SSH user first so getpwuid() and getpwnam() resolve cleanly
-    printf '%s:%s:%s:%s:Vietnam Hosting NAT User:%s:/bin/bash\n' \
-        "$ssh_user" "$pass_hash" "$cur_uid" "$cur_gid" "$HOME_DIR" > "$tmp_pw"
+    printf '%s:%s:%s:%s:Vietnam Hosting NAT User:%s:%s\n' \
+        "$ssh_user" "$pass_hash" "$cur_uid" "$cur_gid" "$HOME_DIR" "$login_shell" > "$tmp_pw"
     if [[ "$ssh_user" != "container" ]]; then
-        printf 'container:*:%s:%s:Vietnam Hosting Container:%s:/bin/bash\n' \
-            "$cur_uid" "$cur_gid" "$HOME_DIR" >> "$tmp_pw"
+        printf 'container:*:%s:%s:Vietnam Hosting Container:%s:%s\n' \
+            "$cur_uid" "$cur_gid" "$HOME_DIR" "$login_shell" >> "$tmp_pw"
     fi
     grep -vE "^(${ssh_user}|container):" /etc/passwd >> "$tmp_pw" 2>/dev/null || true
     chmod 600 "$tmp_pw"
@@ -395,13 +489,18 @@ run_interactive_console() {
                 cleanup
                 ;;
             *)
-                /bin/bash -c "$cmd" || true
+                if [[ -x "${VPS_SHELL}" ]]; then
+                    "${VPS_SHELL}" -c "$cmd" || true
+                else
+                    /bin/bash -c "$cmd" || true
+                fi
                 ;;
         esac
     done
     wait
 }
 
+ensure_proot_rootfs
 ensure_readme_credentials
 sync_nss_passwd_from_readme
 print_linux_info
