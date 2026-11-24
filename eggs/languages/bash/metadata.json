@@ -18,10 +18,10 @@
   "resource_basis": "recommended_estimate",
   "docker_images": {
     "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-    "Bash Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:bash_debian13"
+    "Bash Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:bash_debian13"
   },
   "custom_docker_images": {
-    "Bash Debian 13": "ghcr.io/vietnam-hosting/yolks:bash_debian13"
+    "Bash Debian 13": "ghcr.io/luuminhq29/yolks:bash_debian13"
   },
   "dockerfile_path": "docker/languages/bash/Dockerfile",
   "image_source": "hybrid_official_and_ghcr",

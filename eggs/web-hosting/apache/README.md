@@ -29,10 +29,10 @@ Rootless Apache HTTP Server 2.4 with .htaccess support, mod_rewrite, and custom 
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Apache HTTPD 2.4 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:apache_2.4` |
+| Apache HTTPD 2.4 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:apache_2.4` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/apache/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/apache/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

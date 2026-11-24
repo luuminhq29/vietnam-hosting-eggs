@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — MariaDB 11.4 LTS
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM mariadb:11.4-noble
 

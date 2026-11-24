@@ -29,10 +29,10 @@ Lightweight Rust Bitwarden-compatible Vaultwarden server (must be fronted by HTT
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Vaultwarden 1.33 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33` |
+| Vaultwarden 1.33 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:vaultwarden_1.33` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/vaultwarden/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/vaultwarden/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

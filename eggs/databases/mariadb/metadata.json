@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "MariaDB 11.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mariadb_11.4"
+    "MariaDB 11.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mariadb_11.4"
   },
   "custom_docker_images": {
-    "MariaDB 11.4 LTS": "ghcr.io/vietnam-hosting/yolks:mariadb_11.4"
+    "MariaDB 11.4 LTS": "ghcr.io/luuminhq29/yolks:mariadb_11.4"
   },
   "dockerfile_path": "docker/services/mariadb/Dockerfile",
   "image_source": "requires_ghcr_build",

@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mongodb_8"
+    "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mongodb_8"
   },
   "custom_docker_images": {
-    "MongoDB 8.0": "ghcr.io/vietnam-hosting/yolks:mongodb_8"
+    "MongoDB 8.0": "ghcr.io/luuminhq29/yolks:mongodb_8"
   },
   "dockerfile_path": "docker/services/mongodb/Dockerfile",
   "image_source": "requires_ghcr_build",

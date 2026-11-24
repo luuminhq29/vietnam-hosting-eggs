@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Bun 1.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:bun_1.2"
+    "Bun 1.2 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:bun_1.2"
   },
   "custom_docker_images": {
-    "Bun 1.2": "ghcr.io/vietnam-hosting/yolks:bun_1.2"
+    "Bun 1.2": "ghcr.io/luuminhq29/yolks:bun_1.2"
   },
   "dockerfile_path": "docker/languages/bun/1.2/Dockerfile",
   "image_source": "requires_ghcr_build",

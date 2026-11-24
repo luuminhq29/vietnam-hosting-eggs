@@ -29,10 +29,10 @@ Open-source in-memory search engine Typesense 28.0 with mandatory API key and pe
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Typesense 28.0 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:typesense_28` |
+| Typesense 28.0 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:typesense_28` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/typesense/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/typesense/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

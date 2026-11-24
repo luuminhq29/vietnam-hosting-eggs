@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Debian 12 Bookworm (NAT Container)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM debian:12-slim
 

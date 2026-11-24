@@ -10,7 +10,7 @@
   "description": "Apache CouchDB 3.4 JSON document database with HTTP API, Fauxton UI, and mandatory admin credentials.",
   "features": null,
   "docker_images": {
-    "CouchDB 3.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:couchdb_3.4"
+    "CouchDB 3.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:couchdb_3.4"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/data /home/container/etc; if [[ ! -f /home/container/etc/local.ini ]]; then   PW=\"${COUCHDB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf \"[chttpd]\\nport = {{SERVER_PORT}}\\nbind_address = %s\\n[couchdb]\\ndatabase_dir = /home/container/data\\nview_index_dir = /home/container/data\\n[admins]\\n%s = %s\\n\"     \"${BIND_ADDRESS}\" \"${COUCHDB_USER}\" \"${PW}\" > /home/container/etc/local.ini; chmod 600 /home/container/etc/local.ini; fi; export ERL_FLAGS=\"-couch_ini /opt/couchdb/etc/default.ini /home/container/etc/local.ini\"; exec /opt/couchdb/bin/couchdb",

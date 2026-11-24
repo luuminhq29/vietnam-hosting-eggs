@@ -17,10 +17,10 @@
   "minimum_disk_mb": 4096,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:open_webui_0.5"
   },
   "custom_docker_images": {
-    "Open WebUI 0.5": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+    "Open WebUI 0.5": "ghcr.io/luuminhq29/yolks:open_webui_0.5"
   },
   "dockerfile_path": "docker/services/open-webui/Dockerfile",
   "image_source": "requires_ghcr_build",

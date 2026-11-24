@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — PocketMine-MP PHP 8.3
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM php:8.3-cli-bookworm
 

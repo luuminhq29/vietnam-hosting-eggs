@@ -10,7 +10,7 @@
   "description": "PostgreSQL 17 with TimescaleDB hypertable extension preloaded, SCRAM-SHA-256 auth, and PG_VERSION safety check.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:timescaledb_pg17"
+    "ghcr.io/luuminhq29/yolks:timescaledb_pg17"
   ],
   "startup": "export PGDATA=/home/container/pgdata; mkdir -p /home/container/run; if [[ ! -f \"${PGDATA}/PG_VERSION\" ]]; then   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf \"%s\" \"${PW}\" > /home/container/run/.pwfile; chmod 600 /home/container/run/.pwfile;   initdb -D \"${PGDATA}\" -U \"${DB_USER}\" --auth-local=scram-sha-256 --auth-host=scram-sha-256 --pwfile=/home/container/run/.pwfile --encoding=UTF8;   rm -f /home/container/run/.pwfile;   echo \"shared_preload_libraries = 'timescaledb'\" >> \"${PGDATA}/postgresql.conf\";   echo \"host all all 0.0.0.0/0 scram-sha-256\" >> \"${PGDATA}/pg_hba.conf\"; fi; exec postgres -D \"${PGDATA}\" -p {{SERVER_PORT}} -h \"${BIND_ADDRESS}\" -k /home/container/run",
   "config": {

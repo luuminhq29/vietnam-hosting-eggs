@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/linux/fedora/Dockerfile",
   "docker_images": {
-    "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:fedora_44"
+    "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:fedora_44"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:fedora_44"
+    "ghcr.io/luuminhq29/yolks:fedora_44"
   ],
   "custom_ghcr_targets": {
-    "Fedora Linux": "ghcr.io/vietnam-hosting/yolks:fedora_44"
+    "Fedora Linux": "ghcr.io/luuminhq29/yolks:fedora_44"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

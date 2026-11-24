@@ -29,10 +29,10 @@ Haskell GHC 9.10 + Cabal runtime with bounded compile parallelism for compiled e
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Haskell GHC 9.10 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:haskell_9.10` |
+| Haskell GHC 9.10 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:haskell_9.10` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/haskell/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/haskell/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

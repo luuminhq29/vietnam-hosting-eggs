@@ -10,7 +10,7 @@
   "description": "Serenity Rust Discord bot hosting with bounded CARGO_BUILD_JOBS compilation and native release binary execution.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:rust_stable"
+    "ghcr.io/luuminhq29/yolks:rust_stable"
   ],
   "startup": "export CARGO_BUILD_JOBS=\"${BUILD_JOBS}\"; if [[ -f Cargo.toml ]] && [[ \"${AUTO_BUILD}\" == \"1\" ]]; then cargo build --release --jobs \"${BUILD_JOBS}\"; fi; exec \"./target/release/${BIN_NAME}\"",
   "config": {

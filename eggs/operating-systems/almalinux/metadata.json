@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:almalinux_9"
+    "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:almalinux_9"
   },
   "custom_docker_images": {
-    "AlmaLinux": "ghcr.io/vietnam-hosting/yolks:almalinux_9"
+    "AlmaLinux": "ghcr.io/luuminhq29/yolks:almalinux_9"
   },
   "dockerfile_path": "docker/linux/almalinux/Dockerfile",
   "image_source": "requires_ghcr_build",

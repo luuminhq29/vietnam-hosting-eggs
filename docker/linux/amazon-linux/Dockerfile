@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Amazon Linux 2023 (NAT Container)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM amazonlinux:2023
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

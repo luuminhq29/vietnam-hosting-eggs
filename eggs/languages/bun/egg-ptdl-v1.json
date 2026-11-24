@@ -10,7 +10,7 @@
   "description": "High-performance Bun JavaScript & TypeScript runtime with built-in Bun package manager.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:bun_1.2"
+    "ghcr.io/luuminhq29/yolks:bun_1.2"
   ],
   "startup": "if [[ -f package.json ]] && [[ \"${INSTALL_DEPS}\" == \"1\" ]]; then bun install --frozen-lockfile || bun install; fi; exec bun run \"${MAIN_FILE}\"",
   "config": {

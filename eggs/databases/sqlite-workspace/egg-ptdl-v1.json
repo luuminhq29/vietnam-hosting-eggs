@@ -10,7 +10,7 @@
   "description": "Embedded SQLite 3 file & CLI management workspace for local .db files, schema migrations, WAL integrity checks, and `.backup` snapshots. NOTE: SQLite is an embedded file database, NOT a standalone networked database server.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+    "ghcr.io/luuminhq29/yolks:sqlite_workspace"
   ],
   "startup": "mkdir -p /home/container/databases /home/container/backups; sqlite3 \"/home/container/databases/${DB_FILE}\" \"PRAGMA journal_mode=WAL; PRAGMA integrity_check;\"; echo \"VIETNAM HOSTING SQLite Workspace Ready (file: /home/container/databases/${DB_FILE}, no network port)\"; exec sqlite3 \"/home/container/databases/${DB_FILE}\"",
   "config": {

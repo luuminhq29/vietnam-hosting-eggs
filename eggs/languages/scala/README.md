@@ -29,10 +29,10 @@ Scala 3 & sbt runtime on Eclipse Temurin JDK 21 with memory-capped JVM execution
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Scala 3 + sbt (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:scala_3` |
+| Scala 3 + sbt (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:scala_3` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/scala/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/scala/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

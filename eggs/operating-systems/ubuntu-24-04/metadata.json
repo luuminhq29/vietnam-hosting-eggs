@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_24.04"
+    "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_24.04"
   },
   "custom_docker_images": {
-    "Ubuntu 24.04 LTS": "ghcr.io/vietnam-hosting/yolks:ubuntu_24.04"
+    "Ubuntu 24.04 LTS": "ghcr.io/luuminhq29/yolks:ubuntu_24.04"
   },
   "dockerfile_path": "docker/linux/ubuntu-24.04/Dockerfile",
   "image_source": "requires_ghcr_build",

@@ -11,7 +11,7 @@
   "features": null,
   "images": [
     "ghcr.io/pterodactyl/yolks:debian",
-    "ghcr.io/vietnam-hosting/yolks:bash_debian13"
+    "ghcr.io/luuminhq29/yolks:bash_debian13"
   ],
   "startup": "exec /bin/bash \"${MAIN_FILE}\"",
   "config": {

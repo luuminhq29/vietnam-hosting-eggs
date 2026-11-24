@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Ruby 3.4
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM ruby:3.4-slim-bookworm
 

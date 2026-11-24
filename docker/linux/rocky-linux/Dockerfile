@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Rocky Linux 9 (NAT Container)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM rockylinux/rockylinux:9
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

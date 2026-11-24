@@ -10,7 +10,7 @@
   "description": "Elixir 1.18 (Erlang/OTP 27) runtime with Mix, Hex, and Phoenix web/bot application support.",
   "features": null,
   "docker_images": {
-    "Elixir 1.18 OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:elixir_1.18"
+    "Elixir 1.18 OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:elixir_1.18"
   },
   "file_denylist": [],
   "startup": "export MIX_ENV=\"${MIX_ENV}\" PORT=\"{{SERVER_PORT}}\"; if [[ -f mix.exs ]]; then mix local.hex --force && mix local.rebar --force && mix deps.get && exec mix \"${MIX_TASK}\"; else exec elixir \"${MAIN_FILE}\"; fi",

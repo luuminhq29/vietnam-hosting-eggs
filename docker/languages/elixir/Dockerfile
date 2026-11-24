@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Elixir 1.18 (OTP 27)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM elixir:1.18-otp-27-slim
 

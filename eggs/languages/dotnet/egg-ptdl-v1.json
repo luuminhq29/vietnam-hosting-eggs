@@ -10,10 +10,10 @@
   "description": ".NET 8/9/10 LTS/11 STS runtime with ASP.NET Core, .NET Console, NuGet restore, and Release publish.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:dotnet_10",
-    "ghcr.io/vietnam-hosting/yolks:dotnet_11",
-    "ghcr.io/vietnam-hosting/yolks:dotnet_9",
-    "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+    "ghcr.io/luuminhq29/yolks:dotnet_10",
+    "ghcr.io/luuminhq29/yolks:dotnet_11",
+    "ghcr.io/luuminhq29/yolks:dotnet_9",
+    "ghcr.io/luuminhq29/yolks:dotnet_8"
   ],
   "startup": "export ASPNETCORE_URLS=\"http://0.0.0.0:{{SERVER_PORT}}\"; if [[ \"${AUTO_PUBLISH}\" == \"1\" ]] && [[ -n \"${PROJECT_FILE}\" ]] && [[ -f \"${PROJECT_FILE}\" ]]; then   dotnet publish \"${PROJECT_FILE}\" -c Release -o ./out --nologo; fi; if [[ -f \"./out/${APP_DLL}\" ]]; then exec dotnet \"./out/${APP_DLL}\"; else exec dotnet \"./${APP_DLL}\"; fi",
   "config": {

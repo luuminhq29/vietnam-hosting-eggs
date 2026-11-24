@@ -39,6 +39,7 @@ README_CRED_FILE="${HOME_DIR}/readme.md"
 SSH_PORT="${SSH_PORT:-${SERVER_PORT:-}}"
 ENABLE_SSH="${ENABLE_SSH:-1}"
 ENABLE_SSH_PASSWORD="${ENABLE_SSH_PASSWORD:-1}"
+AUTO_RANDOM_SSH_PASSWORD="${AUTO_RANDOM_SSH_PASSWORD:-0}"
 ENABLE_PROOT="${ENABLE_PROOT:-1}"
 ENABLE_CRON="${ENABLE_CRON:-1}"
 SSH_AUTHORIZED_KEYS="${SSH_AUTHORIZED_KEYS:-}"
@@ -171,22 +172,30 @@ EOF
 
 ensure_readme_credentials() {
     if [[ ! -f "${README_CRED_FILE}" ]]; then
-        cat > "${README_CRED_FILE}" <<'EOF'
+        local init_pass="vietnam999"
+        if [[ "${AUTO_RANDOM_SSH_PASSWORD}" == "1" ]] || [[ "${AUTO_RANDOM_SSH_PASSWORD}" == "true" ]]; then
+            if command -v openssl >/dev/null 2>&1; then
+                init_pass="Vnh$(openssl rand -hex 7)"
+            else
+                init_pass="Vnh$(od -An -tx1 -N7 /dev/urandom | tr -d ' \n')"
+            fi
+        fi
+        cat > "${README_CRED_FILE}" <<EOF
 # Vietnam Hosting — NAT Linux Container SSH Access
 
-Thông tin đăng nhập SSH NAT (kết nối: `ssh -p <PORT> ubuntu@<NODE_IP>`):
+Thông tin đăng nhập SSH NAT (kết nối: \`ssh -p <PORT> ubuntu@<NODE_IP>\`):
 
 SSH_USER: ubuntu
-PASSWORD: vietnam999
+PASSWORD: ${init_pass}
 
 > Hướng dẫn đổi mật khẩu NAT SSH:
-> - Sửa trực tiếp giá trị sau `PASSWORD:` ở trên rồi lưu file `readme.md`.
+> - Sửa trực tiếp giá trị sau \`PASSWORD:\` ở trên rồi lưu file \`readme.md\`.
 > - Hệ thống tự động đồng bộ mật khẩu SSH NAT mới trong vòng 2 giây (không cần restart server).
-> - Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc thêm SSH Public Key vào `~/.ssh/authorized_keys`.
-> - Đăng nhập `root` qua SSH luôn bị chặn vì lý do bảo mật container.
+> - Khuyến nghị đổi ngay mật khẩu mặc định hoặc thêm SSH Public Key vào \`~/.ssh/authorized_keys\`.
+> - Đăng nhập \`root\` qua SSH luôn bị chặn vì lý do bảo mật container.
 EOF
         chmod 600 "${README_CRED_FILE}" 2>/dev/null || true
-        vnh_log_info "Initialized default NAT SSH credentials file at ${README_CRED_FILE}."
+        vnh_log_info "Initialized NAT SSH credentials file at ${README_CRED_FILE}."
     fi
 }
 

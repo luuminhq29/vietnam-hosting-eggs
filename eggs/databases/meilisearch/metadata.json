@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Meilisearch 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:meilisearch_1.13"
+    "Meilisearch 1.13 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:meilisearch_1.13"
   },
   "custom_docker_images": {
-    "Meilisearch 1.13": "ghcr.io/vietnam-hosting/yolks:meilisearch_1.13"
+    "Meilisearch 1.13": "ghcr.io/luuminhq29/yolks:meilisearch_1.13"
   },
   "dockerfile_path": "docker/services/meilisearch/Dockerfile",
   "image_source": "requires_ghcr_build",

@@ -13,8 +13,8 @@
     "ghcr.io/pterodactyl/yolks:debian"
   ],
   "custom_ghcr_targets": {
-    "Base Debian 13 (AMD64)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+    "Base Debian 13 (AMD64)": "ghcr.io/luuminhq29/yolks:base_debian13"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

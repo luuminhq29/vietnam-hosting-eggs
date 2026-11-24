@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/languages/kotlin/Dockerfile",
   "docker_images": {
-    "Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kotlin_2.1"
+    "Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:kotlin_2.1"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:kotlin_2.1"
+    "ghcr.io/luuminhq29/yolks:kotlin_2.1"
   ],
   "custom_ghcr_targets": {
-    "Kotlin 2.1 + JDK 21": "ghcr.io/vietnam-hosting/yolks:kotlin_2.1"
+    "Kotlin 2.1 + JDK 21": "ghcr.io/luuminhq29/yolks:kotlin_2.1"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

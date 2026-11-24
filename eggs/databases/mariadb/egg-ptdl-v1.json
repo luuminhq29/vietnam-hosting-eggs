@@ -10,7 +10,7 @@
   "description": "Unprivileged MariaDB 11.4 LTS container with idempotent initialization, least-privilege app grants, and graceful shutdown.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:mariadb_11.4"
+    "ghcr.io/luuminhq29/yolks:mariadb_11.4"
   ],
   "startup": "mkdir -p /home/container/data /home/container/run /home/container/logs; if [[ ! -d /home/container/data/mysql ]]; then   mariadb-install-db --datadir=/home/container/data --auth-root-authentication-method=normal;   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf 'CREATE DATABASE IF NOT EXISTS `%s`; CREATE USER IF NOT EXISTS \"%s\"@\"%%\" IDENTIFIED BY \"%s\"; GRANT ALL PRIVILEGES ON `%s`.* TO \"%s\"@\"%%\"; FLUSH PRIVILEGES;\\n'     \"${DB_NAME}\" \"${DB_USER}\" \"${PW}\" \"${DB_NAME}\" \"${DB_USER}\" > /home/container/run/init.sql;   chmod 600 /home/container/run/init.sql;   exec mariadbd --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mariadb.sock --init-file=/home/container/run/init.sql; fi; rm -f /home/container/run/init.sql; exec mariadbd --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mariadb.sock",
   "config": {

@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Qdrant 1.13 Vector DB
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM qdrant/qdrant:v1.13.4
 

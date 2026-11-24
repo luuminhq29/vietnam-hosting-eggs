@@ -8,15 +8,15 @@
   "dockerfile_path": "docker/linux/alpine/Dockerfile",
   "docker_images": {
     "Alpine Official Yolk": "ghcr.io/pterodactyl/yolks:alpine",
-    "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+    "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:alpine_3.23"
   },
   "ptdl_v1_images": [
     "ghcr.io/pterodactyl/yolks:alpine",
-    "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+    "ghcr.io/luuminhq29/yolks:alpine_3.23"
   ],
   "custom_ghcr_targets": {
-    "Alpine Linux": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+    "Alpine Linux": "ghcr.io/luuminhq29/yolks:alpine_3.23"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

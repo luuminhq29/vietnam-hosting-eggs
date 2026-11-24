@@ -30,11 +30,11 @@ Golang runtime with Go Modules (`go.mod`) auto-detection, static binary compilat
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
 | Go 1.23 (Official Yolk) | `ghcr.io/pterodactyl/yolks:go_1.23` |
-| Go 1.25 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/vietnam-hosting/yolks:go_1.25` |
-| Go 1.24 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/vietnam-hosting/yolks:go_1.24` |
+| Go 1.25 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/luuminhq29/yolks:go_1.25` |
+| Go 1.24 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/luuminhq29/yolks:go_1.24` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/go/1.25/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/go/1.25/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

@@ -10,7 +10,7 @@
   "description": "Linux Foundation Valkey 8.1 Redis-compatible BSD-3-Clause in-memory store with strong auth and AOF persistence.",
   "features": null,
   "docker_images": {
-    "Valkey 8.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:valkey_8.1"
+    "Valkey 8.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:valkey_8.1"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/data; if [[ ! -f /home/container/data/.auth_secret ]]; then   PW=\"${VALKEY_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 32)}\";   printf \"%s\" \"${PW}\" > /home/container/data/.auth_secret; chmod 600 /home/container/data/.auth_secret; fi; MAXMEM=$(( {{SERVER_MEMORY}} * 75 / 100 )); (( MAXMEM < 64 )) && MAXMEM=64; exec valkey-server --dir /home/container/data --port {{SERVER_PORT}} --bind \"${BIND_ADDRESS}\" --appendonly yes --maxmemory \"${MAXMEM}mb\" --maxmemory-policy \"${MAXMEMORY_POLICY}\" --requirepass \"$(cat /home/container/data/.auth_secret)\"",

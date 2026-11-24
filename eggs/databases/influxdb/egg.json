@@ -10,7 +10,7 @@
   "description": "InfluxDB 2.7 time-series database running unprivileged with BoltDB/TSM storage under /home/container/data.",
   "features": null,
   "docker_images": {
-    "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+    "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:influxdb_2.7"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/data/engine; exec influxd --bolt-path=/home/container/data/influxd.bolt --engine-path=/home/container/data/engine --http-bind-address=\"${BIND_ADDRESS}:{{SERVER_PORT}}\"",

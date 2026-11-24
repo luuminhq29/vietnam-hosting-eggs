@@ -29,10 +29,10 @@ Elixir 1.18 (Erlang/OTP 27) runtime with Mix, Hex, and Phoenix web/bot applicati
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Elixir 1.18 OTP 27 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:elixir_1.18` |
+| Elixir 1.18 OTP 27 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:elixir_1.18` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/elixir/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/elixir/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

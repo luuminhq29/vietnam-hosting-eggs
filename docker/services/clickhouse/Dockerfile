@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — ClickHouse 25 LTS
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM clickhouse/clickhouse-server:25.3-alpine
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

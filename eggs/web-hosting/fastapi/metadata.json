@@ -20,7 +20,7 @@
     "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
   },
   "custom_docker_images": {
-    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13"
+    "Python 3.13": "ghcr.io/luuminhq29/yolks:python_3.13"
   },
   "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
   "image_source": "hybrid_official_and_ghcr",

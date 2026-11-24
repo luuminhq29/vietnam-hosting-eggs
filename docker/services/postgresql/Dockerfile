@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — PostgreSQL 17
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM postgres:17-bookworm
 

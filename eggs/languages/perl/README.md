@@ -29,10 +29,10 @@ Perl 5.40 runtime with cpanm and local::lib user-space module management.
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Perl 5.40 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:perl_5.40` |
+| Perl 5.40 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:perl_5.40` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/perl/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/perl/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

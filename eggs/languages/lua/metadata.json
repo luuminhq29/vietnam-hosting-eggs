@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Lua 5.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:lua_5.4"
+    "Lua 5.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:lua_5.4"
   },
   "custom_docker_images": {
-    "Lua 5.4": "ghcr.io/vietnam-hosting/yolks:lua_5.4"
+    "Lua 5.4": "ghcr.io/luuminhq29/yolks:lua_5.4"
   },
   "dockerfile_path": "docker/languages/lua/Dockerfile",
   "image_source": "requires_ghcr_build",

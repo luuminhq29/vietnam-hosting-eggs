@@ -30,10 +30,10 @@ Unprivileged GNU Bash automation and scripting runtime on Debian 13 with curl, j
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
 | Debian Official Yolk | `ghcr.io/pterodactyl/yolks:debian` |
-| Bash Debian 13 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/vietnam-hosting/yolks:bash_debian13` |
+| Bash Debian 13 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/luuminhq29/yolks:bash_debian13` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/bash/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/bash/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

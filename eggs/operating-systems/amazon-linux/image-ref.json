@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/linux/amazon-linux/Dockerfile",
   "docker_images": {
-    "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+    "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:amazonlinux_2023"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+    "ghcr.io/luuminhq29/yolks:amazonlinux_2023"
   ],
   "custom_ghcr_targets": {
-    "Amazon Linux": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+    "Amazon Linux": "ghcr.io/luuminhq29/yolks:amazonlinux_2023"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

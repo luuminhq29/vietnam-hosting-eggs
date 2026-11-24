@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/services/pocketmine/Dockerfile",
   "docker_images": {
-    "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+    "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:pocketmine_php8.3"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+    "ghcr.io/luuminhq29/yolks:pocketmine_php8.3"
   ],
   "custom_ghcr_targets": {
-    "PocketMine PHP 8.3": "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+    "PocketMine PHP 8.3": "ghcr.io/luuminhq29/yolks:pocketmine_php8.3"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

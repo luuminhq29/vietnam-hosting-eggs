@@ -31,10 +31,10 @@ Internet
 
 Các Egg dùng Official Yolks (`ghcr.io/pterodactyl/yolks:*`, `ghcr.io/parkervcp/games:*`) có thể dùng ngay. Đối với các runtime tùy chỉnh (PHP 8.2–8.5, Linux Distros, Databases, .NET 10/11, Bun, Deno, Rust, v.v.):
 
-1. Push repository lên GitHub tổ chức `vietnam-hosting`.
+1. Push repository lên GitHub (`luuminhq29/vietnam-hosting-eggs`).
 2. Vào **Actions → Build & Publish Multi-Arch Docker Images (GHCR) → Run workflow**.
 3. Chỉ bật `publish_ghcr = true` sau khi workflow `validate.yml` và `security-scan.yml` đã vượt qua.
-4. Sau khi toàn bộ image đã tồn tại trên `ghcr.io/vietnam-hosting/yolks:*`, chạy lệnh sau nếu muốn toàn bộ 147 Egg dùng thống nhất registry Vietnam Hosting:
+4. Sau khi toàn bộ image đã tồn tại trên `ghcr.io/luuminhq29/yolks:*`, chạy lệnh sau nếu muốn toàn bộ 147 Egg dùng thống nhất registry GHCR:
    ```bash
    python3 -m generator generate --registry ghcr
    python3 -m generator validate --strict

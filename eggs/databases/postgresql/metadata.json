@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+    "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:postgresql_17"
   },
   "custom_docker_images": {
-    "PostgreSQL 17": "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+    "PostgreSQL 17": "ghcr.io/luuminhq29/yolks:postgresql_17"
   },
   "dockerfile_path": "docker/services/postgresql/Dockerfile",
   "image_source": "requires_ghcr_build",

@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+    "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mosquitto_2.0"
   },
   "custom_docker_images": {
-    "Mosquitto 2.0": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+    "Mosquitto 2.0": "ghcr.io/luuminhq29/yolks:mosquitto_2.0"
   },
   "dockerfile_path": "docker/services/mosquitto/Dockerfile",
   "image_source": "requires_ghcr_build",

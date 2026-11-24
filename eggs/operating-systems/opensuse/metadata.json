@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+    "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:opensuse_15.6"
   },
   "custom_docker_images": {
-    "openSUSE Leap": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+    "openSUSE Leap": "ghcr.io/luuminhq29/yolks:opensuse_15.6"
   },
   "dockerfile_path": "docker/linux/opensuse/Dockerfile",
   "image_source": "requires_ghcr_build",

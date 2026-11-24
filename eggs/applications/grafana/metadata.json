@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+    "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:grafana_11.5"
   },
   "custom_docker_images": {
-    "Grafana 11.5 OSS": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+    "Grafana 11.5 OSS": "ghcr.io/luuminhq29/yolks:grafana_11.5"
   },
   "dockerfile_path": "docker/services/grafana/Dockerfile",
   "image_source": "requires_ghcr_build",

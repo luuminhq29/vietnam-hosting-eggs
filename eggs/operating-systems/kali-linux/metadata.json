@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+    "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:kali_minimal"
   },
   "custom_docker_images": {
-    "Kali Linux Minimal": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+    "Kali Linux Minimal": "ghcr.io/luuminhq29/yolks:kali_minimal"
   },
   "dockerfile_path": "docker/linux/kali-linux/Dockerfile",
   "image_source": "requires_ghcr_build",

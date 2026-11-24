@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Perl 5.40 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+    "Perl 5.40 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:perl_5.40"
   },
   "custom_docker_images": {
-    "Perl 5.40": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+    "Perl 5.40": "ghcr.io/luuminhq29/yolks:perl_5.40"
   },
   "dockerfile_path": "docker/languages/perl/Dockerfile",
   "image_source": "requires_ghcr_build",

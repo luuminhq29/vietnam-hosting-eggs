@@ -29,10 +29,10 @@ Cross-platform PowerShell 7.5 runtime for automation scripts, API integrations, 
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| PowerShell 7.5 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:powershell_7.5` |
+| PowerShell 7.5 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:powershell_7.5` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/powershell/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/powershell/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

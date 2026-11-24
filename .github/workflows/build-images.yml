@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       image_filter:
-        description: "Optional image tag/id filter (empty builds all)"
+        description: "Filter by exact tag/id or prefix (e.g. ubuntu_24.04, linux-, base-, empty=all)"
+        required: false
+        default: ""
+      platforms_override:
+        description: "Optional platform override (e.g. linux/amd64 for fast build; empty uses versions.json multi-arch)"
         required: false
         default: ""
       publish_ghcr:
@@ -42,15 +46,20 @@ jobs:
           import json, os
           data = json.load(open("versions.json", encoding="utf-8"))
           flt = os.environ.get("IMAGE_FILTER", "").strip()
+          plat_ov = os.environ.get("PLATFORMS_OVERRIDE", "").strip()
           items = data["docker_images"]
           if flt:
-              items = [i for i in items if i["id"] == flt or i["tag"] == flt]
+              tokens = [t.strip() for t in flt.split(",") if t.strip()]
+              items = [
+                  i for i in items
+                  if any(i["id"] == t or i["tag"] == t or i["id"].startswith(t) or i["tag"].startswith(t) for t in tokens)
+              ]
           matrix = [
               {
                   "id": i["id"],
                   "tag": i["tag"],
                   "dockerfile": i["dockerfile"],
-                  "platforms": ",".join(f"linux/{a}" for a in i.get("architectures", ["amd64"])),
+                  "platforms": plat_ov or ",".join(f"linux/{a}" for a in i.get("architectures", ["amd64"])),
               }
               for i in items
           ]
@@ -59,6 +68,7 @@ jobs:
           PY
         env:
           IMAGE_FILTER: ${{ inputs.image_filter }}
+          PLATFORMS_OVERRIDE: ${{ inputs.platforms_override }}
 
   build-images:
     name: Build ${{ matrix.tag }}
@@ -88,8 +98,11 @@ jobs:
           platforms: ${{ matrix.platforms }}
           push: ${{ inputs.publish_ghcr == true || startsWith(github.ref, 'refs/tags/v') }}
           tags: |
-            ghcr.io/vietnam-hosting/yolks:${{ matrix.tag }}
-            ghcr.io/vietnam-hosting/yolks:${{ matrix.tag }}-${{ github.sha }}
+            ghcr.io/luuminhq29/yolks:${{ matrix.tag }}
+            ghcr.io/luuminhq29/yolks:${{ matrix.tag }}-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.description=Vietnam Hosting Universal Pterodactyl Docker Image (${{ matrix.tag }})
           cache-from: type=gha
           cache-to: type=gha,mode=max
           sbom: true

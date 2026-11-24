@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Meilisearch 1.13
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM getmeili/meilisearch:v1.13.3
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

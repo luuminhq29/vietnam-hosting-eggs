@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/linux/rocky-linux/Dockerfile",
   "docker_images": {
-    "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rocky_9"
+    "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rocky_9"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:rocky_9"
+    "ghcr.io/luuminhq29/yolks:rocky_9"
   ],
   "custom_ghcr_targets": {
-    "Rocky Linux": "ghcr.io/vietnam-hosting/yolks:rocky_9"
+    "Rocky Linux": "ghcr.io/luuminhq29/yolks:rocky_9"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

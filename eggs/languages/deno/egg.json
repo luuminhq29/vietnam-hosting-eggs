@@ -10,7 +10,7 @@
   "description": "Secure-by-default Deno JavaScript & TypeScript runtime with configurable filesystem/network permission flags.",
   "features": null,
   "docker_images": {
-    "Deno 2.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:deno_2"
+    "Deno 2.2 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:deno_2"
   },
   "file_denylist": [],
   "startup": "IFS=\" \" read -r -a DENO_FLAGS <<< \"${DENO_PERMISSIONS}\"; exec deno run \"${DENO_FLAGS[@]}\" \"${MAIN_FILE}\"",

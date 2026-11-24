@@ -10,7 +10,7 @@
   "description": "Open WebUI chat interface connecting to Ollama CPU or OpenAI-compatible APIs (CPU-only by default; GPU requires admin Node setup).",
   "features": null,
   "docker_images": {
-    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:open_webui_0.5"
   },
   "file_denylist": [],
   "startup": "export PORT={{SERVER_PORT}} HOST=0.0.0.0 DATA_DIR=/home/container/data OLLAMA_BASE_URL=\"${OLLAMA_BASE_URL}\" WEBUI_AUTH=true; exec uvicorn open_webui.main:app --host 0.0.0.0 --port {{SERVER_PORT}}",

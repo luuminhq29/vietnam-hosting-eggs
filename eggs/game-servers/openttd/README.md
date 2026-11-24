@@ -29,10 +29,10 @@ Open-source OpenTTD dedicated transport simulation server running natively on bo
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| OpenTTD 14 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:openttd_14` |
+| OpenTTD 14 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:openttd_14` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/openttd/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/openttd/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

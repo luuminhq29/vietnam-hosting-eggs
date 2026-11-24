@@ -29,13 +29,13 @@ Dedicated rootless PHP-FPM + Nginx web hosting stack supporting PHP 8.2–8.5 an
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| PHP-FPM 8.5 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:php_8.5` |
-| PHP-FPM 8.4 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:php_8.4` |
-| PHP-FPM 8.3 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:php_8.3` |
-| PHP-FPM 8.2 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:php_8.2` |
+| PHP-FPM 8.5 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:php_8.5` |
+| PHP-FPM 8.4 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:php_8.4` |
+| PHP-FPM 8.3 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:php_8.3` |
+| PHP-FPM 8.2 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:php_8.2` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/php/8.4/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/php/8.4/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

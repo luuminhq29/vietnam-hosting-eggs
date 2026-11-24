@@ -10,7 +10,7 @@
   "description": "Perl 5.40 runtime with cpanm and local::lib user-space module management.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+    "ghcr.io/luuminhq29/yolks:perl_5.40"
   ],
   "startup": "if [[ -f cpanfile ]] && [[ \"${INSTALL_DEPS}\" == \"1\" ]]; then cpanm --notest --local-lib=/home/container/local --installdeps .; fi; exec perl \"${MAIN_FILE}\"",
   "config": {

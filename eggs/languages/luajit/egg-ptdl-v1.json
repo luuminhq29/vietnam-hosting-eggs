@@ -10,7 +10,7 @@
   "description": "High-speed LuaJIT 2.1 JIT-compiled Lua runtime with LuaRocks and FFI support.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+    "ghcr.io/luuminhq29/yolks:luajit_2.1"
   ],
   "startup": "exec luajit \"${MAIN_FILE}\"",
   "config": {

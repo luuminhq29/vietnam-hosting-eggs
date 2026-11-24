@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Apache HTTP Server 2.4 Rootless
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM httpd:2.4-bookworm
 

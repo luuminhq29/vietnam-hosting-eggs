@@ -10,7 +10,7 @@
   "description": "R 4.4 statistical computing and Shiny/Plumber API runtime with user-space package library under ~/R/library.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:r_4.4"
+    "ghcr.io/luuminhq29/yolks:r_4.4"
   ],
   "startup": "mkdir -p /home/container/R/library; exec Rscript \"${MAIN_FILE}\"",
   "config": {

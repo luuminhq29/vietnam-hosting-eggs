@@ -34,7 +34,7 @@ Multi-runtime outbound bot container supporting Python, Node.js, or compiled bin
 | Debian Official Yolk | `ghcr.io/pterodactyl/yolks:debian` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/base/debian-13/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/base/debian-13/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

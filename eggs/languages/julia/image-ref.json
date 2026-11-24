@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/languages/julia/Dockerfile",
   "docker_images": {
-    "Julia 1.11 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:julia_1.11"
+    "Julia 1.11 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:julia_1.11"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:julia_1.11"
+    "ghcr.io/luuminhq29/yolks:julia_1.11"
   ],
   "custom_ghcr_targets": {
-    "Julia 1.11": "ghcr.io/vietnam-hosting/yolks:julia_1.11"
+    "Julia 1.11": "ghcr.io/luuminhq29/yolks:julia_1.11"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

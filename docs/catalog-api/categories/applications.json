@@ -185,7 +185,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+        "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:grafana_11.5"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -350,7 +350,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+        "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mosquitto_2.0"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -473,7 +473,7 @@
       "minimum_disk_mb": 16384,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+        "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ollama_cpu_0.6"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -514,7 +514,7 @@
       "minimum_disk_mb": 4096,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+        "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:open_webui_0.5"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -596,7 +596,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+        "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -637,7 +637,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:searxng_2026"
+        "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:searxng_2026"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -760,7 +760,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+        "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [

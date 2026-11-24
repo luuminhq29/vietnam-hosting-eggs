@@ -12,7 +12,7 @@
   "images": [
     "ghcr.io/pterodactyl/yolks:nodejs_24",
     "ghcr.io/pterodactyl/yolks:nodejs_22",
-    "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+    "ghcr.io/luuminhq29/yolks:nodejs_26"
   ],
   "startup": "export NODE_ENV=production VNH_SUPERVISE=\"${ENABLE_BACKOFF}\"; if [[ -f package.json ]] && [[ \"${INSTALL_DEPS}\" == \"1\" ]]; then   if [[ -f pnpm-lock.yaml ]]; then pnpm install --frozen-lockfile || pnpm install;   elif [[ -f yarn.lock ]]; then yarn install --frozen-lockfile || yarn install;   elif [[ -f package-lock.json ]]; then npm ci --omit=dev || npm install --omit=dev;   else npm install --omit=dev; fi; fi; if [[ -n \"${BUILD_SCRIPT}\" ]] && [[ -f package.json ]]; then npm run \"${BUILD_SCRIPT}\"; fi; exec node \"${BOT_FILE}\"",
   "config": {

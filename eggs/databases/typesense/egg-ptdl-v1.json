@@ -10,7 +10,7 @@
   "description": "Open-source in-memory search engine Typesense 28.0 with mandatory API key and persistent data directory.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:typesense_28"
+    "ghcr.io/luuminhq29/yolks:typesense_28"
   ],
   "startup": "mkdir -p /home/container/data; if [[ ! -f /home/container/.api_key ]]; then   KEY=\"${TYPESENSE_API_KEY:-$(openssl rand -hex 24)}\"; printf \"%s\" \"${KEY}\" > /home/container/.api_key; chmod 600 /home/container/.api_key; fi; exec /opt/typesense-server --data-dir=/home/container/data --api-address=\"${BIND_ADDRESS}\" --api-port={{SERVER_PORT}} --api-key=\"$(cat /home/container/.api_key)\"",
   "config": {

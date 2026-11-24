@@ -11,8 +11,8 @@
   "features": null,
   "images": [
     "ghcr.io/pterodactyl/yolks:go_1.23",
-    "ghcr.io/vietnam-hosting/yolks:go_1.25",
-    "ghcr.io/vietnam-hosting/yolks:go_1.24"
+    "ghcr.io/luuminhq29/yolks:go_1.25",
+    "ghcr.io/luuminhq29/yolks:go_1.24"
   ],
   "startup": "if [[ -f go.mod ]] && [[ \"${AUTO_BUILD}\" == \"1\" ]]; then   go mod download && go build -trimpath -ldflags=\"-s -w\" -o \"./${BIN_NAME}\" \"${BUILD_PKG}\"; fi; exec \"./${BIN_NAME}\"",
   "config": {

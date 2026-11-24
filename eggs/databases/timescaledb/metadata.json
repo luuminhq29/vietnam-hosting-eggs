@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "TimescaleDB PG17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:timescaledb_pg17"
+    "TimescaleDB PG17 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:timescaledb_pg17"
   },
   "custom_docker_images": {
-    "TimescaleDB PG17": "ghcr.io/vietnam-hosting/yolks:timescaledb_pg17"
+    "TimescaleDB PG17": "ghcr.io/luuminhq29/yolks:timescaledb_pg17"
   },
   "dockerfile_path": "docker/services/timescaledb/Dockerfile",
   "image_source": "requires_ghcr_build",

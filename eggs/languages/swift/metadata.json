@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Swift 6.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:swift_6.1"
+    "Swift 6.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:swift_6.1"
   },
   "custom_docker_images": {
-    "Swift 6.1": "ghcr.io/vietnam-hosting/yolks:swift_6.1"
+    "Swift 6.1": "ghcr.io/luuminhq29/yolks:swift_6.1"
   },
   "dockerfile_path": "docker/languages/swift/Dockerfile",
   "image_source": "requires_ghcr_build",

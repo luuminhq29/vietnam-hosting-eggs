@@ -29,10 +29,10 @@ Apache CouchDB 3.4 JSON document database with HTTP API, Fauxton UI, and mandato
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| CouchDB 3.4 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:couchdb_3.4` |
+| CouchDB 3.4 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:couchdb_3.4` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/couchdb/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/couchdb/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

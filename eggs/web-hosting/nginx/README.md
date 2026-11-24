@@ -29,10 +29,10 @@ Customizable rootless Nginx 1.28 HTTP server and application reverse proxy bound
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Nginx 1.28 Rootless (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:nginx_1.28` |
+| Nginx 1.28 Rootless (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:nginx_1.28` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/nginx/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/nginx/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

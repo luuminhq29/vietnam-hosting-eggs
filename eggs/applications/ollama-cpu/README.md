@@ -29,10 +29,10 @@ CPU-only Ollama 0.6 local LLM inference server storing models in /home/container
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Ollama CPU 0.6 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6` |
+| Ollama CPU 0.6 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:ollama_cpu_0.6` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/ollama-cpu/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/ollama-cpu/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

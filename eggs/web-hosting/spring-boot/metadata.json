@@ -24,7 +24,7 @@
     "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17"
   },
   "custom_docker_images": {
-    "Java 21 LTS": "ghcr.io/vietnam-hosting/yolks:java_21"
+    "Java 21 LTS": "ghcr.io/luuminhq29/yolks:java_21"
   },
   "dockerfile_path": "docker/languages/java/21/Dockerfile",
   "image_source": "hybrid_official_and_ghcr",

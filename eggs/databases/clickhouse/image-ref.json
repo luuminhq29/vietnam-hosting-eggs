@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/services/clickhouse/Dockerfile",
   "docker_images": {
-    "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+    "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:clickhouse_25"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+    "ghcr.io/luuminhq29/yolks:clickhouse_25"
   ],
   "custom_ghcr_targets": {
-    "ClickHouse 25.3 LTS": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+    "ClickHouse 25.3 LTS": "ghcr.io/luuminhq29/yolks:clickhouse_25"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

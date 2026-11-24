@@ -10,7 +10,7 @@
   "description": "C and C++ build/runtime environment with GCC, G++, Clang, Make, CMake, and parallel job throttling.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:ccpp_debian13"
+    "ghcr.io/luuminhq29/yolks:ccpp_debian13"
   ],
   "startup": "export MAKEFLAGS=\"-j${BUILD_JOBS}\" CMAKE_BUILD_PARALLEL_LEVEL=\"${BUILD_JOBS}\"; if [[ \"${AUTO_BUILD}\" == \"1\" ]]; then   if [[ -f CMakeLists.txt ]]; then cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j \"${BUILD_JOBS}\";   elif [[ -f Makefile ]]; then make -j \"${BUILD_JOBS}\";   elif [[ -f \"${SOURCE_FILE}\" ]]; then \"${COMPILER}\" -O2 \"${SOURCE_FILE}\" -o \"./${BIN_NAME}\"; fi; fi; exec \"./${BIN_NAME}\"",
   "config": {

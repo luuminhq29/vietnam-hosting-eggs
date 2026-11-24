@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:redis_7.4"
+    "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:redis_7.4"
   },
   "custom_docker_images": {
-    "Redis 7.4": "ghcr.io/vietnam-hosting/yolks:redis_7.4"
+    "Redis 7.4": "ghcr.io/luuminhq29/yolks:redis_7.4"
   },
   "dockerfile_path": "docker/services/redis/Dockerfile",
   "image_source": "requires_ghcr_build",

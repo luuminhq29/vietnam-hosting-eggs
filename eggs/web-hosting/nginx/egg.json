@@ -10,7 +10,7 @@
   "description": "Customizable rootless Nginx 1.28 HTTP server and application reverse proxy bound to 0.0.0.0:{{SERVER_PORT}}.",
   "features": null,
   "docker_images": {
-    "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+    "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:nginx_1.28"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/${WEBROOT}|g; s|__FALLBACK__|=404|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; nginx -t -c /home/container/tmp/nginx.conf; echo \"VIETNAM HOSTING Nginx Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",

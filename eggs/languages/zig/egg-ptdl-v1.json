@@ -10,7 +10,7 @@
   "description": "Zig 0.14 systems programming runtime with `zig build` ReleaseSafe support.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:zig_0.14"
+    "ghcr.io/luuminhq29/yolks:zig_0.14"
   ],
   "startup": "if [[ -f build.zig ]]; then zig build -Doptimize=ReleaseSafe && exec \"./zig-out/bin/${BIN_NAME}\"; else exec zig run \"${MAIN_FILE}\"; fi",
   "config": {

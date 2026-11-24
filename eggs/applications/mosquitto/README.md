@@ -29,10 +29,10 @@ Lightweight Eclipse Mosquitto 2.0 MQTT broker enforcing authenticated connection
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Mosquitto 2.0 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:mosquitto_2.0` |
+| Mosquitto 2.0 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:mosquitto_2.0` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/mosquitto/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/mosquitto/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Kali Linux Minimal (NAT Container)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM kalilinux/kali-rolling:2026.3
 

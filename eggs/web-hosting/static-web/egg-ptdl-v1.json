@@ -10,7 +10,7 @@
   "description": "High-speed rootless Nginx static website hosting with SPA fallback option, gzip, /healthz endpoint, and Git deploy.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+    "ghcr.io/luuminhq29/yolks:nginx_1.28"
   ],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; FB=\"=404\"; [[ \"${SPA_MODE}\" == \"1\" ]] && FB=\"/index.html\"; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/${WEBROOT}|g; s|__FALLBACK__|${FB}|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; echo \"VIETNAM HOSTING Static Web Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",
   "config": {

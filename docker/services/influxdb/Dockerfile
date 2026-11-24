@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — InfluxDB 2.7
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM influxdb:2.7-alpine
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

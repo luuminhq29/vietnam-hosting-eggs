@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/languages/luajit/Dockerfile",
   "docker_images": {
-    "LuaJIT 2.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+    "LuaJIT 2.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:luajit_2.1"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+    "ghcr.io/luuminhq29/yolks:luajit_2.1"
   ],
   "custom_ghcr_targets": {
-    "LuaJIT 2.1": "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+    "LuaJIT 2.1": "ghcr.io/luuminhq29/yolks:luajit_2.1"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

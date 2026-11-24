@@ -25,14 +25,14 @@
     "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
     "Python 3.11 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.11",
     "Python 3.10 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.10",
-    "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+    "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:python_3.14"
   },
   "custom_docker_images": {
-    "Python 3.14": "ghcr.io/vietnam-hosting/yolks:python_3.14",
-    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13",
-    "Python 3.12": "ghcr.io/vietnam-hosting/yolks:python_3.12",
-    "Python 3.11": "ghcr.io/vietnam-hosting/yolks:python_3.11",
-    "Python 3.10 (Legacy)": "ghcr.io/vietnam-hosting/yolks:python_3.10"
+    "Python 3.14": "ghcr.io/luuminhq29/yolks:python_3.14",
+    "Python 3.13": "ghcr.io/luuminhq29/yolks:python_3.13",
+    "Python 3.12": "ghcr.io/luuminhq29/yolks:python_3.12",
+    "Python 3.11": "ghcr.io/luuminhq29/yolks:python_3.11",
+    "Python 3.10 (Legacy)": "ghcr.io/luuminhq29/yolks:python_3.10"
   },
   "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
   "image_source": "hybrid_official_and_ghcr",

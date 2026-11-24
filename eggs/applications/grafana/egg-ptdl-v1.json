@@ -10,7 +10,7 @@
   "description": "Grafana OSS 11.5 visualization dashboard running unprivileged with persistent data and plugins inside /home/container.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+    "ghcr.io/luuminhq29/yolks:grafana_11.5"
   ],
   "startup": "export GF_SERVER_HTTP_ADDR=0.0.0.0 GF_SERVER_HTTP_PORT={{SERVER_PORT}} GF_PATHS_DATA=/home/container/data GF_PATHS_LOGS=/home/container/logs GF_PATHS_PLUGINS=/home/container/plugins; exec grafana server --homepath=/usr/share/grafana",
   "config": {

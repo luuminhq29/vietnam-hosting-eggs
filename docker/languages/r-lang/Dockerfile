@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — R Language 4.4
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM r-base:4.4.3
 

@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — .NET 9.0 SDK
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM mcr.microsoft.com/dotnet/sdk:9.0-bookworm-slim
 

@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Grafana 11.5
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM grafana/grafana-oss:11.5.2
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

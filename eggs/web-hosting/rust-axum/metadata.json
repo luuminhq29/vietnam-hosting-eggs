@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable"
   },
   "custom_docker_images": {
-    "Rust Stable 1.86": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+    "Rust Stable 1.86": "ghcr.io/luuminhq29/yolks:rust_stable"
   },
   "dockerfile_path": "docker/languages/rust/stable/Dockerfile",
   "image_source": "requires_ghcr_build",

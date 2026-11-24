@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/services/rabbitmq/Dockerfile",
   "docker_images": {
-    "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+    "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+    "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
   ],
   "custom_ghcr_targets": {
-    "RabbitMQ 4.0": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+    "RabbitMQ 4.0": "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

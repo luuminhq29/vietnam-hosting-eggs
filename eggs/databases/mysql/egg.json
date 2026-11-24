@@ -10,7 +10,7 @@
   "description": "Unprivileged MySQL 8.4 LTS database container with first-boot initialization, random strong credentials, least-privilege app user, and graceful SIGTERM shutdown.",
   "features": null,
   "docker_images": {
-    "MySQL 8.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mysql_8.4"
+    "MySQL 8.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mysql_8.4"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/data /home/container/run /home/container/logs; if [[ ! -d /home/container/data/mysql ]]; then   mysqld --initialize-insecure --datadir=/home/container/data;   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   cat > /home/container/run/init.sql <<SQL\nCREATE DATABASE IF NOT EXISTS \\`${DB_NAME}\\`;\nCREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${PW}';\nGRANT ALL PRIVILEGES ON \\`${DB_NAME}\\`.* TO '${DB_USER}'@'%';\nFLUSH PRIVILEGES;\nSQL\n  chmod 600 /home/container/run/init.sql;   exec mysqld --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mysqld.sock --init-file=/home/container/run/init.sql; fi; rm -f /home/container/run/init.sql; exec mysqld --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mysqld.sock",

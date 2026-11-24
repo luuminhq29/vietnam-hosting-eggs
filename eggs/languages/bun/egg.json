@@ -10,7 +10,7 @@
   "description": "High-performance Bun JavaScript & TypeScript runtime with built-in Bun package manager.",
   "features": null,
   "docker_images": {
-    "Bun 1.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:bun_1.2"
+    "Bun 1.2 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:bun_1.2"
   },
   "file_denylist": [],
   "startup": "if [[ -f package.json ]] && [[ \"${INSTALL_DEPS}\" == \"1\" ]]; then bun install --frozen-lockfile || bun install; fi; exec bun run \"${MAIN_FILE}\"",

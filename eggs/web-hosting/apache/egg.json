@@ -10,7 +10,7 @@
   "description": "Rootless Apache HTTP Server 2.4 with .htaccess support, mod_rewrite, and custom httpd.conf in /home/container.",
   "features": null,
   "docker_images": {
-    "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:apache_2.4"
+    "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:apache_2.4"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/${WEBROOT}|g\" /home/container/apache/httpd.conf.tpl > /home/container/tmp/httpd.conf; echo \"VIETNAM HOSTING Apache Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec httpd -f /home/container/tmp/httpd.conf -DFOREGROUND",

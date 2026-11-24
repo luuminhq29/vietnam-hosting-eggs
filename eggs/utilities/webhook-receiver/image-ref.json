@@ -13,8 +13,8 @@
     "ghcr.io/pterodactyl/yolks:python_3.13"
   ],
   "custom_ghcr_targets": {
-    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13"
+    "Python 3.13": "ghcr.io/luuminhq29/yolks:python_3.13"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

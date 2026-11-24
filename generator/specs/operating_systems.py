@@ -16,19 +16,27 @@ mkdir -p /mnt/server/.ssh/host_keys /mnt/server/.local/bin /mnt/server/scripts /
 chmod 700 /mnt/server/.ssh /mnt/server/.ssh/host_keys
 
 if [[ ! -f /mnt/server/readme.md ]]; then
-    cat > /mnt/server/readme.md <<'EOF'
+    INIT_PASS="vietnam999"
+    if [[ "${AUTO_RANDOM_SSH_PASSWORD:-0}" == "1" ]] || [[ "${AUTO_RANDOM_SSH_PASSWORD:-false}" == "true" ]]; then
+        if command -v openssl >/dev/null 2>&1; then
+            INIT_PASS="Vnh$(openssl rand -hex 7)"
+        else
+            INIT_PASS="Vnh$(od -An -tx1 -N7 /dev/urandom | tr -d ' \n')"
+        fi
+    fi
+    cat > /mnt/server/readme.md <<EOF
 # Vietnam Hosting — NAT Linux Container SSH Access
 
-Thông tin đăng nhập SSH NAT (kết nối: `ssh -p <PORT> ubuntu@<NODE_IP>`):
+Thông tin đăng nhập SSH NAT (kết nối: \`ssh -p <PORT> ubuntu@<NODE_IP>\`):
 
 SSH_USER: ubuntu
-PASSWORD: vietnam999
+PASSWORD: ${INIT_PASS}
 
 > Hướng dẫn đổi mật khẩu NAT SSH:
-> - Sửa trực tiếp giá trị sau `PASSWORD:` ở trên rồi lưu file `readme.md`.
+> - Sửa trực tiếp giá trị sau \`PASSWORD:\` ở trên rồi lưu file \`readme.md\`.
 > - Hệ thống tự động đồng bộ mật khẩu SSH NAT mới trong vòng 2 giây (không cần restart server).
-> - Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc thêm SSH Public Key vào `~/.ssh/authorized_keys`.
-> - Đăng nhập `root` qua SSH luôn bị chặn vì lý do bảo mật container.
+> - Khuyến nghị đổi ngay mật khẩu mặc định hoặc thêm SSH Public Key vào \`~/.ssh/authorized_keys\`.
+> - Đăng nhập \`root\` qua SSH luôn bị chặn vì lý do bảo mật container.
 EOF
     chmod 600 /mnt/server/readme.md
 fi
@@ -74,6 +82,13 @@ LINUX_NAT_VARS = [
         description="Set to 1 to allow NAT SSH password login synced live from /home/container/readme.md (default ubuntu / vietnam999). Set 0 for pubkey-only.",
         env_variable="ENABLE_SSH_PASSWORD",
         default_value="1",
+        rules="required|boolean",
+    ),
+    VariableSpec(
+        name="Auto-Generate Random SSH Password",
+        description="Set to 1 (recommended for commercial hosting) to generate a unique strong random password per server in readme.md instead of vietnam999.",
+        env_variable="AUTO_RANDOM_SSH_PASSWORD",
+        default_value="0",
         rules="required|boolean",
     ),
     VariableSpec(

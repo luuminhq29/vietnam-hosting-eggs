@@ -19,10 +19,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+    ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_10"
   },
   "custom_docker_images": {
-    ".NET 10.0 LTS": "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+    ".NET 10.0 LTS": "ghcr.io/luuminhq29/yolks:dotnet_10"
   },
   "dockerfile_path": "docker/languages/dotnet/10/Dockerfile",
   "image_source": "requires_ghcr_build",

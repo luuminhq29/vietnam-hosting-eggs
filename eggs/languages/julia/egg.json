@@ -10,7 +10,7 @@
   "description": "Julia 1.11 scientific computing and web/API runtime with Project.toml environment isolation.",
   "features": null,
   "docker_images": {
-    "Julia 1.11 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:julia_1.11"
+    "Julia 1.11 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:julia_1.11"
   },
   "file_denylist": [],
   "startup": "if [[ -f Project.toml ]]; then julia --project=. -e \"using Pkg; Pkg.instantiate()\"; exec julia --project=. \"${MAIN_FILE}\"; else exec julia \"${MAIN_FILE}\"; fi",

@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_13"
+    "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:debian_13"
   },
   "custom_docker_images": {
-    "Debian 13 (Trixie)": "ghcr.io/vietnam-hosting/yolks:debian_13"
+    "Debian 13 (Trixie)": "ghcr.io/luuminhq29/yolks:debian_13"
   },
   "dockerfile_path": "docker/linux/debian-13/Dockerfile",
   "image_source": "requires_ghcr_build",

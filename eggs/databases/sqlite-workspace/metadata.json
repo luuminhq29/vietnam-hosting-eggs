@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+    "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:sqlite_workspace"
   },
   "custom_docker_images": {
-    "SQLite 3 Workspace": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+    "SQLite 3 Workspace": "ghcr.io/luuminhq29/yolks:sqlite_workspace"
   },
   "dockerfile_path": "docker/services/sqlite-workspace/Dockerfile",
   "image_source": "requires_ghcr_build",

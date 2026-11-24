@@ -14,7 +14,7 @@
     "ghcr.io/pterodactyl/yolks:python_3.12",
     "ghcr.io/pterodactyl/yolks:python_3.11",
     "ghcr.io/pterodactyl/yolks:python_3.10",
-    "ghcr.io/vietnam-hosting/yolks:python_3.14"
+    "ghcr.io/luuminhq29/yolks:python_3.14"
   ],
   "startup": "if [[ ! -d .venv ]]; then python3 -m venv .venv; fi; source .venv/bin/activate; if [[ \"${INSTALL_DEPS}\" == \"1\" ]]; then   if [[ -f pyproject.toml ]] && command -v uv >/dev/null 2>&1; then uv pip install -e .;   elif [[ -f pyproject.toml ]] && command -v poetry >/dev/null 2>&1; then poetry config virtualenvs.create false && poetry install --no-interaction --only main;   elif [[ -f \"${REQUIREMENTS_FILE}\" ]]; then pip install --no-cache-dir -r \"${REQUIREMENTS_FILE}\"; fi; fi; exec python3 \"${PY_FILE}\"",
   "config": {

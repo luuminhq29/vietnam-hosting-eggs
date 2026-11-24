@@ -12,7 +12,7 @@ set -euo pipefail
 TAG="${1:-}"
 DIGEST="${2:-}"
 CONFIRM="${3:-}"
-REGISTRY_REPO="ghcr.io/vietnam-hosting/yolks"
+REGISTRY_REPO="ghcr.io/luuminhq29/yolks"
 
 if [[ -z "$TAG" ]] || [[ -z "$DIGEST" ]]; then
     echo "Usage: $0 <tag> <sha256:digest> [--confirm-rollback]" >&2

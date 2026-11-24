@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+    "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
   },
   "custom_docker_images": {
-    "RabbitMQ 4.0": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+    "RabbitMQ 4.0": "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
   },
   "dockerfile_path": "docker/services/rabbitmq/Dockerfile",
   "image_source": "requires_ghcr_build",

@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Swift 6.1 (Ubuntu 24.04)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM swift:6.1-noble
 

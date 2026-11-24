@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — MySQL 8.4 LTS
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM mysql:8.4-oraclelinux9
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

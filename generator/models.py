@@ -11,7 +11,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 EGG_AUTHOR_EMAIL = "eggs@vietnam-hosting.net"
 PROVIDER_NAME = "Vietnam Hosting"
 PROVIDER_WEBSITE = "https://vietnam-hosting.net"
-GHCR_NAMESPACE = "ghcr.io/vietnam-hosting/yolks"
+GHCR_NAMESPACE = "ghcr.io/luuminhq29/yolks"
 EXPORTED_AT_DEFAULT = "2026-11-24T00:00:00+00:00"
 LAST_UPDATED_DEFAULT = "2026-11-24"
 

@@ -17,10 +17,10 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+    "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:influxdb_2.7"
   },
   "custom_docker_images": {
-    "InfluxDB 2.7": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+    "InfluxDB 2.7": "ghcr.io/luuminhq29/yolks:influxdb_2.7"
   },
   "dockerfile_path": "docker/services/influxdb/Dockerfile",
   "image_source": "requires_ghcr_build",

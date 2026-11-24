@@ -10,7 +10,7 @@
   "description": "Cross-platform PowerShell 7.5 runtime for automation scripts, API integrations, and scheduled DevOps jobs.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:powershell_7.5"
+    "ghcr.io/luuminhq29/yolks:powershell_7.5"
   ],
   "startup": "exec pwsh -NoLogo -NoProfile -File \"${MAIN_FILE}\"",
   "config": {

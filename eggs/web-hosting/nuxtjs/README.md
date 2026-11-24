@@ -31,10 +31,10 @@ Nuxt 3/4 Nitro SSR production hosting bound to 0.0.0.0:{{SERVER_PORT}}.
 | :--- | :--- |
 | Node.js 24 LTS (Official Yolk) | `ghcr.io/pterodactyl/yolks:nodejs_24` |
 | Node.js 22 LTS (Official Yolk) | `ghcr.io/pterodactyl/yolks:nodejs_22` |
-| Node.js 26 LTS (Vietnam Hosting GHCR - Build Required) | `ghcr.io/vietnam-hosting/yolks:nodejs_26` |
+| Node.js 26 LTS (Vietnam Hosting GHCR - Build Required) | `ghcr.io/luuminhq29/yolks:nodejs_26` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/nodejs/24/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/nodejs/24/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

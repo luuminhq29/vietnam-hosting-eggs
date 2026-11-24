@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Node.js 20 (Legacy)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM node:20-bookworm-slim
 

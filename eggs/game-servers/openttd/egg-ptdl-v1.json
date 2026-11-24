@@ -10,7 +10,7 @@
   "description": "Open-source OpenTTD dedicated transport simulation server running natively on both AMD64 and ARM64.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:openttd_14"
+    "ghcr.io/luuminhq29/yolks:openttd_14"
   ],
   "startup": "mkdir -p /home/container/.openttd; exec openttd -D \"0.0.0.0:{{SERVER_PORT}}\" -c /home/container/openttd.cfg",
   "config": {

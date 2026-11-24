@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Perl 5.40 + cpanm
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM perl:5.40-slim-bookworm
 

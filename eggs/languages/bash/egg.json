@@ -11,7 +11,7 @@
   "features": null,
   "docker_images": {
     "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-    "Bash Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:bash_debian13"
+    "Bash Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:bash_debian13"
   },
   "file_denylist": [],
   "startup": "exec /bin/bash \"${MAIN_FILE}\"",

@@ -10,7 +10,7 @@
   "description": "Privacy-respecting SearXNG metasearch engine with auto-generated secret key and persistent settings.yml.",
   "features": null,
   "docker_images": {
-    "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:searxng_2026"
+    "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:searxng_2026"
   },
   "file_denylist": [],
   "startup": "export SEARXNG_SETTINGS_PATH=/home/container/settings.yml SEARXNG_BIND_ADDRESS=0.0.0.0 SEARXNG_PORT={{SERVER_PORT}}; exec granian --interface wsgi --host 0.0.0.0 --port {{SERVER_PORT}} searx.webapp:app",

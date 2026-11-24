@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Nginx 1.28 Rootless Web Server
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM nginx:1.28-bookworm
 

@@ -7,17 +7,17 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/languages/rust/stable/Dockerfile",
   "docker_images": {
-    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable",
-    "Rust Nightly (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_nightly"
+    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable",
+    "Rust Nightly (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_nightly"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:rust_stable",
-    "ghcr.io/vietnam-hosting/yolks:rust_nightly"
+    "ghcr.io/luuminhq29/yolks:rust_stable",
+    "ghcr.io/luuminhq29/yolks:rust_nightly"
   ],
   "custom_ghcr_targets": {
-    "Rust Stable 1.86": "ghcr.io/vietnam-hosting/yolks:rust_stable",
-    "Rust Nightly": "ghcr.io/vietnam-hosting/yolks:rust_nightly"
+    "Rust Stable 1.86": "ghcr.io/luuminhq29/yolks:rust_stable",
+    "Rust Nightly": "ghcr.io/luuminhq29/yolks:rust_nightly"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

@@ -18,10 +18,10 @@
   "resource_basis": "recommended_estimate",
   "docker_images": {
     "Alpine Official Yolk": "ghcr.io/pterodactyl/yolks:alpine",
-    "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+    "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:alpine_3.23"
   },
   "custom_docker_images": {
-    "Alpine Linux": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+    "Alpine Linux": "ghcr.io/luuminhq29/yolks:alpine_3.23"
   },
   "dockerfile_path": "docker/linux/alpine/Dockerfile",
   "image_source": "hybrid_official_and_ghcr",

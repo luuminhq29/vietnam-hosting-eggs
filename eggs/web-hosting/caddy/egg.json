@@ -10,7 +10,7 @@
   "description": "Modern Caddy 2.9 rootless web server & reverse proxy configured via Caddyfile bound to :{{SERVER_PORT}}.",
   "features": null,
   "docker_images": {
-    "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+    "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:caddy_2.9"
   },
   "file_denylist": [],
   "startup": "export PORT={{SERVER_PORT}}; echo \"VIETNAM HOSTING Caddy Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec caddy run --config /home/container/Caddyfile --adapter caddyfile",

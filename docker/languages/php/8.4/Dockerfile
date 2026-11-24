@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — PHP 8.4 + Nginx + PHP-FPM + Composer
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM php:8.4-fpm-bookworm
 

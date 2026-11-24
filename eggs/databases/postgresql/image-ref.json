@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/services/postgresql/Dockerfile",
   "docker_images": {
-    "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+    "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:postgresql_17"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+    "ghcr.io/luuminhq29/yolks:postgresql_17"
   ],
   "custom_ghcr_targets": {
-    "PostgreSQL 17": "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+    "PostgreSQL 17": "ghcr.io/luuminhq29/yolks:postgresql_17"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

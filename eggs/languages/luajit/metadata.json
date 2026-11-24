@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "LuaJIT 2.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+    "LuaJIT 2.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:luajit_2.1"
   },
   "custom_docker_images": {
-    "LuaJIT 2.1": "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+    "LuaJIT 2.1": "ghcr.io/luuminhq29/yolks:luajit_2.1"
   },
   "dockerfile_path": "docker/languages/luajit/Dockerfile",
   "image_source": "requires_ghcr_build",

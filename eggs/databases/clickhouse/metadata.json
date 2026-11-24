@@ -17,10 +17,10 @@
   "minimum_disk_mb": 4096,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+    "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:clickhouse_25"
   },
   "custom_docker_images": {
-    "ClickHouse 25.3 LTS": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+    "ClickHouse 25.3 LTS": "ghcr.io/luuminhq29/yolks:clickhouse_25"
   },
   "dockerfile_path": "docker/services/clickhouse/Dockerfile",
   "image_source": "requires_ghcr_build",

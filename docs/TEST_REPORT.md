@@ -18,7 +18,7 @@
 | :---: | :--- | :---: | :--- |
 | 1 | Import vào Pterodactyl Panel thành công | `UNVERIFIED` (Schema `PTDL_v2` đã `PASS` kiểm tra tĩnh) | Cần import thực tế trên Panel 1.11.x / 1.12.x Staging |
 | 2 | Installation Script chạy thành công | `UNVERIFIED` (Cú pháp/chính sách script đã `PASS` tĩnh) | Chạy thực tế qua Wings installer container + CI `ShellCheck` |
-| 3 | Docker Image tồn tại và tải được | `UNVERIFIED` | Official Yolks cần `docker pull` kiểm chứng; 90 image `ghcr.io/vietnam-hosting/yolks:*` cần chạy `build-images.yml` |
+| 3 | Docker Image tồn tại và tải được | `PARTIAL` | Đã kiểm chứng `ubuntu_24.04` qua GHCR/live Wings; 90 image `ghcr.io/luuminhq29/yolks:*` build/publish bằng `build-images.yml` |
 | 4 | Server khởi động thành công | `UNVERIFIED` | Kiểm thử trên CI `test-eggs.yml` & Node Staging |
 | 5 | Startup Detection hoạt động | `UNVERIFIED` | Kiểm chứng regex `config.startup.done` trên Wings thực tế |
 | 6 | Console hoạt động | `UNVERIFIED` | Kiểm chứng stdin/stdout trực tiếp qua Pterodactyl Web Console |

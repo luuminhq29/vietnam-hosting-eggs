@@ -29,10 +29,10 @@ Server-side Swift 6.1 hosting (Vapor/Hummingbird ready) with Swift Package Manag
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Swift 6.1 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:swift_6.1` |
+| Swift 6.1 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:swift_6.1` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/swift/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/swift/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

@@ -10,7 +10,7 @@
   "description": "Fast typo-tolerant Meilisearch 1.13 search engine running in production mode with mandatory master key.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:meilisearch_1.13"
+    "ghcr.io/luuminhq29/yolks:meilisearch_1.13"
   ],
   "startup": "mkdir -p /home/container/data.ms /home/container/dumps /home/container/snapshots; if [[ ! -f /home/container/.master_key ]]; then   KEY=\"${MEILI_MASTER_KEY:-$(openssl rand -hex 24)}\"; printf \"%s\" \"${KEY}\" > /home/container/.master_key; chmod 600 /home/container/.master_key; fi; exec meilisearch --env production --no-analytics --http-addr \"${BIND_ADDRESS}:{{SERVER_PORT}}\" --db-path /home/container/data.ms --dump-dir /home/container/dumps --snapshot-dir /home/container/snapshots --master-key \"$(cat /home/container/.master_key)\"",
   "config": {

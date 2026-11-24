@@ -23,13 +23,13 @@
     "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
     "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
     "Node.js 20 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_20",
-    "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+    "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
   },
   "custom_docker_images": {
-    "Node.js 26 Active LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_26",
-    "Node.js 24 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_24",
-    "Node.js 22 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_22",
-    "Node.js 20 (Legacy)": "ghcr.io/vietnam-hosting/yolks:nodejs_20"
+    "Node.js 26 Active LTS": "ghcr.io/luuminhq29/yolks:nodejs_26",
+    "Node.js 24 LTS": "ghcr.io/luuminhq29/yolks:nodejs_24",
+    "Node.js 22 LTS": "ghcr.io/luuminhq29/yolks:nodejs_22",
+    "Node.js 20 (Legacy)": "ghcr.io/luuminhq29/yolks:nodejs_20"
   },
   "dockerfile_path": "docker/languages/nodejs/24/Dockerfile",
   "image_source": "hybrid_official_and_ghcr",

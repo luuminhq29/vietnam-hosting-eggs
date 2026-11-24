@@ -20,7 +20,7 @@
     "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
   },
   "custom_docker_images": {
-    "Base Debian 13": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+    "Base Debian 13": "ghcr.io/luuminhq29/yolks:base_debian13"
   },
   "dockerfile_path": null,
   "image_source": "upstream_official_yolk",

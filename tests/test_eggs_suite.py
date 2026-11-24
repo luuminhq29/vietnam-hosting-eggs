@@ -96,7 +96,8 @@ class TestVietnamHostingUniversalEggs(unittest.TestCase):
             self.assertFalse(priv["requires_kernel_features"])
             inst = (mf.parent / "install.sh").read_text(encoding="utf-8")
             self.assertIn("SSH_USER: ubuntu", inst)
-            self.assertIn("PASSWORD: vietnam999", inst)
+            self.assertIn('INIT_PASS="vietnam999"', inst)
+            self.assertIn("PASSWORD: ${INIT_PASS}", inst)
             self.assertIn("/mnt/server/readme.md", inst)
 
     def test_catalog_and_compatibility_sync(self) -> None:

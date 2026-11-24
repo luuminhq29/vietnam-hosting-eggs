@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — TimescaleDB (PostgreSQL 17)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM timescale/timescaledb:2.18.2-pg17
 

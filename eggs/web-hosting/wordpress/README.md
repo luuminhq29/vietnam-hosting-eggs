@@ -29,11 +29,11 @@ Production WordPress hosting on rootless Nginx + PHP-FPM 8.3/8.4 with non-destru
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| PHP 8.4 + Nginx (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:php_8.4` |
-| PHP 8.3 + Nginx (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:php_8.3` |
+| PHP 8.4 + Nginx (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:php_8.4` |
+| PHP 8.3 + Nginx (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:php_8.3` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/php/8.4/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/php/8.4/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

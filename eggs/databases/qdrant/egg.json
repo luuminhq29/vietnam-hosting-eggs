@@ -10,7 +10,7 @@
   "description": "High-performance Qdrant 1.13 vector similarity search engine with API key authentication and snapshot storage.",
   "features": null,
   "docker_images": {
-    "Qdrant 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+    "Qdrant 1.13 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:qdrant_1.13"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/storage /home/container/snapshots; if [[ ! -f /home/container/.api_key ]]; then   KEY=\"${QDRANT_API_KEY:-$(openssl rand -hex 24)}\"; printf \"%s\" \"${KEY}\" > /home/container/.api_key; chmod 600 /home/container/.api_key; fi; export QDRANT__SERVICE__HOST=\"${BIND_ADDRESS}\" QDRANT__SERVICE__HTTP_PORT=\"{{SERVER_PORT}}\" QDRANT__STORAGE__STORAGE_PATH=\"/home/container/storage\" QDRANT__STORAGE__SNAPSHOTS_PATH=\"/home/container/snapshots\" QDRANT__SERVICE__API_KEY=\"$(cat /home/container/.api_key)\"; exec /qdrant/qdrant",

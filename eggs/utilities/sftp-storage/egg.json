@@ -11,7 +11,7 @@
   "features": null,
   "docker_images": {
     "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-    "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+    "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:base_debian13"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/storage; echo \"VIETNAM HOSTING SFTP Storage Vault Ready — connect via Pterodactyl Wings SFTP credentials.\"; du -sh /home/container/storage 2>/dev/null || true; trap \"exit 0\" TERM INT; while true; do sleep 3600; done",

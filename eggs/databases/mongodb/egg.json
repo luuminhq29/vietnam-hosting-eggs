@@ -10,7 +10,7 @@
   "description": "Unprivileged MongoDB 8.0 document database with WiredTiger cache cap respecting container RAM and auth enforcement.",
   "features": null,
   "docker_images": {
-    "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mongodb_8"
+    "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mongodb_8"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/data /home/container/logs; exec mongod --dbpath /home/container/data --port {{SERVER_PORT}} --bind_ip \"${BIND_ADDRESS}\" --wiredTigerCacheSizeGB \"${WT_CACHE_GB}\"",

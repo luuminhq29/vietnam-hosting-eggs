@@ -29,11 +29,11 @@ Rust Stable & Nightly hosting with Cargo.toml auto-detection, release compilatio
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Rust Stable 1.86 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:rust_stable` |
-| Rust Nightly (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:rust_nightly` |
+| Rust Stable 1.86 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:rust_stable` |
+| Rust Nightly (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:rust_nightly` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/rust/stable/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/rust/stable/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

@@ -10,8 +10,8 @@
   "description": "Discord.NET C# bot hosting on .NET LTS/STS with Release publish and secure token env injection.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:dotnet_10",
-    "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+    "ghcr.io/luuminhq29/yolks:dotnet_10",
+    "ghcr.io/luuminhq29/yolks:dotnet_8"
   ],
   "startup": "if [[ -n \"${PROJECT_FILE}\" ]] && [[ -f \"${PROJECT_FILE}\" ]]; then dotnet publish \"${PROJECT_FILE}\" -c Release -o ./out --nologo; fi; if [[ -f \"./out/${BOT_DLL}\" ]]; then exec dotnet \"./out/${BOT_DLL}\"; else exec dotnet \"./${BOT_DLL}\"; fi",
   "config": {

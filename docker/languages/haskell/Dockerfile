@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Haskell GHC 9.10 + Cabal
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM haskell:9.10-slim
 

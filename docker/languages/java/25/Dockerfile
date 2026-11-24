@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Java 25 LTS (Eclipse Temurin)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM eclipse-temurin:25-jdk-noble
 

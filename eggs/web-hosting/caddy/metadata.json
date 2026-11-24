@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+    "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:caddy_2.9"
   },
   "custom_docker_images": {
-    "Caddy 2.9": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+    "Caddy 2.9": "ghcr.io/luuminhq29/yolks:caddy_2.9"
   },
   "dockerfile_path": "docker/services/caddy/Dockerfile",
   "image_source": "requires_ghcr_build",

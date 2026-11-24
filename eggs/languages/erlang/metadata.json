@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Erlang/OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:erlang_27"
+    "Erlang/OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:erlang_27"
   },
   "custom_docker_images": {
-    "Erlang/OTP 27": "ghcr.io/vietnam-hosting/yolks:erlang_27"
+    "Erlang/OTP 27": "ghcr.io/luuminhq29/yolks:erlang_27"
   },
   "dockerfile_path": "docker/languages/erlang/Dockerfile",
   "image_source": "requires_ghcr_build",

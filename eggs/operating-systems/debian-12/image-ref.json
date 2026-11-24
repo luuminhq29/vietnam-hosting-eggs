@@ -8,15 +8,15 @@
   "dockerfile_path": "docker/linux/debian-12/Dockerfile",
   "docker_images": {
     "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-    "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_12"
+    "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:debian_12"
   },
   "ptdl_v1_images": [
     "ghcr.io/pterodactyl/yolks:debian",
-    "ghcr.io/vietnam-hosting/yolks:debian_12"
+    "ghcr.io/luuminhq29/yolks:debian_12"
   ],
   "custom_ghcr_targets": {
-    "Debian 12 (Bookworm)": "ghcr.io/vietnam-hosting/yolks:debian_12"
+    "Debian 12 (Bookworm)": "ghcr.io/luuminhq29/yolks:debian_12"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

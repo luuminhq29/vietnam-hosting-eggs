@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "C/C++ Debian 13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ccpp_debian13"
+    "C/C++ Debian 13 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ccpp_debian13"
   },
   "custom_docker_images": {
-    "C/C++ Debian 13": "ghcr.io/vietnam-hosting/yolks:ccpp_debian13"
+    "C/C++ Debian 13": "ghcr.io/luuminhq29/yolks:ccpp_debian13"
   },
   "dockerfile_path": "docker/languages/c-cpp/Dockerfile",
   "image_source": "requires_ghcr_build",

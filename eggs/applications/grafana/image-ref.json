@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/services/grafana/Dockerfile",
   "docker_images": {
-    "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+    "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:grafana_11.5"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+    "ghcr.io/luuminhq29/yolks:grafana_11.5"
   ],
   "custom_ghcr_targets": {
-    "Grafana 11.5 OSS": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+    "Grafana 11.5 OSS": "ghcr.io/luuminhq29/yolks:grafana_11.5"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

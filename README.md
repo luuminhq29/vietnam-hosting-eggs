@@ -4,7 +4,7 @@
 > **Tiêu chuẩn Schema:** `PTDL_v1` (`egg-ptdl-v1.json`) & `PTDL_v2` (`egg.json`) — tương thích Pterodactyl Panel 1.0–1.12+ & Wings  
 > **Hệ điều hành Node mục tiêu:** Ubuntu 24.04 LTS + Docker Engine + Pterodactyl Wings  
 > **Kiến trúc CPU:** AMD64 (`x86_64`) & ARM64 (`aarch64` — ghi rõ từng Egg theo hỗ trợ thực tế của upstream)  
-> **Registry mục tiêu:** GitHub Container Registry (`ghcr.io/vietnam-hosting/yolks:*` — dự kiến, cần build/publish trước khi dùng production)
+> **Registry mục tiêu:** GitHub Container Registry (`ghcr.io/luuminhq29/yolks:*` — build & publish tự động qua GitHub Actions `build-images.yml`)
 
 ---
 
@@ -91,7 +91,7 @@ python3 -m generator package --output dist/vietnam-hosting-universal-eggs.zip
 ## 4. Lưu ý quan trọng về Docker Images & Trạng thái Kiểm thử
 
 > [!IMPORTANT]
-> 1. **Trạng thái GHCR Registry:** Các image mang nhãn `ghcr.io/vietnam-hosting/yolks:*` là **tên registry dự kiến** và **chưa được publish công khai** trong quá trình build ngoại tuyến. Toàn bộ 90 Dockerfile tương ứng đã sẵn sàng trong thư mục `docker/` để quản trị viên build và publish bằng `.github/workflows/build-images.yml` (với xác nhận `publish_ghcr: true`) hoặc `vnh-egg build --push --confirm-publish`.
+> 1. **Trạng thái GHCR Registry:** Các image mang nhãn `ghcr.io/luuminhq29/yolks:*` được build từ 90 Dockerfile trong `docker/` và publish lên GitHub Container Registry bằng `.github/workflows/build-images.yml` (`publish_ghcr: true`) hoặc `vnh-egg build --push --confirm-publish`.
 > 2. **Ưu tiên Official Yolks:** Những Egg có Official Pterodactyl/Community Yolks đã xác minh (`ghcr.io/pterodactyl/yolks:*`, `ghcr.io/parkervcp/games:*`, `ghcr.io/parkervcp/installers:*`) được cấu hình mặc định sử dụng Official Yolks để có thể import và vận hành ngay.
 > 3. **Trạng thái kiểm thử thực tế:** Toàn bộ 147 Egg và 90 Dockerfile đã vượt qua **kiểm tra tĩnh & schema (`PASS`)**. Các bài kiểm tra tích hợp yêu cầu Docker Engine và Pterodactyl Panel/Wings trực tiếp được ghi rõ là **`UNVERIFIED`** (xem chi tiết tại [`docs/TEST_REPORT.md`](docs/TEST_REPORT.md)).
 

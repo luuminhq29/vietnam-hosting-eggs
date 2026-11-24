@@ -10,7 +10,7 @@
   "description": "Lua 5.4 runtime with LuaRocks package manager for scripts, automation, and lightweight services.",
   "features": null,
   "docker_images": {
-    "Lua 5.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:lua_5.4"
+    "Lua 5.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:lua_5.4"
   },
   "file_denylist": [],
   "startup": "exec lua \"${MAIN_FILE}\"",

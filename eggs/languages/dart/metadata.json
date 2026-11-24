@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Dart 3.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dart_3.7"
+    "Dart 3.7 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dart_3.7"
   },
   "custom_docker_images": {
-    "Dart 3.7": "ghcr.io/vietnam-hosting/yolks:dart_3.7"
+    "Dart 3.7": "ghcr.io/luuminhq29/yolks:dart_3.7"
   },
   "dockerfile_path": "docker/languages/dart/Dockerfile",
   "image_source": "requires_ghcr_build",

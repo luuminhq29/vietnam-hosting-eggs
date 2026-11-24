@@ -29,10 +29,10 @@ Fast typo-tolerant Meilisearch 1.13 search engine running in production mode wit
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Meilisearch 1.13 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:meilisearch_1.13` |
+| Meilisearch 1.13 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:meilisearch_1.13` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/meilisearch/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/meilisearch/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

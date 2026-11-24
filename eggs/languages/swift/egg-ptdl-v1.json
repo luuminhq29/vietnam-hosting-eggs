@@ -10,7 +10,7 @@
   "description": "Server-side Swift 6.1 hosting (Vapor/Hummingbird ready) with Swift Package Manager and release builds.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:swift_6.1"
+    "ghcr.io/luuminhq29/yolks:swift_6.1"
   ],
   "startup": "if [[ -f Package.swift ]] && [[ \"${AUTO_BUILD}\" == \"1\" ]]; then swift build -c release -j \"${BUILD_JOBS}\"; fi; if [[ -x \".build/release/${BIN_NAME}\" ]]; then exec \".build/release/${BIN_NAME}\"; else exec swift \"${MAIN_FILE}\"; fi",
   "config": {

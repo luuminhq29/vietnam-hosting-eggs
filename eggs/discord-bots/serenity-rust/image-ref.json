@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/languages/rust/stable/Dockerfile",
   "docker_images": {
-    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:rust_stable"
+    "ghcr.io/luuminhq29/yolks:rust_stable"
   ],
   "custom_ghcr_targets": {
-    "Rust Stable 1.86": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+    "Rust Stable 1.86": "ghcr.io/luuminhq29/yolks:rust_stable"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

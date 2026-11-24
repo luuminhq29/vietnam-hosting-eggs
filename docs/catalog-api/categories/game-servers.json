@@ -585,7 +585,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+        "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:pocketmine_php8.3"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -899,7 +899,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:openttd_14"
+        "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:openttd_14"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1139,7 +1139,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_8"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [

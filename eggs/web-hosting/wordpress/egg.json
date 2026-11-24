@@ -10,8 +10,8 @@
   "description": "Production WordPress hosting on rootless Nginx + PHP-FPM 8.3/8.4 with non-destructive reinstall preserving wp-content and wp-config.php.",
   "features": null,
   "docker_images": {
-    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/wordpress|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; php-fpm --fpm-config /home/container/php/php-fpm.conf --daemonize; echo \"VIETNAM HOSTING WordPress Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",

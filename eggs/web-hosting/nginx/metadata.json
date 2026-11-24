@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+    "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:nginx_1.28"
   },
   "custom_docker_images": {
-    "Nginx 1.28": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+    "Nginx 1.28": "ghcr.io/luuminhq29/yolks:nginx_1.28"
   },
   "dockerfile_path": "docker/services/nginx/Dockerfile",
   "image_source": "requires_ghcr_build",

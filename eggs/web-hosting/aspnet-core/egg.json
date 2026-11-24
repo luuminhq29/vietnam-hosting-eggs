@@ -10,8 +10,8 @@
   "description": "Production ASP.NET Core Kestrel hosting on .NET 10 LTS / 11 STS bound to http://0.0.0.0:{{SERVER_PORT}}.",
   "features": null,
   "docker_images": {
-    ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
-    ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_11"
+    ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_10",
+    ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_11"
   },
   "file_denylist": [],
   "startup": "export ASPNETCORE_URLS=\"http://0.0.0.0:{{SERVER_PORT}}\" ASPNETCORE_ENVIRONMENT=\"${ASPNETCORE_ENVIRONMENT}\"; if [[ -n \"${PROJECT_FILE}\" ]] && [[ -f \"${PROJECT_FILE}\" ]]; then dotnet publish \"${PROJECT_FILE}\" -c Release -o ./out --nologo; fi; if [[ -f \"./out/${APP_DLL}\" ]]; then exec dotnet \"./out/${APP_DLL}\"; else exec dotnet \"./${APP_DLL}\"; fi",

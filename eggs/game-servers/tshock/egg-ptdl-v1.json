@@ -10,7 +10,7 @@
   "description": "Official Pryaxis TShock Terraria server downloaded from GitHub Releases (Linux x64, AMD64 only).",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+    "ghcr.io/luuminhq29/yolks:dotnet_8"
   ],
   "startup": "exec ./TShock.Server -port {{SERVER_PORT}} -maxplayers \"${MAX_PLAYERS}\" -world \"/home/container/worlds/${WORLD_NAME}.wld\" -autocreate \"${WORLD_SIZE}\"",
   "config": {

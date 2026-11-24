@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — PowerShell 7.5
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM mcr.microsoft.com/powershell:7.5-ubuntu-24.04
 

@@ -29,10 +29,10 @@ Kotlin 2.1 JVM runtime with kotlinc, Gradle, and automatic JVM heap calculation.
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:kotlin_2.1` |
+| Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:kotlin_2.1` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/kotlin/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/kotlin/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

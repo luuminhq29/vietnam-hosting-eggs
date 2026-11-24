@@ -29,10 +29,10 @@ DSharpPlus C#/.NET Discord bot hosting with Release publish and secret-safe toke
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| .NET 10.0 LTS (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:dotnet_10` |
+| .NET 10.0 LTS (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:dotnet_10` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/dotnet/10/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/dotnet/10/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

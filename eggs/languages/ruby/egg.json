@@ -10,7 +10,7 @@
   "description": "Ruby 3.4 runtime with Bundler and automatic Gemfile installation for Rails, Sinatra, and bots.",
   "features": null,
   "docker_images": {
-    "Ruby 3.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ruby_3.4"
+    "Ruby 3.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ruby_3.4"
   },
   "file_denylist": [],
   "startup": "if [[ -f Gemfile ]] && [[ \"${BUNDLE_INSTALL}\" == \"1\" ]]; then bundle install --jobs=2; fi; if [[ -f Gemfile ]]; then exec bundle exec ruby \"${MAIN_FILE}\"; else exec ruby \"${MAIN_FILE}\"; fi",

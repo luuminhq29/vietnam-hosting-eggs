@@ -10,7 +10,7 @@
   "description": "Lightweight Eclipse Mosquitto 2.0 MQTT broker enforcing authenticated connections (allow_anonymous false).",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+    "ghcr.io/luuminhq29/yolks:mosquitto_2.0"
   ],
   "startup": "sed \"s|__PORT__|{{SERVER_PORT}}|g\" /home/container/mosquitto.conf.tpl > /home/container/mosquitto.conf; exec mosquitto -c /home/container/mosquitto.conf",
   "config": {

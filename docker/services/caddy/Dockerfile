@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Caddy 2.9 Rootless Web Server
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM caddy:2.9-alpine
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

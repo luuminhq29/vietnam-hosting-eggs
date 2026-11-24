@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Kotlin 2.1 + JDK 21
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM eclipse-temurin:21-jdk-noble
 

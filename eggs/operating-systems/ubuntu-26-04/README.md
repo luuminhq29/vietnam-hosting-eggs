@@ -29,10 +29,10 @@ Unprivileged Ubuntu 26.04 LTS NAT Linux container compatible with Pterodactyl Co
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Ubuntu 26.04 LTS (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:ubuntu_26.04` |
+| Ubuntu 26.04 LTS (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:ubuntu_26.04` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/linux/ubuntu-26.04/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/linux/ubuntu-26.04/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 
@@ -40,6 +40,7 @@ Unprivileged Ubuntu 26.04 LTS NAT Linux container compatible with Pterodactyl Co
 | :--- | :--- | :--- | :---: | :--- | :--- |
 | `ENABLE_SSH` | Enable Unprivileged SSH | `1` | Có | `required|boolean` | Set to 1 to start user-space Dropbear/OpenSSH daemon on SSH_PORT (root login always disabled). |
 | `ENABLE_SSH_PASSWORD` | Enable readme.md Password SSH | `(bí mật / để trống)` | Có | `required|boolean` | Set to 1 to allow NAT SSH password login synced live from /home/container/readme.md (default ubuntu / vietnam999). Set 0 for pubkey-only. |
+| `AUTO_RANDOM_SSH_PASSWORD` | Auto-Generate Random SSH Password | `(bí mật / để trống)` | Có | `required|boolean` | Set to 1 (recommended for commercial hosting) to generate a unique strong random password per server in readme.md instead of vietnam999. |
 | `SSH_PORT` | SSH Allocation Port | `(trống)` | Có | `nullable|integer|between:1024,65535` | Dedicated Pterodactyl allocation port for SSH (leave blank to reuse SERVER_PORT). |
 | `SSH_AUTHORIZED_KEYS` | SSH Authorized Public Key | `(bí mật / để trống)` | Có | `nullable|string|max:2048` | OpenSSH public key (ssh-ed25519 / ssh-rsa) added to ~/.ssh/authorized_keys. |
 | `ENABLE_PROOT` | Enable Writable PRoot RootFS (VPS Mode) | `1` | Có | `required|boolean` | Set to 1 to enter persistent writable /home/container/rootfs via unprivileged PRoot (enables apt/dnf install as virtual root while keeping host isolated). |

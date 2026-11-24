@@ -185,7 +185,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+        "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:grafana_11.5"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -350,7 +350,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+        "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mosquitto_2.0"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -473,7 +473,7 @@
       "minimum_disk_mb": 16384,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+        "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ollama_cpu_0.6"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -514,7 +514,7 @@
       "minimum_disk_mb": 4096,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+        "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:open_webui_0.5"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -596,7 +596,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+        "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rabbitmq_4.0"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -637,7 +637,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:searxng_2026"
+        "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:searxng_2026"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -760,7 +760,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+        "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -801,7 +801,7 @@
       "minimum_disk_mb": 4096,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+        "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:clickhouse_25"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -842,7 +842,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "CouchDB 3.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:couchdb_3.4"
+        "CouchDB 3.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:couchdb_3.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -883,7 +883,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+        "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:influxdb_2.7"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -924,7 +924,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "MariaDB 11.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mariadb_11.4"
+        "MariaDB 11.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mariadb_11.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -965,7 +965,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Meilisearch 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:meilisearch_1.13"
+        "Meilisearch 1.13 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:meilisearch_1.13"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1006,7 +1006,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mongodb_8"
+        "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mongodb_8"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1047,7 +1047,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "MySQL 8.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mysql_8.4"
+        "MySQL 8.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:mysql_8.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1088,7 +1088,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+        "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:postgresql_17"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1129,7 +1129,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Qdrant 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+        "Qdrant 1.13 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:qdrant_1.13"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1170,7 +1170,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:redis_7.4"
+        "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:redis_7.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1211,7 +1211,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+        "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:sqlite_workspace"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1252,7 +1252,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "TimescaleDB PG17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:timescaledb_pg17"
+        "TimescaleDB PG17 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:timescaledb_pg17"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1293,7 +1293,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Typesense 28.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:typesense_28"
+        "Typesense 28.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:typesense_28"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1334,7 +1334,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Valkey 8.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:valkey_8.1"
+        "Valkey 8.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:valkey_8.1"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1465,7 +1465,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -1508,8 +1508,8 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
-        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_10",
+        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_8"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1555,7 +1555,7 @@
       "docker_images": {
         "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
         "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
-        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:python_3.14"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -1598,7 +1598,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
-        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25"
+        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:go_1.25"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -1641,7 +1641,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_10"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1686,7 +1686,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -1820,7 +1820,7 @@
       "docker_images": {
         "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
         "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
-        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:python_3.14"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -1866,7 +1866,7 @@
       "docker_images": {
         "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
         "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
-        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:python_3.14"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -1950,7 +1950,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -1995,7 +1995,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -2041,7 +2041,7 @@
       "docker_images": {
         "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
         "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
-        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:python_3.14"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -2082,7 +2082,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2447,7 +2447,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+        "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:pocketmine_php8.3"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2721,7 +2721,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:openttd_14"
+        "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:openttd_14"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2763,7 +2763,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-        "Bash Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:bash_debian13"
+        "Bash Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:bash_debian13"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -2804,7 +2804,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Bun 1.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:bun_1.2"
+        "Bun 1.2 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:bun_1.2"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2845,7 +2845,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "C/C++ Debian 13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ccpp_debian13"
+        "C/C++ Debian 13 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ccpp_debian13"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2886,7 +2886,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Dart 3.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dart_3.7"
+        "Dart 3.7 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dart_3.7"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2927,7 +2927,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Deno 2.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:deno_2"
+        "Deno 2.2 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:deno_2"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -2971,10 +2971,10 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
-        ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_11",
-        ".NET 9.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_9",
-        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_10",
+        ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_11",
+        ".NET 9.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_9",
+        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_8"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3015,7 +3015,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Elixir 1.18 OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:elixir_1.18"
+        "Elixir 1.18 OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:elixir_1.18"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3056,7 +3056,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Erlang/OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:erlang_27"
+        "Erlang/OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:erlang_27"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3100,8 +3100,8 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
-        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25",
-        "Go 1.24 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.24"
+        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:go_1.25",
+        "Go 1.24 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:go_1.24"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -3142,7 +3142,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Haskell GHC 9.10 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:haskell_9.10"
+        "Haskell GHC 9.10 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:haskell_9.10"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3232,7 +3232,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Julia 1.11 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:julia_1.11"
+        "Julia 1.11 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:julia_1.11"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3273,7 +3273,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kotlin_2.1"
+        "Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:kotlin_2.1"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3314,7 +3314,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Lua 5.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:lua_5.4"
+        "Lua 5.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:lua_5.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3355,7 +3355,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "LuaJIT 2.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:luajit_2.1"
+        "LuaJIT 2.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:luajit_2.1"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3402,7 +3402,7 @@
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
         "Node.js 20 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_20",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -3443,7 +3443,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Perl 5.40 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+        "Perl 5.40 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:perl_5.40"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3487,10 +3487,10 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
-        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3",
-        "PHP 8.2 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.2"
+        "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.5",
+        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3",
+        "PHP 8.2 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.2"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3531,7 +3531,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PowerShell 7.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:powershell_7.5"
+        "PowerShell 7.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:powershell_7.5"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3580,7 +3580,7 @@
         "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
         "Python 3.11 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.11",
         "Python 3.10 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.10",
-        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:python_3.14"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -3621,7 +3621,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "R 4.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:r_4.4"
+        "R 4.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:r_4.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3662,7 +3662,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ruby 3.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ruby_3.4"
+        "Ruby 3.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ruby_3.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3704,8 +3704,8 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable",
-        "Rust Nightly (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_nightly"
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable",
+        "Rust Nightly (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_nightly"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3746,7 +3746,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Scala 3 + sbt (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:scala_3"
+        "Scala 3 + sbt (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:scala_3"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3787,7 +3787,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Swift 6.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:swift_6.1"
+        "Swift 6.1 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:swift_6.1"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3828,7 +3828,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Zig 0.14 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:zig_0.14"
+        "Zig 0.14 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:zig_0.14"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3869,7 +3869,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:almalinux_9"
+        "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:almalinux_9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3911,7 +3911,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Alpine Official Yolk": "ghcr.io/pterodactyl/yolks:alpine",
-        "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+        "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:alpine_3.23"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -3952,7 +3952,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+        "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:amazonlinux_2023"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -3994,7 +3994,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-        "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_12"
+        "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:debian_12"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -4035,7 +4035,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_13"
+        "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:debian_13"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4076,7 +4076,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:fedora_44"
+        "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:fedora_44"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4117,7 +4117,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+        "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:kali_minimal"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4158,7 +4158,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+        "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:opensuse_15.6"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4199,7 +4199,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:oraclelinux_9"
+        "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:oraclelinux_9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4240,7 +4240,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rocky_9"
+        "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rocky_9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4281,7 +4281,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 20.04 Legacy (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_20.04"
+        "Ubuntu 20.04 Legacy (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_20.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4322,7 +4322,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 22.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_22.04"
+        "Ubuntu 22.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_22.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4363,7 +4363,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_24.04"
+        "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_24.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4404,7 +4404,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 26.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_26.04"
+        "Ubuntu 26.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_26.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4574,7 +4574,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-        "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+        "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:base_debian13"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -4656,7 +4656,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:apache_2.4"
+        "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:apache_2.4"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4699,8 +4699,8 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
-        ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_11"
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_10",
+        ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:dotnet_11"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4745,7 +4745,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -4786,7 +4786,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+        "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:caddy_2.9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -4873,7 +4873,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -4998,7 +4998,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
-        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25"
+        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:go_1.25"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -5039,9 +5039,9 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-        "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
-        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+        "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.5",
+        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -5086,7 +5086,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -5127,7 +5127,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+        "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:nginx_1.28"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -5172,7 +5172,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -5216,10 +5216,10 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PHP-FPM 8.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
-        "PHP-FPM 8.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-        "PHP-FPM 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3",
-        "PHP-FPM 8.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.2"
+        "PHP-FPM 8.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.5",
+        "PHP-FPM 8.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+        "PHP-FPM 8.3 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3",
+        "PHP-FPM 8.2 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.2"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -5264,7 +5264,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -5305,7 +5305,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -5346,7 +5346,7 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rust_stable"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -5432,7 +5432,7 @@
       "minimum_disk_mb": 512,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+        "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:nginx_1.28"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -5477,7 +5477,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -5522,7 +5522,7 @@
       "docker_images": {
         "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
         "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
-        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:nodejs_26"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -5563,8 +5563,8 @@
       "minimum_disk_mb": 2048,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [

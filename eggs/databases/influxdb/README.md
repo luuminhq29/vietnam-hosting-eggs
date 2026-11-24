@@ -29,10 +29,10 @@ InfluxDB 2.7 time-series database running unprivileged with BoltDB/TSM storage u
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| InfluxDB 2.7 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:influxdb_2.7` |
+| InfluxDB 2.7 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:influxdb_2.7` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/influxdb/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/influxdb/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

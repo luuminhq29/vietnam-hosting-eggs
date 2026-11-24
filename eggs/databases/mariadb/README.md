@@ -29,10 +29,10 @@ Unprivileged MariaDB 11.4 LTS container with idempotent initialization, least-pr
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| MariaDB 11.4 LTS (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:mariadb_11.4` |
+| MariaDB 11.4 LTS (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:mariadb_11.4` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/mariadb/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/mariadb/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

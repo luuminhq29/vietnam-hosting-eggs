@@ -201,7 +201,7 @@ def build_readme_vi(spec: EggSpec, registry_mode: str = "default") -> str:
         df_note = (
             f"> [!IMPORTANT]\n"
             f"> Dockerfile nguồn được cung cấp tại `{spec.dockerfile_path}`. "
-            f"Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production."
+            f"Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`)."
         )
     else:
         df_note = (
@@ -289,7 +289,7 @@ def render_egg(spec: EggSpec, registry_mode: str = "default", dry_run: bool = Fa
         "ptdl_v1_images": egg_v1_json["images"],
         "custom_ghcr_targets": spec.custom_docker_images,
         "ghcr_published": False,
-        "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use.",
+        "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml.",
     }
 
     if dry_run:

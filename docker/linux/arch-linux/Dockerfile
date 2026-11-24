@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Arch Linux (AMD64 NAT Container)
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM archlinux:base-20261101.0.273800
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

@@ -29,10 +29,10 @@ Secure-by-default Deno JavaScript & TypeScript runtime with configurable filesys
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Deno 2.2 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:deno_2` |
+| Deno 2.2 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:deno_2` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/deno/2/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/deno/2/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

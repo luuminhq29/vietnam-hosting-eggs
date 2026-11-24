@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Ollama CPU Runtime 0.6
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM ollama/ollama:0.6.2
 

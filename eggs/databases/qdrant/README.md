@@ -29,10 +29,10 @@ High-performance Qdrant 1.13 vector similarity search engine with API key authen
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Qdrant 1.13 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:qdrant_1.13` |
+| Qdrant 1.13 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:qdrant_1.13` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/qdrant/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/qdrant/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

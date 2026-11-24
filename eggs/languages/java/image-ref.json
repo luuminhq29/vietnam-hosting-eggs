@@ -21,12 +21,12 @@
     "ghcr.io/pterodactyl/yolks:java_8"
   ],
   "custom_ghcr_targets": {
-    "Java 25 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_25",
-    "Java 21 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_21",
-    "Java 17 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_17",
-    "Java 11 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_11",
-    "Java 8 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_8"
+    "Java 25 LTS (Temurin)": "ghcr.io/luuminhq29/yolks:java_25",
+    "Java 21 LTS (Temurin)": "ghcr.io/luuminhq29/yolks:java_21",
+    "Java 17 LTS (Temurin)": "ghcr.io/luuminhq29/yolks:java_17",
+    "Java 11 LTS (Temurin)": "ghcr.io/luuminhq29/yolks:java_11",
+    "Java 8 LTS (Temurin)": "ghcr.io/luuminhq29/yolks:java_8"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

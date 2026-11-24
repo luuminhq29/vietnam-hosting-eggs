@@ -7,14 +7,14 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/services/vaultwarden/Dockerfile",
   "docker_images": {
-    "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+    "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+    "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
   ],
   "custom_ghcr_targets": {
-    "Vaultwarden 1.33": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+    "Vaultwarden 1.33": "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

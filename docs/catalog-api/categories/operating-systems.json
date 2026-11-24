@@ -21,7 +21,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:almalinux_9"
+        "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:almalinux_9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -63,7 +63,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Alpine Official Yolk": "ghcr.io/pterodactyl/yolks:alpine",
-        "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+        "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:alpine_3.23"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -104,7 +104,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+        "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:amazonlinux_2023"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -144,7 +144,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Arch Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:arch_base"
+        "Arch Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:arch_base"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -186,7 +186,7 @@
       "resource_basis": "recommended_estimate",
       "docker_images": {
         "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-        "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_12"
+        "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:debian_12"
       },
       "image_source": "hybrid_official_and_ghcr",
       "supported_schemas": [
@@ -227,7 +227,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_13"
+        "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:debian_13"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -268,7 +268,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:fedora_44"
+        "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:fedora_44"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -309,7 +309,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+        "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:kali_minimal"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -350,7 +350,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+        "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:opensuse_15.6"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -391,7 +391,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:oraclelinux_9"
+        "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:oraclelinux_9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -432,7 +432,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rocky_9"
+        "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:rocky_9"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -473,7 +473,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 20.04 Legacy (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_20.04"
+        "Ubuntu 20.04 Legacy (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_20.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -514,7 +514,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 22.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_22.04"
+        "Ubuntu 22.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_22.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -555,7 +555,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_24.04"
+        "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_24.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [
@@ -596,7 +596,7 @@
       "minimum_disk_mb": 1024,
       "resource_basis": "recommended_estimate",
       "docker_images": {
-        "Ubuntu 26.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_26.04"
+        "Ubuntu 26.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ubuntu_26.04"
       },
       "image_source": "requires_ghcr_build",
       "supported_schemas": [

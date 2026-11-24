@@ -7,16 +7,16 @@
   "image_source": "requires_ghcr_build",
   "dockerfile_path": "docker/languages/php/8.4/Dockerfile",
   "docker_images": {
-    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3"
   },
   "ptdl_v1_images": [
-    "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "ghcr.io/vietnam-hosting/yolks:php_8.3"
+    "ghcr.io/luuminhq29/yolks:php_8.4",
+    "ghcr.io/luuminhq29/yolks:php_8.3"
   ],
   "custom_ghcr_targets": {
-    "PHP 8.4": "ghcr.io/vietnam-hosting/yolks:php_8.4"
+    "PHP 8.4": "ghcr.io/luuminhq29/yolks:php_8.4"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }

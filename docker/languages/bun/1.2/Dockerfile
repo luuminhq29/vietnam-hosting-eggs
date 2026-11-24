@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Bun 1.2 Runtime
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM oven/bun:1.2-debian
 

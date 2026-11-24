@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:oraclelinux_9"
+    "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:oraclelinux_9"
   },
   "custom_docker_images": {
-    "Oracle Linux": "ghcr.io/vietnam-hosting/yolks:oraclelinux_9"
+    "Oracle Linux": "ghcr.io/luuminhq29/yolks:oraclelinux_9"
   },
   "dockerfile_path": "docker/linux/oracle-linux/Dockerfile",
   "image_source": "requires_ghcr_build",

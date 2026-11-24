@@ -10,7 +10,7 @@
   "description": "Cross-platform PowerShell 7.5 runtime for automation scripts, API integrations, and scheduled DevOps jobs.",
   "features": null,
   "docker_images": {
-    "PowerShell 7.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:powershell_7.5"
+    "PowerShell 7.5 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:powershell_7.5"
   },
   "file_denylist": [],
   "startup": "exec pwsh -NoLogo -NoProfile -File \"${MAIN_FILE}\"",

@@ -10,9 +10,9 @@
   "description": "Production Laravel hosting on PHP 8.3–8.5 + Nginx + PHP-FPM with Composer, artisan cache optimization, and Git deploy.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "ghcr.io/vietnam-hosting/yolks:php_8.5",
-    "ghcr.io/vietnam-hosting/yolks:php_8.3"
+    "ghcr.io/luuminhq29/yolks:php_8.4",
+    "ghcr.io/luuminhq29/yolks:php_8.5",
+    "ghcr.io/luuminhq29/yolks:php_8.3"
   ],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; if [[ -f composer.json ]] && [[ \"${COMPOSER_INSTALL}\" == \"1\" ]]; then composer install --no-dev --optimize-autoloader --no-interaction; fi; if [[ -f artisan ]] && [[ \"${RUN_MIGRATIONS}\" == \"1\" ]]; then php artisan migrate --force; fi; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/public|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; php-fpm --fpm-config /home/container/php/php-fpm.conf --daemonize; echo \"VIETNAM HOSTING Laravel Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",
   "config": {

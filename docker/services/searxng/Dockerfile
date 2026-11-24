@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — SearXNG Privacy Metasearch
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM searxng/searxng:2025.3.20-8833294d8
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

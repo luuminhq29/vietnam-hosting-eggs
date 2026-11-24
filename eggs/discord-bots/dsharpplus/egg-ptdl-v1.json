@@ -10,7 +10,7 @@
   "description": "DSharpPlus C#/.NET Discord bot hosting with Release publish and secret-safe token injection.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+    "ghcr.io/luuminhq29/yolks:dotnet_10"
   ],
   "startup": "if [[ -n \"${PROJECT_FILE}\" ]] && [[ -f \"${PROJECT_FILE}\" ]]; then dotnet publish \"${PROJECT_FILE}\" -c Release -o ./out --nologo; fi; if [[ -f \"./out/${BOT_DLL}\" ]]; then exec dotnet \"./out/${BOT_DLL}\"; else exec dotnet \"./${BOT_DLL}\"; fi",
   "config": {

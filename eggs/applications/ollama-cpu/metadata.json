@@ -17,10 +17,10 @@
   "minimum_disk_mb": 16384,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+    "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:ollama_cpu_0.6"
   },
   "custom_docker_images": {
-    "Ollama CPU 0.6": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+    "Ollama CPU 0.6": "ghcr.io/luuminhq29/yolks:ollama_cpu_0.6"
   },
   "dockerfile_path": "docker/services/ollama-cpu/Dockerfile",
   "image_source": "requires_ghcr_build",

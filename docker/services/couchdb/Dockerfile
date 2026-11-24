@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Apache CouchDB 3.4
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM couchdb:3.4
 

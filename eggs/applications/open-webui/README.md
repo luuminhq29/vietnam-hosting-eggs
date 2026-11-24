@@ -29,10 +29,10 @@ Open WebUI chat interface connecting to Ollama CPU or OpenAI-compatible APIs (CP
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Open WebUI 0.5 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:open_webui_0.5` |
+| Open WebUI 0.5 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:open_webui_0.5` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/services/open-webui/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/services/open-webui/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

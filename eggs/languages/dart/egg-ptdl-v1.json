@@ -10,7 +10,7 @@
   "description": "Dart 3.7 SDK hosting with pubspec.yaml dependency resolution and optional native AOT compilation.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:dart_3.7"
+    "ghcr.io/luuminhq29/yolks:dart_3.7"
   ],
   "startup": "if [[ -f pubspec.yaml ]]; then dart pub get; fi; if [[ \"${AOT_COMPILE}\" == \"1\" ]]; then dart compile exe \"${MAIN_FILE}\" -o ./app.exe && exec ./app.exe; else exec dart run \"${MAIN_FILE}\"; fi",
   "config": {

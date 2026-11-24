@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Base Alpine 3.23
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 FROM alpine:3.23
 
 LABEL org.opencontainers.image.vendor="Vietnam Hosting" \

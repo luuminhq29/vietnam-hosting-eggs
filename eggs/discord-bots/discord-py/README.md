@@ -31,10 +31,10 @@ Dedicated Discord.py Bot hosting with isolated Python .venv, automatic dependenc
 | :--- | :--- |
 | Python 3.13 (Official Yolk) | `ghcr.io/pterodactyl/yolks:python_3.13` |
 | Python 3.12 (Official Yolk) | `ghcr.io/pterodactyl/yolks:python_3.12` |
-| Python 3.14 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/vietnam-hosting/yolks:python_3.14` |
+| Python 3.14 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/luuminhq29/yolks:python_3.14` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/python/3.13/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/python/3.13/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

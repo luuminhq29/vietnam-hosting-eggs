@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Rust Stable
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM rust:1.86-slim-bookworm
 

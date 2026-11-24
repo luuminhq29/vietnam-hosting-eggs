@@ -10,7 +10,7 @@
   "description": "Unprivileged Redis 7.4 in-memory store with mandatory strong authentication, RDB/AOF persistence, and maxmemory cap.",
   "features": null,
   "docker_images": {
-    "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:redis_7.4"
+    "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:redis_7.4"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/data; if [[ ! -f /home/container/data/.auth_secret ]]; then   PW=\"${REDIS_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 32)}\";   printf \"%s\" \"${PW}\" > /home/container/data/.auth_secret; chmod 600 /home/container/data/.auth_secret; fi; MAXMEM=$(( {{SERVER_MEMORY}} * 75 / 100 )); (( MAXMEM < 64 )) && MAXMEM=64; exec redis-server --dir /home/container/data --port {{SERVER_PORT}} --bind \"${BIND_ADDRESS}\" --appendonly yes --maxmemory \"${MAXMEM}mb\" --maxmemory-policy \"${MAXMEMORY_POLICY}\" --requirepass \"$(cat /home/container/data/.auth_secret)\"",

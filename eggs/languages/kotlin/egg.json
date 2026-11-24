@@ -10,7 +10,7 @@
   "description": "Kotlin 2.1 JVM runtime with kotlinc, Gradle, and automatic JVM heap calculation.",
   "features": null,
   "docker_images": {
-    "Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kotlin_2.1"
+    "Kotlin 2.1 + JDK 21 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:kotlin_2.1"
   },
   "file_denylist": [],
   "startup": "MEM={{SERVER_MEMORY}}; HEAP=$(( MEM * 75 / 100 )); (( HEAP < 128 )) && HEAP=128; if [[ -f build.gradle.kts ]] && [[ -x ./gradlew ]]; then ./gradlew shadowJar --no-daemon || ./gradlew build -x test --no-daemon; elif [[ -f \"${SOURCE_FILE}\" ]] && [[ ! -f \"${APP_JAR}\" ]]; then kotlinc \"${SOURCE_FILE}\" -include-runtime -d \"${APP_JAR}\"; fi; exec java -Xms128M -Xmx\"${HEAP}M\" -jar \"${APP_JAR}\"",

@@ -29,10 +29,10 @@ High-performance Bun JavaScript & TypeScript runtime with built-in Bun package m
 
 | Nhãn hiển thị | Docker Image |
 | :--- | :--- |
-| Bun 1.2 (Vietnam Hosting GHCR) | `ghcr.io/vietnam-hosting/yolks:bun_1.2` |
+| Bun 1.2 (Vietnam Hosting GHCR) | `ghcr.io/luuminhq29/yolks:bun_1.2` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/bun/1.2/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/bun/1.2/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

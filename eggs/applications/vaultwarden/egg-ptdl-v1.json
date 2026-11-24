@@ -10,7 +10,7 @@
   "description": "Lightweight Rust Bitwarden-compatible Vaultwarden server (must be fronted by HTTPS reverse proxy for WebCrypto).",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+    "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
   ],
   "startup": "export ROCKET_ADDRESS=0.0.0.0 ROCKET_PORT={{SERVER_PORT}} DATA_FOLDER=/home/container/data SIGNUPS_ALLOWED=\"${SIGNUPS_ALLOWED}\"; exec /vaultwarden",
   "config": {

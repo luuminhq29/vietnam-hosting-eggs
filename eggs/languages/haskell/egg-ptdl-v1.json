@@ -10,7 +10,7 @@
   "description": "Haskell GHC 9.10 + Cabal runtime with bounded compile parallelism for compiled executables and services.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:haskell_9.10"
+    "ghcr.io/luuminhq29/yolks:haskell_9.10"
   ],
   "startup": "if ls *.cabal >/dev/null 2>&1; then cabal update && cabal build -j\"${BUILD_JOBS}\" && exec cabal run; else ghc -O2 \"${MAIN_FILE}\" -o ./app && exec ./app; fi",
   "config": {

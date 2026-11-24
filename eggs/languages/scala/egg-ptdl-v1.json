@@ -10,7 +10,7 @@
   "description": "Scala 3 & sbt runtime on Eclipse Temurin JDK 21 with memory-capped JVM execution.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:scala_3"
+    "ghcr.io/luuminhq29/yolks:scala_3"
   ],
   "startup": "MEM={{SERVER_MEMORY}}; HEAP=$(( MEM * 75 / 100 )); (( HEAP < 256 )) && HEAP=256; if [[ -f \"${APP_JAR}\" ]]; then exec java -Xmx\"${HEAP}M\" -jar \"${APP_JAR}\"; else exec sbt -J-Xmx\"${HEAP}M\" run; fi",
   "config": {

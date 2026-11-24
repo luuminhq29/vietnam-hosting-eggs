@@ -10,7 +10,7 @@
   "description": "Unprivileged PostgreSQL 17 server with scram-sha-256 auth, PG_VERSION upgrade guard, and clean SIGINT/SIGTERM fast shutdown.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+    "ghcr.io/luuminhq29/yolks:postgresql_17"
   ],
   "startup": "export PGDATA=/home/container/pgdata; mkdir -p /home/container/run /home/container/backups; if [[ -f \"${PGDATA}/PG_VERSION\" ]]; then   DATA_VER=\"$(cat \"${PGDATA}/PG_VERSION\")\"; BIN_VER=\"$(postgres -V | awk '{print $3}' | cut -d. -f1)\";   if [[ \"${DATA_VER}\" != \"${BIN_VER}\" ]]; then echo \"[VNH][ERROR] PG_VERSION mismatch (data=${DATA_VER}, bin=${BIN_VER}). Run pg_dump upgrade before changing major image.\" >&2; exit 1; fi; else   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf \"%s\" \"${PW}\" > /home/container/run/.pwfile; chmod 600 /home/container/run/.pwfile;   initdb -D \"${PGDATA}\" -U \"${DB_USER}\" --auth-local=scram-sha-256 --auth-host=scram-sha-256 --pwfile=/home/container/run/.pwfile --encoding=UTF8;   rm -f /home/container/run/.pwfile;   echo \"host all all 0.0.0.0/0 scram-sha-256\" >> \"${PGDATA}/pg_hba.conf\"; fi; exec postgres -D \"${PGDATA}\" -p {{SERVER_PORT}} -h \"${BIND_ADDRESS}\" -k /home/container/run",
   "config": {

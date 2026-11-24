@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — Scala 3 + sbt + JDK 21
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM sbtscala/scala-sbt:eclipse-temurin-21.0.5_11_1.10.7_3.6.3
 

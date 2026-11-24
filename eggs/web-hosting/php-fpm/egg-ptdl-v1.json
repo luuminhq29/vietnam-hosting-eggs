@@ -10,10 +10,10 @@
   "description": "Dedicated rootless PHP-FPM + Nginx web hosting stack supporting PHP 8.2–8.5 and Composer.",
   "features": null,
   "images": [
-    "ghcr.io/vietnam-hosting/yolks:php_8.5",
-    "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "ghcr.io/vietnam-hosting/yolks:php_8.3",
-    "ghcr.io/vietnam-hosting/yolks:php_8.2"
+    "ghcr.io/luuminhq29/yolks:php_8.5",
+    "ghcr.io/luuminhq29/yolks:php_8.4",
+    "ghcr.io/luuminhq29/yolks:php_8.3",
+    "ghcr.io/luuminhq29/yolks:php_8.2"
   ],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/${WEBROOT}|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; php-fpm --fpm-config /home/container/php/php-fpm.conf --daemonize; echo \"VIETNAM HOSTING PHP-FPM Pool Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",
   "config": {

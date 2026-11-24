@@ -17,12 +17,12 @@
   "minimum_disk_mb": 2048,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
-    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+    "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.5",
+    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3"
   },
   "custom_docker_images": {
-    "PHP 8.4": "ghcr.io/vietnam-hosting/yolks:php_8.4"
+    "PHP 8.4": "ghcr.io/luuminhq29/yolks:php_8.4"
   },
   "dockerfile_path": "docker/languages/php/8.4/Dockerfile",
   "image_source": "requires_ghcr_build",

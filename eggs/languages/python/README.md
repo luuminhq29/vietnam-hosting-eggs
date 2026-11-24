@@ -33,10 +33,10 @@ Production Python runtime (3.10–3.14) with Virtual Environment, pip, pipx, Poe
 | Python 3.12 (Official Yolk) | `ghcr.io/pterodactyl/yolks:python_3.12` |
 | Python 3.11 (Official Yolk) | `ghcr.io/pterodactyl/yolks:python_3.11` |
 | Python 3.10 Legacy (Official Yolk) | `ghcr.io/pterodactyl/yolks:python_3.10` |
-| Python 3.14 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/vietnam-hosting/yolks:python_3.14` |
+| Python 3.14 (Vietnam Hosting GHCR - Build Required) | `ghcr.io/luuminhq29/yolks:python_3.14` |
 
 > [!IMPORTANT]
-> Dockerfile nguồn được cung cấp tại `docker/languages/python/3.13/Dockerfile`. Các tag `ghcr.io/vietnam-hosting/yolks:*` là tên registry dự kiến — quản trị viên cần build & publish bằng `.github/workflows/build-images.yml` hoặc `vnh-egg build` trước khi sử dụng trên production.
+> Dockerfile nguồn được cung cấp tại `docker/languages/python/3.13/Dockerfile`. Image đích trên GHCR: `ghcr.io/luuminhq29/yolks:*` (build & publish qua `.github/workflows/build-images.yml` hoặc `vnh-egg build`).
 
 ## 4. Biến môi trường (Egg Variables)
 

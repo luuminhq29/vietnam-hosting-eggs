@@ -1,5 +1,5 @@
 # Vietnam Hosting Universal Docker Image — SQLite 3 CLI & File Workspace
-# Target Registry (publish required): ghcr.io/vietnam-hosting/yolks
+# Target Registry (publish required): ghcr.io/luuminhq29/yolks
 # Unprivileged runtime compatible with Pterodactyl Wings (/home/container)
 FROM debian:13-slim
 

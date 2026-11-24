@@ -10,10 +10,10 @@
   "description": "Production PHP 8.2–8.5 hosting with Composer, rootless Nginx + PHP-FPM, common extensions, Laravel, Symfony, and WordPress readiness.",
   "features": null,
   "docker_images": {
-    "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
-    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
-    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3",
-    "PHP 8.2 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.2"
+    "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.5",
+    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.4",
+    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.3",
+    "PHP 8.2 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:php_8.2"
   },
   "file_denylist": [],
   "startup": "mkdir -p /home/container/tmp /home/container/logs; if [[ -f composer.json ]] && [[ \"${COMPOSER_INSTALL}\" == \"1\" ]]; then composer install --no-dev --optimize-autoloader --no-interaction; fi; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/${WEBROOT}|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; php-fpm --fpm-config /home/container/php/php-fpm.conf --daemonize; echo \"VIETNAM HOSTING PHP-FPM + Nginx Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",

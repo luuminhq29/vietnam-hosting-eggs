@@ -11,8 +11,8 @@
   "features": null,
   "docker_images": {
     "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
-    "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25",
-    "Go 1.24 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.24"
+    "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:go_1.25",
+    "Go 1.24 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:go_1.24"
   },
   "file_denylist": [],
   "startup": "if [[ -f go.mod ]] && [[ \"${AUTO_BUILD}\" == \"1\" ]]; then   go mod download && go build -trimpath -ldflags=\"-s -w\" -o \"./${BIN_NAME}\" \"${BUILD_PKG}\"; fi; exec \"./${BIN_NAME}\"",

@@ -17,10 +17,10 @@
   "minimum_disk_mb": 512,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:apache_2.4"
+    "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:apache_2.4"
   },
   "custom_docker_images": {
-    "Apache HTTPD 2.4": "ghcr.io/vietnam-hosting/yolks:apache_2.4"
+    "Apache HTTPD 2.4": "ghcr.io/luuminhq29/yolks:apache_2.4"
   },
   "dockerfile_path": "docker/services/apache/Dockerfile",
   "image_source": "requires_ghcr_build",

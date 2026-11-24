@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+    "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
   },
   "custom_docker_images": {
-    "Vaultwarden 1.33": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+    "Vaultwarden 1.33": "ghcr.io/luuminhq29/yolks:vaultwarden_1.33"
   },
   "dockerfile_path": "docker/services/vaultwarden/Dockerfile",
   "image_source": "requires_ghcr_build",

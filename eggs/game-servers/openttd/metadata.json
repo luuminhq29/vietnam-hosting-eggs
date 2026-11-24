@@ -17,10 +17,10 @@
   "minimum_disk_mb": 1024,
   "resource_basis": "recommended_estimate",
   "docker_images": {
-    "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:openttd_14"
+    "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:openttd_14"
   },
   "custom_docker_images": {
-    "OpenTTD 14": "ghcr.io/vietnam-hosting/yolks:openttd_14"
+    "OpenTTD 14": "ghcr.io/luuminhq29/yolks:openttd_14"
   },
   "dockerfile_path": "docker/services/openttd/Dockerfile",
   "image_source": "requires_ghcr_build",

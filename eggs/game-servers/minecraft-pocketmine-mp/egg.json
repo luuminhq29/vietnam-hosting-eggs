@@ -10,7 +10,7 @@
   "description": "Open-source PHP-based Bedrock server software (PocketMine-MP) downloaded from official GitHub Releases.",
   "features": null,
   "docker_images": {
-    "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+    "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/luuminhq29/yolks:pocketmine_php8.3"
   },
   "file_denylist": [],
   "startup": "exec php /home/container/PocketMine-MP.phar --no-wizard --settings.enable-dev-builds=0",

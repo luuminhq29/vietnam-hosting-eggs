@@ -8,15 +8,15 @@
   "dockerfile_path": "docker/base/debian-13/Dockerfile",
   "docker_images": {
     "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
-    "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+    "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/luuminhq29/yolks:base_debian13"
   },
   "ptdl_v1_images": [
     "ghcr.io/pterodactyl/yolks:debian",
-    "ghcr.io/vietnam-hosting/yolks:base_debian13"
+    "ghcr.io/luuminhq29/yolks:base_debian13"
   ],
   "custom_ghcr_targets": {
-    "Base Debian 13": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+    "Base Debian 13": "ghcr.io/luuminhq29/yolks:base_debian13"
   },
   "ghcr_published": false,
-  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+  "note": "Custom ghcr.io/luuminhq29/yolks:* images are built and published via .github/workflows/build-images.yml."
 }
