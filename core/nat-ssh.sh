@@ -55,13 +55,32 @@ cleanup() {
 
 trap cleanup TERM INT HUP
 
+setup_nss_wrapper() {
+    local cur_uid cur_gid lib_nss
+    cur_uid="$(id -u)"
+    cur_gid="$(id -g)"
+    lib_nss="$(find /usr/lib /lib -name 'libnss_wrapper.so*' 2>/dev/null | head -n1 || true)"
+    if [[ -n "$lib_nss" ]]; then
+        mkdir -p "${HOME_DIR}/run"
+        grep -v '^container:' /etc/passwd > "${HOME_DIR}/run/passwd" 2>/dev/null || true
+        printf 'container:x:%s:%s:Vietnam Hosting Container:%s:/bin/bash\n' \
+            "$cur_uid" "$cur_gid" "$HOME_DIR" >> "${HOME_DIR}/run/passwd"
+        grep -v '^container:' /etc/group > "${HOME_DIR}/run/group" 2>/dev/null || true
+        printf 'container:x:%s:\n' "$cur_gid" >> "${HOME_DIR}/run/group"
+        export LD_PRELOAD="${lib_nss}${LD_PRELOAD:+:${LD_PRELOAD}}"
+        export NSS_WRAPPER_PASSWD="${HOME_DIR}/run/passwd"
+        export NSS_WRAPPER_GROUP="${HOME_DIR}/run/group"
+    fi
+}
+
 print_linux_info() {
-    local os_pretty kernel arch mem_mb cpus
+    local os_pretty kernel arch mem_mb cpus user_name
     os_pretty="$(vnh_detect_os)"
     kernel="$(uname -r)"
     arch="$(vnh_detect_arch)"
     mem_mb="$(vnh_detect_memory_mb)"
     cpus="$(vnh_detect_cpu_limit)"
+    user_name="$(whoami 2>/dev/null || printf 'container')"
 
     printf '==============================================================\n'
     printf 'VIETNAM HOSTING — NAT LINUX CONTAINER ENVIRONMENT\n'
@@ -73,7 +92,7 @@ print_linux_info() {
     printf 'CPU Quota:         %s vCPU(s)\n' "$cpus"
     printf 'Primary Port:      %s\n' "${SERVER_PORT:-N/A}"
     printf 'SSH Port:          %s\n' "${SSH_PORT:-Disabled}"
-    printf 'User Context:      %s (uid=%s, unprivileged container)\n' "$(id -un 2>/dev/null || printf 'container')" "$(id -u)"
+    printf 'User Context:      %s (uid=%s, unprivileged container)\n' "$user_name" "$(id -u)"
     printf 'Notice:            Container runtime (not KVM VPS). Use user-space\n'
     printf '                   package managers (pip/npm/cargo/brew/nix/mise)\n'
     printf '                   under %s. System-wide root/systemd requires KVM.\n' "$HOME_DIR"
@@ -272,6 +291,7 @@ run_interactive_console() {
     wait
 }
 
+setup_nss_wrapper
 print_linux_info
 start_unprivileged_ssh
 start_userspace_scheduler

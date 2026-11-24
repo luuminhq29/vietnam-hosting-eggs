@@ -14,7 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        ca-certificates curl wget git tini procps iproute2 dnsutils unzip zip tar nano vim dropbear-bin htop jq openssh-client rsync screen tmux \
+        ca-certificates curl wget git tini procps iproute2 dnsutils unzip zip tar nano vim dropbear-bin htop jq libnss-wrapper openssh-client rsync screen tmux \
     && rm -rf /var/lib/apt/lists/*
 
 RUN (id -u container >/dev/null 2>&1 || useradd -m -d /home/container -s /bin/bash container) \
