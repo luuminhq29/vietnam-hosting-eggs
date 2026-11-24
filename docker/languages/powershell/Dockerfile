@@ -25,7 +25,7 @@ COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh 
 RUN chmod 755 /opt/vnh/*.sh
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \
-    POWERSHELL_TELEMETRY_OPTOUT=1
+    POWERSHELL_TELEMETRY_OPTOUT="1"
 
 USER container
 WORKDIR /home/container

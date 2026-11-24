@@ -315,6 +315,11 @@ def validate_dockerfile(df_path: Path) -> list[ValidationIssue]:
         issues.append(ValidationIssue("ERROR", rel, "DOCKERFILE_MISSING_ENTRYPOINT", "Runtime Dockerfile must declare ENTRYPOINT"))
     if FORBIDDEN_EVAL_RE.search(content):
         issues.append(ValidationIssue("ERROR", rel, "DOCKERFILE_EVAL", "Dockerfile contains forbidden eval"))
+    for line in content.splitlines():
+        stripped = line.strip()
+        if "=" in stripped and not stripped.startswith("#") and stripped.startswith(("ENV ", "VNH_OS_LABEL=")):
+            if "VNH_OS_LABEL=" in stripped and 'VNH_OS_LABEL="' not in stripped:
+                issues.append(ValidationIssue("ERROR", rel, "DOCKERFILE_UNQUOTED_ENV", "ENV value with spaces must be quoted"))
 
     return issues
 

@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Trivy filesystem & misconfiguration scan
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: "fs"
           scan-ref: "."
@@ -49,14 +49,14 @@ jobs:
           load: true
           tags: vnh-scan/base_debian13:ci
       - name: Trivy image vulnerability scan
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: "vnh-scan/base_debian13:ci"
           format: "table"
           exit-code: "0"
           severity: "CRITICAL,HIGH"
       - name: Generate SPDX SBOM
-        uses: anchore/sbom-action@v0
+        uses: anchore/sbom-action@v0.24.4
         with:
           image: "vnh-scan/base_debian13:ci"
           format: "spdx-json"

@@ -19,7 +19,7 @@ COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh 
 RUN chmod 755 /opt/vnh/*.sh
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \
-    VNH_OS_LABEL=Oracle Linux 9
+    VNH_OS_LABEL="Oracle Linux 9"
 
 USER container
 WORKDIR /home/container

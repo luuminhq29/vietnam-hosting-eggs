@@ -53,7 +53,7 @@ def _render_debian_dockerfile(
         ]
     )
     if env_vars:
-        env_pairs = " \\\n    ".join(f"{k}={v}" for k, v in env_vars.items())
+        env_pairs = " \\\n    ".join(f'{k}="{v}"' for k, v in env_vars.items())
         lines.append(f"ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \\\n    {env_pairs}")
     else:
         lines.append("ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh")
@@ -107,7 +107,7 @@ def _render_alpine_dockerfile(
         ]
     )
     if env_vars:
-        env_pairs = " \\\n    ".join(f"{k}={v}" for k, v in env_vars.items())
+        env_pairs = " \\\n    ".join(f'{k}="{v}"' for k, v in env_vars.items())
         lines.append(f"ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \\\n    {env_pairs}")
     else:
         lines.append("ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh")
@@ -178,7 +178,7 @@ def _render_rpm_dockerfile(
         ]
     )
     if env_vars:
-        env_pairs = " \\\n    ".join(f"{k}={v}" for k, v in env_vars.items())
+        env_pairs = " \\\n    ".join(f'{k}="{v}"' for k, v in env_vars.items())
         lines.append(f"ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \\\n    {env_pairs}")
     else:
         lines.append("ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh")

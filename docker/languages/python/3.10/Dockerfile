@@ -27,8 +27,8 @@ COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh 
 RUN chmod 755 /opt/vnh/*.sh
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \
-    PYTHONUNBUFFERED=1 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1
+    PYTHONUNBUFFERED="1" \
+    PIP_DISABLE_PIP_VERSION_CHECK="1"
 
 USER container
 WORKDIR /home/container

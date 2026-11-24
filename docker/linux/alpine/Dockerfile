@@ -18,7 +18,7 @@ COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh 
 RUN chmod 755 /opt/vnh/*.sh
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \
-    VNH_OS_LABEL=Alpine Linux 3.23
+    VNH_OS_LABEL="Alpine Linux 3.23"
 
 USER container
 WORKDIR /home/container

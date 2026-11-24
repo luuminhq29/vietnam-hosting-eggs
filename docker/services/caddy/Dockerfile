@@ -18,8 +18,8 @@ COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh 
 RUN chmod 755 /opt/vnh/*.sh
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh \
-    XDG_DATA_HOME=/home/container/.local/share \
-    XDG_CONFIG_HOME=/home/container/.config
+    XDG_DATA_HOME="/home/container/.local/share" \
+    XDG_CONFIG_HOME="/home/container/.config"
 
 USER container
 WORKDIR /home/container
