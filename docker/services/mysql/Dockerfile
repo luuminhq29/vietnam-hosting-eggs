@@ -15,7 +15,7 @@ RUN (id -u container >/dev/null 2>&1 || useradd -m -d /home/container -s /bin/ba
     && mkdir -p /opt/vnh /home/container \
     && chown -R container:container /home/container
 
-COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh core/vps-shell.sh /opt/vnh/
+COPY core/environment.sh core/startup.sh core/entrypoint.sh core/healthcheck.sh core/nat-ssh.sh core/vps-shell.sh core/proc-limits.sh /opt/vnh/
 RUN chmod 755 /opt/vnh/*.sh && echo '/opt/vnh/vps-shell.sh' >> /etc/shells
 
 ENV USER=container HOME=/home/container VNH_CORE_DIR=/opt/vnh

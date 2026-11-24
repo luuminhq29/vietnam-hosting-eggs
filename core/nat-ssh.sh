@@ -26,6 +26,10 @@ if [[ -r "${VNH_CORE_DIR}/environment.sh" ]]; then
     # shellcheck source=environment.sh
     source "${VNH_CORE_DIR}/environment.sh"
 fi
+if [[ -r "${VNH_CORE_DIR}/proc-limits.sh" ]]; then
+    # shellcheck source=proc-limits.sh
+    source "${VNH_CORE_DIR}/proc-limits.sh"
+fi
 
 HOME_DIR="${HOME:-/home/container}"
 ROOTFS_DIR="${HOME_DIR}/rootfs"
@@ -141,9 +145,27 @@ EOF
             chmod 755 "${ROOTFS_DIR}/usr/local/bin/sudo"
         fi
 
+        # Provide container-quota-accurate nproc wrapper reading virtualized /proc/cpuinfo
+        mkdir -p "${ROOTFS_DIR}/usr/local/bin"
+        cat > "${ROOTFS_DIR}/usr/local/bin/nproc" <<'EOF'
+#!/bin/sh
+grep -c '^processor[[:space:]]*:' /proc/cpuinfo 2>/dev/null || echo 1
+EOF
+        chmod 755 "${ROOTFS_DIR}/usr/local/bin/nproc"
+
         cp -f /etc/resolv.conf "${ROOTFS_DIR}/etc/resolv.conf" 2>/dev/null || true
         date -u +%Y-%m-%dT%H:%M:%SZ > "${ROOTFS_DIR}/.vnh_rootfs_ready"
         vnh_log_info "Persistent writable rootfs ready! Full 'apt update && apt install' is now available."
+    fi
+
+    # Ensure existing rootfs also receives quota-accurate nproc wrapper on image upgrade
+    if [[ -d "${ROOTFS_DIR}/usr" ]] && [[ ! -x "${ROOTFS_DIR}/usr/local/bin/nproc" ]]; then
+        mkdir -p "${ROOTFS_DIR}/usr/local/bin"
+        cat > "${ROOTFS_DIR}/usr/local/bin/nproc" <<'EOF'
+#!/bin/sh
+grep -c '^processor[[:space:]]*:' /proc/cpuinfo 2>/dev/null || echo 1
+EOF
+        chmod 755 "${ROOTFS_DIR}/usr/local/bin/nproc"
     fi
 }
 
@@ -267,6 +289,9 @@ start_readme_password_watcher() {
         fi
         while true; do
             sleep 2
+            if declare -F vnh_refresh_proc_dynamic >/dev/null 2>&1; then
+                vnh_refresh_proc_dynamic
+            fi
             if [[ -r "${README_CRED_FILE}" ]]; then
                 local cur_hash
                 cur_hash="$(sha256sum "${README_CRED_FILE}" 2>/dev/null | awk '{print $1}' || true)"
@@ -500,6 +525,9 @@ run_interactive_console() {
     wait
 }
 
+if declare -F vnh_init_proc_limits >/dev/null 2>&1; then
+    vnh_init_proc_limits
+fi
 ensure_proot_rootfs
 ensure_readme_credentials
 sync_nss_passwd_from_readme

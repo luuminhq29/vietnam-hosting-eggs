@@ -22,6 +22,13 @@ if [[ "${ENABLE_PROOT:-1}" == "1" ]] && command -v proot >/dev/null 2>&1 && [[ -
     mkdir -p "${HOME_DIR}/tmp"
     cp -f /etc/resolv.conf "${ROOTFS_DIR}/etc/resolv.conf" 2>/dev/null || true
 
+    # Refresh live cgroup-scoped /proc metrics before spawning interactive shell
+    if [[ -r /opt/vnh/proc-limits.sh ]]; then
+        # shellcheck source=proc-limits.sh
+        source /opt/vnh/proc-limits.sh
+        vnh_refresh_proc_dynamic 2>/dev/null || true
+    fi
+
     # Preserve container /etc/hosts entries if missing
     if [[ ! -s "${ROOTFS_DIR}/etc/hosts" ]]; then
         printf '127.0.0.1 localhost vietnam-hosting\n::1 localhost ip6-localhost ip6-loopback\n' > "${ROOTFS_DIR}/etc/hosts" 2>/dev/null || true
@@ -35,6 +42,14 @@ if [[ "${ENABLE_PROOT:-1}" == "1" ]] && command -v proot >/dev/null 2>&1 && [[ -
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
     BIND_ARGS=(-b /dev -b /proc -b /sys)
+    PROC_DIR="${HOME_DIR}/run/proc"
+    [[ -r "${PROC_DIR}/meminfo" ]] && BIND_ARGS+=(-b "${PROC_DIR}/meminfo:/proc/meminfo")
+    [[ -r "${PROC_DIR}/cpuinfo" ]] && BIND_ARGS+=(-b "${PROC_DIR}/cpuinfo:/proc/cpuinfo")
+    [[ -r "${PROC_DIR}/stat" ]] && BIND_ARGS+=(-b "${PROC_DIR}/stat:/proc/stat")
+    [[ -r "${PROC_DIR}/uptime" ]] && BIND_ARGS+=(-b "${PROC_DIR}/uptime:/proc/uptime")
+    [[ -r "${PROC_DIR}/cpu_online" && -r /sys/devices/system/cpu/online ]] && BIND_ARGS+=(-b "${PROC_DIR}/cpu_online:/sys/devices/system/cpu/online")
+    [[ -r "${PROC_DIR}/product_name" && -r /sys/devices/virtual/dmi/id/product_name ]] && BIND_ARGS+=(-b "${PROC_DIR}/product_name:/sys/devices/virtual/dmi/id/product_name")
+    [[ -r "${PROC_DIR}/product_version" && -r /sys/devices/virtual/dmi/id/product_version ]] && BIND_ARGS+=(-b "${PROC_DIR}/product_version:/sys/devices/virtual/dmi/id/product_version")
     [[ -f "${HOME_DIR}/readme.md" ]] && BIND_ARGS+=(-b "${HOME_DIR}/readme.md:/root/readme.md")
     [[ -f "${HOME_DIR}/startup.sh" ]] && BIND_ARGS+=(-b "${HOME_DIR}/startup.sh:/root/startup.sh")
     [[ -f "${HOME_DIR}/crontab" ]] && BIND_ARGS+=(-b "${HOME_DIR}/crontab:/root/crontab")
