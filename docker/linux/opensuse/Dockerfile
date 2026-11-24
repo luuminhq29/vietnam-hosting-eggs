@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.vendor="Vietnam Hosting" \
       org.opencontainers.image.licenses="MIT"
 
 RUN zypper --non-interactive refresh \
-    && zypper --non-interactive install --no-recommends bash ca-certificates curl wget git procps iproute2 bind-utils unzip zip tar nano vim shadow jq openssh rsync tmux \
+    && zypper --non-interactive install --no-recommends bash ca-certificates curl wget git procps iproute2 bind-utils unzip zip tar nano vim shadow jq openssh openssl rsync tmux \
     && zypper clean --all
 
 RUN (id -u container >/dev/null 2>&1 || useradd -m -d /home/container -s /bin/bash container) \

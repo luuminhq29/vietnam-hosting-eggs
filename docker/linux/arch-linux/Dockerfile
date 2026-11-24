@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.vendor="Vietnam Hosting" \
       org.opencontainers.image.licenses="MIT"
 
 RUN pacman -Syu --noconfirm \
-    && pacman -S --noconfirm --needed bash ca-certificates curl wget git procps-ng iproute2 bind unzip zip tar nano vim shadow dropbear jq openssh rsync tmux \
+    && pacman -S --noconfirm --needed bash ca-certificates curl wget git procps-ng iproute2 bind unzip zip tar nano vim shadow dropbear jq openssh openssl rsync tmux \
     && pacman -Scc --noconfirm
 
 RUN (id -u container >/dev/null 2>&1 || useradd -m -d /home/container -s /bin/bash container) \

@@ -94,6 +94,10 @@ class TestVietnamHostingUniversalEggs(unittest.TestCase):
             self.assertFalse(priv["requires_privileged"])
             self.assertFalse(priv["requires_docker_socket"])
             self.assertFalse(priv["requires_kernel_features"])
+            inst = (mf.parent / "install.sh").read_text(encoding="utf-8")
+            self.assertIn("SSH_USER: ubuntu", inst)
+            self.assertIn("PASSWORD: vietnam999", inst)
+            self.assertIn("/mnt/server/readme.md", inst)
 
     def test_catalog_and_compatibility_sync(self) -> None:
         catalog = json.loads((REPO_ROOT / "catalog.json").read_text(encoding="utf-8"))

@@ -9,12 +9,30 @@ LINUX_NAT_SECURITY_VI = (
     "- **Không có quyền root thực sự trên host:** Không chạy `--privileged`, không cấp `CAP_SYS_ADMIN`, không mount Docker Socket, không dùng `host` network, không tắt AppArmor/Seccomp và không sử dụng `systemd`.\n"
     "- **Cài đặt phần mềm:** Các gói hệ thống đã được tích hợp khi build Docker Image. Trong container, người dùng cài công cụ trong thư mục `/home/container` qua user-space package managers (`pip --user`, `uv`, `npm`, `cargo`, `mise`, `nix`, static binaries). Không giả mạo quyền `apt install`/`dnf install` root.\n"
     "- **Nhu cầu toàn quyền root / systemd / kernel riêng:** Khách hàng cần sử dụng dịch vụ **KVM VPS riêng biệt** của Vietnam Hosting thay vì vượt giới hạn bảo mật Wings.\n"
-    "- **NAT SSH an toàn:** Khóa SSH host key được sinh riêng và lưu lâu dài tại `/home/container/.ssh/host_keys`. Tắt hoàn toàn root SSH và tắt mật khẩu SSH mặc định — chỉ hỗ trợ SSH Public Key Authentication trên cổng allocation được cấp."
+    "- **Đăng nhập NAT SSH qua `readme.md`:** Tài khoản mặc định là `ubuntu` (`ssh -p <PORT> ubuntu@<NODE_IP>`) với mật khẩu mặc định `vietnam999` được lưu tại `/home/container/readme.md`. Khi người dùng chỉnh sửa dòng `PASSWORD:` trong `/home/container/readme.md`, mật khẩu SSH NAT tự động đồng bộ ngay lập tức (không cần restart server). Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc bật SSH Public Key (`~/.ssh/authorized_keys`) và đặt `ENABLE_SSH_PASSWORD=0`. Đăng nhập `root` qua SSH luôn bị vô hiệu hóa."
 )
 
 LINUX_NAT_INSTALL_BODY = r'''
 mkdir -p /mnt/server/.ssh/host_keys /mnt/server/.local/bin /mnt/server/scripts /mnt/server/run
 chmod 700 /mnt/server/.ssh /mnt/server/.ssh/host_keys
+
+if [[ ! -f /mnt/server/readme.md ]]; then
+    cat > /mnt/server/readme.md <<'EOF'
+# Vietnam Hosting — NAT Linux Container SSH Access
+
+Thông tin đăng nhập SSH NAT (kết nối: `ssh -p <PORT> ubuntu@<NODE_IP>`):
+
+SSH_USER: ubuntu
+PASSWORD: vietnam999
+
+> Hướng dẫn đổi mật khẩu NAT SSH:
+> - Sửa trực tiếp giá trị sau `PASSWORD:` ở trên rồi lưu file `readme.md`.
+> - Hệ thống tự động đồng bộ mật khẩu SSH NAT mới trong vòng 2 giây (không cần restart server).
+> - Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc thêm SSH Public Key vào `~/.ssh/authorized_keys`.
+> - Đăng nhập `root` qua SSH luôn bị chặn vì lý do bảo mật container.
+EOF
+    chmod 600 /mnt/server/readme.md
+fi
 
 if [[ ! -f /mnt/server/startup.sh ]]; then
     cat > /mnt/server/startup.sh <<'EOF'
@@ -47,8 +65,15 @@ fi
 LINUX_NAT_VARS = [
     VariableSpec(
         name="Enable Unprivileged SSH",
-        description="Set to 1 to start user-space Dropbear/OpenSSH daemon on SSH_PORT (public-key only, root & password disabled).",
+        description="Set to 1 to start user-space Dropbear/OpenSSH daemon on SSH_PORT (root login always disabled).",
         env_variable="ENABLE_SSH",
+        default_value="1",
+        rules="required|boolean",
+    ),
+    VariableSpec(
+        name="Enable readme.md Password SSH",
+        description="Set to 1 to allow NAT SSH password login synced live from /home/container/readme.md (default ubuntu / vietnam999). Set 0 for pubkey-only.",
+        env_variable="ENABLE_SSH_PASSWORD",
         default_value="1",
         rules="required|boolean",
     ),

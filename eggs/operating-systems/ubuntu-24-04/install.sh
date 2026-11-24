@@ -22,6 +22,24 @@ fi
 mkdir -p /mnt/server/.ssh/host_keys /mnt/server/.local/bin /mnt/server/scripts /mnt/server/run
 chmod 700 /mnt/server/.ssh /mnt/server/.ssh/host_keys
 
+if [[ ! -f /mnt/server/readme.md ]]; then
+    cat > /mnt/server/readme.md <<'EOF'
+# Vietnam Hosting — NAT Linux Container SSH Access
+
+Thông tin đăng nhập SSH NAT (kết nối: `ssh -p <PORT> ubuntu@<NODE_IP>`):
+
+SSH_USER: ubuntu
+PASSWORD: vietnam999
+
+> Hướng dẫn đổi mật khẩu NAT SSH:
+> - Sửa trực tiếp giá trị sau `PASSWORD:` ở trên rồi lưu file `readme.md`.
+> - Hệ thống tự động đồng bộ mật khẩu SSH NAT mới trong vòng 2 giây (không cần restart server).
+> - Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc thêm SSH Public Key vào `~/.ssh/authorized_keys`.
+> - Đăng nhập `root` qua SSH luôn bị chặn vì lý do bảo mật container.
+EOF
+    chmod 600 /mnt/server/readme.md
+fi
+
 if [[ ! -f /mnt/server/startup.sh ]]; then
     cat > /mnt/server/startup.sh <<'EOF'
 #!/usr/bin/env bash

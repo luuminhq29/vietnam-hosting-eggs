@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.vendor="Vietnam Hosting" \
       org.opencontainers.image.licenses="MIT"
 
 RUN apk add --no-cache \
-        bash ca-certificates curl wget git tini procps iproute2 bind-tools unzip zip tar nano vim tzdata dropbear htop jq openssh-client rsync tmux
+        bash ca-certificates curl wget git tini procps iproute2 bind-tools unzip zip tar nano vim tzdata dropbear htop jq openssh-client openssl rsync tmux
 
 RUN (id -u container >/dev/null 2>&1 || adduser -D -h /home/container -s /bin/bash container) \
     && mkdir -p /opt/vnh /home/container \

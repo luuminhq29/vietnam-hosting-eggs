@@ -8,13 +8,15 @@
 #   Internet -> Public Node IP -> Pterodactyl Allocation -> Container -> Service
 #
 # Security & Container Boundaries:
-#   - Unprivileged execution ONLY (container user; never root on host)
+#   - Unprivileged execution ONLY (non-root container UID; never root on host)
 #   - No privileged mode, no CAP_SYS_ADMIN, no Docker socket, no host network
 #   - No systemd required; uses lightweight signal-aware process supervision
 #   - Never modifies host iptables/nftables/routing
 #   - Generates persistent per-container SSH host keys under /home/container/.ssh
-#   - Disables root SSH login and disables password SSH authentication by default
-#   - Enforces SSH Public Key Authentication when SSH daemon is enabled
+#   - Disables root SSH login permanently (-w -g / PermitRootLogin no)
+#   - Supports BOTH SSH Public Key Auth AND live password sync from
+#     /home/container/readme.md (default user: ubuntu, default pass: vietnam999)
+#     via unprivileged libnss-wrapper without requiring /etc/shadow or root.
 # ==============================================================================
 
 set -euo pipefail
@@ -28,11 +30,14 @@ fi
 HOME_DIR="${HOME:-/home/container}"
 SSH_DIR="${HOME_DIR}/.ssh"
 HOSTKEY_DIR="${SSH_DIR}/host_keys"
+README_CRED_FILE="${HOME_DIR}/readme.md"
 SSH_PORT="${SSH_PORT:-${SERVER_PORT:-}}"
 ENABLE_SSH="${ENABLE_SSH:-1}"
+ENABLE_SSH_PASSWORD="${ENABLE_SSH_PASSWORD:-1}"
 ENABLE_CRON="${ENABLE_CRON:-1}"
 SSH_AUTHORIZED_KEYS="${SSH_AUTHORIZED_KEYS:-}"
 STARTUP_SCRIPT="${STARTUP_SCRIPT:-startup.sh}"
+CURRENT_SSH_USER="ubuntu"
 
 declare -a CHILD_PIDS=()
 
@@ -55,22 +60,131 @@ cleanup() {
 
 trap cleanup TERM INT HUP
 
-setup_nss_wrapper() {
-    local cur_uid cur_gid lib_nss
+ensure_readme_credentials() {
+    if [[ ! -f "${README_CRED_FILE}" ]]; then
+        cat > "${README_CRED_FILE}" <<'EOF'
+# Vietnam Hosting — NAT Linux Container SSH Access
+
+Thông tin đăng nhập SSH NAT (kết nối: `ssh -p <PORT> ubuntu@<NODE_IP>`):
+
+SSH_USER: ubuntu
+PASSWORD: vietnam999
+
+> Hướng dẫn đổi mật khẩu NAT SSH:
+> - Sửa trực tiếp giá trị sau `PASSWORD:` ở trên rồi lưu file `readme.md`.
+> - Hệ thống tự động đồng bộ mật khẩu SSH NAT mới trong vòng 2 giây (không cần restart server).
+> - Khuyến nghị đổi ngay mật khẩu mặc định `vietnam999` hoặc thêm SSH Public Key vào `~/.ssh/authorized_keys`.
+> - Đăng nhập `root` qua SSH luôn bị chặn vì lý do bảo mật container.
+EOF
+        chmod 600 "${README_CRED_FILE}" 2>/dev/null || true
+        vnh_log_info "Initialized default NAT SSH credentials file at ${README_CRED_FILE}."
+    fi
+}
+
+# Parse SSH_USER and PASSWORD from /home/container/readme.md without logging secrets.
+parse_readme_field() {
+    local field_regex="$1"
+    local default_val="$2"
+    local val=""
+    if [[ -r "${README_CRED_FILE}" ]]; then
+        val="$(grep -iE "^[[:space:]]*(${field_regex})[[:space:]]*[:=]" "${README_CRED_FILE}" 2>/dev/null | head -n1 | sed -E 's/^[^:=]+[:=][[:space:]]*//; s/\r$//; s/[[:space:]]+$//' || true)"
+    fi
+    if [[ -z "$val" ]]; then
+        printf '%s' "$default_val"
+    else
+        printf '%s' "$val"
+    fi
+}
+
+hash_ssh_password() {
+    local raw_pass="$1"
+    if command -v openssl >/dev/null 2>&1; then
+        openssl passwd -6 -stdin <<< "$raw_pass" 2>/dev/null && return 0
+    fi
+    if command -v python3 >/dev/null 2>&1; then
+        VNH_RAW_PW="$raw_pass" python3 -c 'import crypt, os; print(crypt.crypt(os.environ["VNH_RAW_PW"], crypt.mksalt(crypt.METHOD_SHA512)))' 2>/dev/null && return 0
+    fi
+    printf '*'
+}
+
+# Build unprivileged nss_wrapper passwd/group files synced from readme.md.
+sync_nss_passwd_from_readme() {
+    local cur_uid cur_gid lib_nss ssh_user ssh_pass pass_hash tmp_pw tmp_gr
     cur_uid="$(id -u)"
     cur_gid="$(id -g)"
+
+    ssh_user="$(parse_readme_field 'SSH_USER|USER|USERNAME' 'ubuntu')"
+    # Strip trailing '@' if user wrote 'ubuntu@'
+    ssh_user="${ssh_user%@}"
+    # Validate safe POSIX username and strictly forbid root
+    if [[ ! "$ssh_user" =~ ^[a-z_][a-z0-9_-]{0,31}$ ]] || [[ "$ssh_user" == "root" ]]; then
+        vnh_log_warn "Invalid or forbidden SSH_USER in readme.md; falling back to 'ubuntu'."
+        ssh_user="ubuntu"
+    fi
+    CURRENT_SSH_USER="$ssh_user"
+
+    if [[ "${ENABLE_SSH_PASSWORD}" == "1" ]] || [[ "${ENABLE_SSH_PASSWORD}" == "true" ]]; then
+        ssh_pass="$(parse_readme_field 'PASSWORD|PASS|SSH_PASSWORD|SSH_PASS' 'vietnam999')"
+        pass_hash="$(hash_ssh_password "$ssh_pass")"
+    else
+        pass_hash="*"
+    fi
+
+    mkdir -p "${HOME_DIR}/run"
+    tmp_pw="${HOME_DIR}/run/passwd.tmp.$$"
+    tmp_gr="${HOME_DIR}/run/group.tmp.$$"
+
+    # Put the active NAT SSH user first so getpwuid() and getpwnam() resolve cleanly
+    printf '%s:%s:%s:%s:Vietnam Hosting NAT User:%s:/bin/bash\n' \
+        "$ssh_user" "$pass_hash" "$cur_uid" "$cur_gid" "$HOME_DIR" > "$tmp_pw"
+    if [[ "$ssh_user" != "container" ]]; then
+        printf 'container:*:%s:%s:Vietnam Hosting Container:%s:/bin/bash\n' \
+            "$cur_uid" "$cur_gid" "$HOME_DIR" >> "$tmp_pw"
+    fi
+    grep -vE "^(${ssh_user}|container):" /etc/passwd >> "$tmp_pw" 2>/dev/null || true
+    chmod 600 "$tmp_pw"
+    mv -f "$tmp_pw" "${HOME_DIR}/run/passwd"
+
+    printf '%s:x:%s:\n' "$ssh_user" "$cur_gid" > "$tmp_gr"
+    if [[ "$ssh_user" != "container" ]]; then
+        printf 'container:x:%s:\n' "$cur_gid" >> "$tmp_gr"
+    fi
+    grep -vE "^(${ssh_user}|container):" /etc/group >> "$tmp_gr" 2>/dev/null || true
+    chmod 644 "$tmp_gr"
+    mv -f "$tmp_gr" "${HOME_DIR}/run/group"
+
     lib_nss="$(find /usr/lib /lib -name 'libnss_wrapper.so*' 2>/dev/null | head -n1 || true)"
     if [[ -n "$lib_nss" ]]; then
-        mkdir -p "${HOME_DIR}/run"
-        grep -v '^container:' /etc/passwd > "${HOME_DIR}/run/passwd" 2>/dev/null || true
-        printf 'container:x:%s:%s:Vietnam Hosting Container:%s:/bin/bash\n' \
-            "$cur_uid" "$cur_gid" "$HOME_DIR" >> "${HOME_DIR}/run/passwd"
-        grep -v '^container:' /etc/group > "${HOME_DIR}/run/group" 2>/dev/null || true
-        printf 'container:x:%s:\n' "$cur_gid" >> "${HOME_DIR}/run/group"
-        export LD_PRELOAD="${lib_nss}${LD_PRELOAD:+:${LD_PRELOAD}}"
+        export LD_PRELOAD="${lib_nss}"
         export NSS_WRAPPER_PASSWD="${HOME_DIR}/run/passwd"
         export NSS_WRAPPER_GROUP="${HOME_DIR}/run/group"
     fi
+}
+
+# Watch /home/container/readme.md for edits and live-update NAT SSH password hash immediately.
+start_readme_password_watcher() {
+    if [[ "$ENABLE_SSH" != "1" ]] && [[ "$ENABLE_SSH" != "true" ]]; then
+        return 0
+    fi
+    (
+        local last_hash=""
+        if [[ -r "${README_CRED_FILE}" ]]; then
+            last_hash="$(sha256sum "${README_CRED_FILE}" 2>/dev/null | awk '{print $1}' || true)"
+        fi
+        while true; do
+            sleep 2
+            if [[ -r "${README_CRED_FILE}" ]]; then
+                local cur_hash
+                cur_hash="$(sha256sum "${README_CRED_FILE}" 2>/dev/null | awk '{print $1}' || true)"
+                if [[ -n "$cur_hash" ]] && [[ "$cur_hash" != "$last_hash" ]]; then
+                    last_hash="$cur_hash"
+                    sync_nss_passwd_from_readme
+                    vnh_log_info "Detected change in readme.md — updated NAT SSH password for user '${CURRENT_SSH_USER}' (no restart required)."
+                fi
+            fi
+        done
+    ) &
+    CHILD_PIDS+=($!)
 }
 
 print_linux_info() {
@@ -80,7 +194,7 @@ print_linux_info() {
     arch="$(vnh_detect_arch)"
     mem_mb="$(vnh_detect_memory_mb)"
     cpus="$(vnh_detect_cpu_limit)"
-    user_name="$(whoami 2>/dev/null || printf 'container')"
+    user_name="$(whoami 2>/dev/null || printf '%s' "${CURRENT_SSH_USER}")"
 
     printf '==============================================================\n'
     printf 'VIETNAM HOSTING — NAT LINUX CONTAINER ENVIRONMENT\n'
@@ -92,6 +206,7 @@ print_linux_info() {
     printf 'CPU Quota:         %s vCPU(s)\n' "$cpus"
     printf 'Primary Port:      %s\n' "${SERVER_PORT:-N/A}"
     printf 'SSH Port:          %s\n' "${SSH_PORT:-Disabled}"
+    printf 'SSH Login User:    %s@<NODE_IP> (credentials managed in /home/container/readme.md)\n' "${CURRENT_SSH_USER}"
     printf 'User Context:      %s (uid=%s, unprivileged container)\n' "$user_name" "$(id -u)"
     printf 'Notice:            Container runtime (not KVM VPS). Use user-space\n'
     printf '                   package managers (pip/npm/cargo/brew/nix/mise)\n'
@@ -103,7 +218,6 @@ setup_ssh_keys() {
     mkdir -p "$SSH_DIR" "$HOSTKEY_DIR" "${HOME_DIR}/run"
     chmod 700 "$SSH_DIR" "$HOSTKEY_DIR"
 
-    # Provision authorized_keys from panel variable without wiping existing keys
     local auth_file="${SSH_DIR}/authorized_keys"
     touch "$auth_file"
     chmod 600 "$auth_file"
@@ -115,7 +229,6 @@ setup_ssh_keys() {
         fi
     fi
 
-    # Generate persistent container-scoped host keys if missing
     if command -v dropbearkey >/dev/null 2>&1; then
         if [[ ! -f "${HOSTKEY_DIR}/dropbear_ed25519_host_key" ]]; then
             dropbearkey -t ed25519 -f "${HOSTKEY_DIR}/dropbear_ed25519_host_key" >/dev/null 2>&1
@@ -148,16 +261,15 @@ start_unprivileged_ssh() {
 
     setup_ssh_keys
 
-    if [[ ! -s "${SSH_DIR}/authorized_keys" ]]; then
-        vnh_log_warn "No SSH public keys found in ${SSH_DIR}/authorized_keys. Password auth is disabled by policy."
-        vnh_log_warn "Add your public key via SSH_AUTHORIZED_KEYS or ~/.ssh/authorized_keys to authenticate over SSH."
-    fi
-
-    # Prefer Dropbear for unprivileged multi-tenant containers (no privilege separation / root setuid requirement)
     if command -v dropbear >/dev/null 2>&1; then
-        vnh_log_info "Starting unprivileged Dropbear SSH daemon on 0.0.0.0:${SSH_PORT} (pubkey-only, root login disabled)..."
-        # -F foreground, -E log to stderr, -s disable password logins, -g disable root password, -w disallow root logins
-        dropbear -F -E -s -g -w \
+        local db_flags=(-F -E -g -w)
+        if [[ "${ENABLE_SSH_PASSWORD}" != "1" ]] && [[ "${ENABLE_SSH_PASSWORD}" != "true" ]]; then
+            db_flags+=(-s)
+            vnh_log_info "Starting unprivileged Dropbear SSH daemon on 0.0.0.0:${SSH_PORT} (pubkey-only, root login disabled)..."
+        else
+            vnh_log_info "Starting unprivileged Dropbear SSH daemon on 0.0.0.0:${SSH_PORT} (user '${CURRENT_SSH_USER}', readme.md password + pubkey, root disabled)..."
+        fi
+        dropbear "${db_flags[@]}" \
             -p "0.0.0.0:${SSH_PORT}" \
             -r "${HOSTKEY_DIR}/dropbear_ed25519_host_key" \
             -P "${HOME_DIR}/run/dropbear.pid" &
@@ -165,11 +277,14 @@ start_unprivileged_ssh() {
         return 0
     fi
 
-    # Fallback: OpenSSH daemon running completely unprivileged (requires compatible sshd binary)
     if command -v sshd >/dev/null 2>&1 && [[ -f "${HOSTKEY_DIR}/ssh_host_ed25519_key" ]]; then
-        local sshd_bin
+        local sshd_bin sshd_cfg pw_auth
         sshd_bin="$(command -v sshd)"
-        local sshd_cfg="${SSH_DIR}/sshd_config"
+        sshd_cfg="${SSH_DIR}/sshd_config"
+        pw_auth="no"
+        if [[ "${ENABLE_SSH_PASSWORD}" == "1" ]] || [[ "${ENABLE_SSH_PASSWORD}" == "true" ]]; then
+            pw_auth="yes"
+        fi
         cat > "$sshd_cfg" <<EOF
 Port ${SSH_PORT}
 ListenAddress 0.0.0.0
@@ -177,7 +292,7 @@ HostKey ${HOSTKEY_DIR}/ssh_host_ed25519_key
 PidFile ${HOME_DIR}/run/sshd.pid
 AuthorizedKeysFile ${SSH_DIR}/authorized_keys
 PermitRootLogin no
-PasswordAuthentication no
+PasswordAuthentication ${pw_auth}
 KbdInteractiveAuthentication no
 ChallengeResponseAuthentication no
 PubkeyAuthentication yes
@@ -186,7 +301,7 @@ PrintMotd no
 Subsystem sftp internal-sftp
 StrictModes no
 EOF
-        vnh_log_info "Starting unprivileged OpenSSH daemon on 0.0.0.0:${SSH_PORT} (pubkey-only, root login disabled)..."
+        vnh_log_info "Starting unprivileged OpenSSH daemon on 0.0.0.0:${SSH_PORT} (root login disabled)..."
         "$sshd_bin" -D -e -f "$sshd_cfg" &
         CHILD_PIDS+=($!)
         return 0
@@ -196,7 +311,6 @@ EOF
     return 0
 }
 
-# Lightweight user-space scheduled task runner (compatible with non-root containers without crond/systemd).
 start_userspace_scheduler() {
     if [[ "$ENABLE_CRON" != "1" ]] && [[ "$ENABLE_CRON" != "true" ]]; then
         return 0
@@ -218,7 +332,6 @@ EOF
         return 0
     fi
 
-    # Built-in lightweight interval task dispatcher for ~/crontab
     (
         declare -A last_run=()
         while true; do
@@ -272,7 +385,6 @@ run_user_startup_script() {
     fi
 }
 
-# Interactive console loop for Pterodactyl Console stdin
 run_interactive_console() {
     vnh_log_info "Vietnam Hosting Linux Container Ready. Type commands in Pterodactyl Console or connect via SSH/SFTP."
     printf 'VIETNAM HOSTING CONTAINER READY\n'
@@ -287,13 +399,14 @@ run_interactive_console() {
                 ;;
         esac
     done
-    # Keep container alive if stdin closes while services are running
     wait
 }
 
-setup_nss_wrapper
+ensure_readme_credentials
+sync_nss_passwd_from_readme
 print_linux_info
 start_unprivileged_ssh
+start_readme_password_watcher
 start_userspace_scheduler
 run_user_startup_script
 run_interactive_console
