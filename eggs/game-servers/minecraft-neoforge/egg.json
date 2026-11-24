@@ -1,0 +1,60 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Minecraft NeoForge",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Modern Minecraft NeoForge modded server installed directly from official maven.neoforged.net.",
+  "features": [
+    "eula",
+    "java_version",
+    "pid_limit"
+  ],
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+    "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+    "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+  },
+  "file_denylist": [],
+  "startup": "MEM={{SERVER_MEMORY}}; HEAP=$(( MEM - ${JVM_OVERHEAD_MB:-512} )); (( HEAP < 512 )) && HEAP=512; echo \"-Xms512M -Xmx${HEAP}M -XX:+UseG1GC\" > user_jvm_args.txt; exec java @user_jvm_args.txt @unix_args.txt nogui",
+  "config": {
+    "files": "{\n    \"server.properties\": {\n        \"parser\": \"properties\",\n        \"find\": {\n            \"server-ip\": \"0.0.0.0\",\n            \"server-port\": \"{{server.build.default.port}}\",\n            \"query.port\": \"{{server.build.default.port}}\"\n        }\n    }\n}",
+    "startup": "{\"done\": \")! For help, type \"}",
+    "logs": "{}",
+    "stop": "stop"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Minecraft NeoForge (minecraft-neoforge)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Minecraft NeoForge. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Minecraft NeoForge.\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\napt-get update && apt-get install -y --no-install-recommends curl jq ca-certificates && rm -rf /var/lib/apt/lists/*\nNF_VER=\"${NEOFORGE_VERSION:-latest}\"\nif [[ \"${NF_VER}\" == \"latest\" ]]; then\n    NF_VER=\"$(curl -fsSL https://maven.neoforged.net/api/maven/versions/releases/net/neoforged/neoforge | jq -r '.versions[-1]')\"\nfi\nvnh_download \"https://maven.neoforged.net/releases/net/neoforged/neoforge/${NF_VER}/neoforge-${NF_VER}-installer.jar\" \"/mnt/server/neoforge-installer.jar\"\njava -jar /mnt/server/neoforge-installer.jar --installServer /mnt/server\nrm -f /mnt/server/neoforge-installer.jar\nUNIX_ARGS=\"$(find /mnt/server/libraries/net/neoforged/neoforge -name unix_args.txt 2>/dev/null | head -n1 || true)\"\nif [[ -n \"${UNIX_ARGS}\" ]]; then\n    ln -sf \"${UNIX_ARGS}\" /mnt/server/unix_args.txt\nfi\nmkdir -p /mnt/server/mods\n\n{\n    printf 'egg_id=%s\\n' \"minecraft-neoforge\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Minecraft NeoForge.\"\n",
+      "container": "eclipse-temurin:21-jdk-noble",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "NeoForge Version",
+      "description": "NeoForge artifact version or `latest`.",
+      "env_variable": "NEOFORGE_VERSION",
+      "default_value": "latest",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:64",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM Off-Heap Reserve (MiB)",
+      "description": "Off-heap RAM reserve.",
+      "env_variable": "JVM_OVERHEAD_MB",
+      "default_value": "512",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:128,4096",
+      "field_type": "text"
+    }
+  ]
+}

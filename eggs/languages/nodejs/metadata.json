@@ -1,0 +1,64 @@
+{
+  "id": "nodejs",
+  "name": "Vietnam Hosting — Node.js Hosting",
+  "description": "Production Node.js runtime (20/22/24/26) supporting NPM, Yarn, PNPM, JavaScript/TypeScript, Discord.js, Express, NestJS, Next.js, Nuxt.js, lockfiles, native addons, and build commands without nodemon.",
+  "category": "languages",
+  "icon": "nodejs",
+  "version": "1.0.0",
+  "supported_versions": [
+    "20 (Legacy)",
+    "22 LTS",
+    "24 LTS",
+    "26 Active LTS"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+    "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+    "Node.js 20 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_20",
+    "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+  },
+  "custom_docker_images": {
+    "Node.js 26 Active LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_26",
+    "Node.js 24 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_24",
+    "Node.js 22 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_22",
+    "Node.js 20 (Legacy)": "ghcr.io/vietnam-hosting/yolks:nodejs_20"
+  },
+  "dockerfile_path": "docker/languages/nodejs/24/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://nodejs.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

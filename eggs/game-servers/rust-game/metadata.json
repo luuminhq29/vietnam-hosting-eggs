@@ -1,0 +1,52 @@
+{
+  "id": "rust-game",
+  "name": "Vietnam Hosting — Rust Game Server",
+  "description": "Official Facepunch Rust Linux dedicated server via SteamCMD (AppID 258550, AMD64 only).",
+  "category": "game-servers",
+  "icon": "rust-game",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Latest SteamCMD (AppID 258550)"
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "minimum_ram_mb": 4096,
+  "recommended_ram_mb": 8192,
+  "minimum_disk_mb": 16384,
+  "resource_basis": "upstream_documented",
+  "docker_images": {
+    "Rust Game Image (Official Pterodactyl)": "ghcr.io/pterodactyl/games:rust"
+  },
+  "custom_docker_images": {},
+  "dockerfile_path": null,
+  "image_source": "upstream_official_yolk",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Facepunch Studios EULA",
+  "upstream_url": "https://wiki.facepunch.com/rust/",
+  "eula_required": false,
+  "steam_app_id": 258550,
+  "notes": "AMD64 only. Requires high RAM (8 GiB+ recommended for 3500+ maps)."
+}

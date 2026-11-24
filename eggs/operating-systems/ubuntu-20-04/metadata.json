@@ -1,0 +1,55 @@
+{
+  "id": "ubuntu-20-04",
+  "name": "Vietnam Hosting — Ubuntu 20.04 Legacy (NAT Linux Container)",
+  "description": "Unprivileged Ubuntu 20.04 Legacy NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode). Standard support ended May 2025 (ESM only). Migrate to Ubuntu 24.04 or 26.04 LTS for new workloads.",
+  "category": "operating-systems",
+  "icon": "ubuntu",
+  "version": "1.0.0",
+  "supported_versions": [
+    "20.04 LTS (ESM Legacy)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Ubuntu 20.04 Legacy (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_20.04"
+  },
+  "custom_docker_images": {
+    "Ubuntu 20.04 Legacy": "ghcr.io/vietnam-hosting/yolks:ubuntu_20.04"
+  },
+  "dockerfile_path": "docker/linux/ubuntu-20.04/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Legacy",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "GPL/Ubuntu-Main",
+  "upstream_url": "https://ubuntu.com",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": "Standard support ended May 2025 (ESM only). Migrate to Ubuntu 24.04 or 26.04 LTS for new workloads."
+}

@@ -1,0 +1,20 @@
+{
+  "egg_id": "perl",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/languages/perl/Dockerfile",
+  "docker_images": {
+    "Perl 5.40 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+  ],
+  "custom_ghcr_targets": {
+    "Perl 5.40": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

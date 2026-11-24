@@ -1,0 +1,1245 @@
+{
+  "category": "game-servers",
+  "count": 29,
+  "eggs": [
+    {
+      "id": "ark",
+      "name": "Vietnam Hosting — ARK: Survival Evolved",
+      "description": "Official ARK: Survival Evolved Linux dedicated server via SteamCMD (AppID 376030, AMD64 only).",
+      "category": "game-servers",
+      "icon": "ark",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 376030)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 6144,
+      "recommended_ram_mb": 10240,
+      "minimum_disk_mb": 24576,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/ark/egg.json",
+      "egg_download_v1": "eggs/game-servers/ark/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/ark/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "cs2",
+      "name": "Vietnam Hosting — Counter-Strike 2",
+      "description": "Official Valve Counter-Strike 2 Linux dedicated server via SteamCMD (AppID 730, AMD64 only, requires Steam GSLT).",
+      "category": "game-servers",
+      "icon": "cs2",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 730)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 40960,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/cs2/egg.json",
+      "egg_download_v1": "eggs/game-servers/cs2/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/cs2/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "dont-starve-together",
+      "name": "Vietnam Hosting — Don't Starve Together",
+      "description": "Official Klei Don't Starve Together dedicated server via SteamCMD (AppID 343050, AMD64 only, requires Klei cluster token).",
+      "category": "game-servers",
+      "icon": "dst",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 343050)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/dont-starve-together/egg.json",
+      "egg_download_v1": "eggs/game-servers/dont-starve-together/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/dont-starve-together/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "factorio",
+      "name": "Vietnam Hosting — Factorio Headless Server",
+      "description": "Official Wube Factorio Headless Linux x64 server downloaded from factorio.com (AMD64 only).",
+      "category": "game-servers",
+      "icon": "factorio",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.0 Stable (Official Headless)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Debian Official Yolk (AMD64)": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/factorio/egg.json",
+      "egg_download_v1": "eggs/game-servers/factorio/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/factorio/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "fivem",
+      "name": "Vietnam Hosting — FiveM (Cfx.re FXServer)",
+      "description": "Official Cfx.re FiveM Linux x86_64 FXServer runtime with txAdmin port option and Cfx.re license key (AMD64 only).",
+      "category": "game-servers",
+      "icon": "fivem",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Official Cfx.re Linux Artifacts"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 8192,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk (AMD64)": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/fivem/egg.json",
+      "egg_download_v1": "eggs/game-servers/fivem/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/fivem/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "mindustry",
+      "name": "Vietnam Hosting — Mindustry Server",
+      "description": "Open-source Java Mindustry dedicated server downloaded from official Anuken/Mindustry GitHub Releases (AMD64 & ARM64).",
+      "category": "game-servers",
+      "icon": "mindustry",
+      "version": "1.0.0",
+      "supported_versions": [
+        "v146+ (Java 17/21)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/mindustry/egg.json",
+      "egg_download_v1": "eggs/game-servers/mindustry/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/mindustry/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-bedrock",
+      "name": "Vietnam Hosting — Minecraft Bedrock Dedicated Server",
+      "description": "Official Mojang Minecraft Bedrock Dedicated Server for Linux x86_64 (AMD64 only — Mojang does not ship native ARM64 Linux binaries).",
+      "category": "game-servers",
+      "icon": "minecraft-bedrock",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest Official Mojang Linux x64"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Debian Official Yolk (AMD64)": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-bedrock/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-bedrock/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-bedrock/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-bungeecord",
+      "name": "Vietnam Hosting — Minecraft BungeeCord",
+      "description": "Official SpigotMC BungeeCord proxy server downloaded directly from ci.md-5.net.",
+      "category": "game-servers",
+      "icon": "bungeecord",
+      "version": "1.0.0",
+      "supported_versions": [
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-bungeecord/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-bungeecord/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-bungeecord/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-fabric",
+      "name": "Vietnam Hosting — Minecraft Fabric",
+      "description": "Lightweight modular Minecraft Fabric server installed directly from official meta.fabricmc.net API.",
+      "category": "game-servers",
+      "icon": "fabric",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.20.x",
+        "1.21.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1536,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-fabric/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-fabric/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-fabric/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-forge",
+      "name": "Vietnam Hosting — Minecraft Forge",
+      "description": "Minecraft Forge modded server downloaded from official maven.minecraftforge.net with modern @unix_args.txt support.",
+      "category": "game-servers",
+      "icon": "forge",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.18.x",
+        "1.19.x",
+        "1.20.x",
+        "1.21.x"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 6144,
+      "minimum_disk_mb": 6144,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-forge/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-forge/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-forge/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-neoforge",
+      "name": "Vietnam Hosting — Minecraft NeoForge",
+      "description": "Modern Minecraft NeoForge modded server installed directly from official maven.neoforged.net.",
+      "category": "game-servers",
+      "icon": "neoforge",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.20.4",
+        "1.21.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 6144,
+      "minimum_disk_mb": 6144,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-neoforge/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-neoforge/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-neoforge/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-nukkit",
+      "name": "Vietnam Hosting — Minecraft Nukkit",
+      "description": "Java-based Bedrock server software (Cloudburst Nukkit) running on Eclipse Temurin JDK 17/21.",
+      "category": "game-servers",
+      "icon": "nukkit",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.0-SNAPSHOT (Java 17/21)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-nukkit/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-nukkit/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-nukkit/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-paper",
+      "name": "Vietnam Hosting — Minecraft Paper",
+      "description": "High-performance PaperMC server downloaded from official PaperMC API with SHA256 verification and Aikar/G1GC tuning.",
+      "category": "game-servers",
+      "icon": "paper",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.20.4",
+        "1.21.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-paper/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-paper/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-paper/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-pocketmine-mp",
+      "name": "Vietnam Hosting — PocketMine-MP",
+      "description": "Open-source PHP-based Bedrock server software (PocketMine-MP) downloaded from official GitHub Releases.",
+      "category": "game-servers",
+      "icon": "pocketmine",
+      "version": "1.0.0",
+      "supported_versions": [
+        "5.x (PHP 8.3)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "PocketMine PHP 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:pocketmine_php8.3"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-pocketmine-mp/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-pocketmine-mp/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-pocketmine-mp/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-purpur",
+      "name": "Vietnam Hosting — Minecraft Purpur",
+      "description": "PurpurMC drop-in Paper fork with extended gameplay configuration downloaded from official api.purpurmc.org.",
+      "category": "game-servers",
+      "icon": "purpur",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.20.x",
+        "1.21.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-purpur/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-purpur/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-purpur/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-spigot",
+      "name": "Vietnam Hosting — Minecraft Spigot (Official BuildTools)",
+      "description": "Official SpigotMC server compiled legally on-demand using SpigotMC BuildTools (never redistributes prebuilt Spigot JARs).",
+      "category": "game-servers",
+      "icon": "spigot",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.20.x",
+        "1.21.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1536,
+      "recommended_ram_mb": 3072,
+      "minimum_disk_mb": 6144,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-spigot/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-spigot/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-spigot/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-vanilla",
+      "name": "Vietnam Hosting — Minecraft Vanilla",
+      "description": "Official Mojang Minecraft Java Edition Vanilla dedicated server downloaded directly from piston-meta.mojang.com with SHA1 integrity check.",
+      "category": "game-servers",
+      "icon": "minecraft",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.20.x",
+        "1.21.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-vanilla/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-vanilla/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-vanilla/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-velocity",
+      "name": "Vietnam Hosting — Minecraft Velocity Proxy",
+      "description": "Modern PaperMC Velocity proxy server with SHA256-verified downloads and forwarding support.",
+      "category": "game-servers",
+      "icon": "velocity",
+      "version": "1.0.0",
+      "supported_versions": [
+        "3.3.x",
+        "3.4.x",
+        "latest"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-velocity/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-velocity/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-velocity/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minecraft-waterfall",
+      "name": "Vietnam Hosting — Minecraft Waterfall (Legacy)",
+      "description": "Legacy PaperMC Waterfall proxy (archived upstream by PaperMC in favor of Velocity; maintained for legacy networks only).",
+      "category": "game-servers",
+      "icon": "waterfall",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.21 (Archived Legacy)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+        "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+        "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/minecraft-waterfall/egg.json",
+      "egg_download_v1": "eggs/game-servers/minecraft-waterfall/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/minecraft-waterfall/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Legacy",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "mta-sa",
+      "name": "Vietnam Hosting — MTA:SA Server",
+      "description": "Official Multi Theft Auto: San Andreas Linux x64 server downloaded from linux.multitheftauto.com (AMD64 only).",
+      "category": "game-servers",
+      "icon": "mtasa",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.6.x Linux x64"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk (AMD64)": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/mta-sa/egg.json",
+      "egg_download_v1": "eggs/game-servers/mta-sa/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/mta-sa/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "openttd",
+      "name": "Vietnam Hosting — OpenTTD Dedicated Server",
+      "description": "Open-source OpenTTD dedicated transport simulation server running natively on both AMD64 and ARM64.",
+      "category": "game-servers",
+      "icon": "openttd",
+      "version": "1.0.0",
+      "supported_versions": [
+        "14.x (Debian 13 Package)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "OpenTTD 14 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:openttd_14"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/openttd/egg.json",
+      "egg_download_v1": "eggs/game-servers/openttd/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/openttd/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "palworld",
+      "name": "Vietnam Hosting — Palworld Dedicated Server",
+      "description": "Official Palworld Linux dedicated server via SteamCMD (AppID 2394010, AMD64 only, high RAM requirement).",
+      "category": "game-servers",
+      "icon": "palworld",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 2394010)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 8192,
+      "recommended_ram_mb": 16384,
+      "minimum_disk_mb": 10240,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/palworld/egg.json",
+      "egg_download_v1": "eggs/game-servers/palworld/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/palworld/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "project-zomboid",
+      "name": "Vietnam Hosting — Project Zomboid",
+      "description": "Official Project Zomboid Linux dedicated server via SteamCMD (AppID 380870, AMD64 only).",
+      "category": "game-servers",
+      "icon": "zomboid",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 380870)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 8192,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/project-zomboid/egg.json",
+      "egg_download_v1": "eggs/game-servers/project-zomboid/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/project-zomboid/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "rust-game",
+      "name": "Vietnam Hosting — Rust Game Server",
+      "description": "Official Facepunch Rust Linux dedicated server via SteamCMD (AppID 258550, AMD64 only).",
+      "category": "game-servers",
+      "icon": "rust-game",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 258550)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 4096,
+      "recommended_ram_mb": 8192,
+      "minimum_disk_mb": 16384,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Rust Game Image (Official Pterodactyl)": "ghcr.io/pterodactyl/games:rust"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/rust-game/egg.json",
+      "egg_download_v1": "eggs/game-servers/rust-game/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/rust-game/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "terraria",
+      "name": "Vietnam Hosting — Terraria Dedicated Server",
+      "description": "Official Terraria dedicated server installed via SteamCMD (AppID 105600, AMD64 Linux native).",
+      "category": "game-servers",
+      "icon": "terraria",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.4.x (SteamCMD 105600)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/terraria/egg.json",
+      "egg_download_v1": "eggs/game-servers/terraria/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/terraria/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "tf2",
+      "name": "Vietnam Hosting — Team Fortress 2",
+      "description": "Official Valve Team Fortress 2 SRCDS Linux server via SteamCMD (AppID 232250, AMD64 only).",
+      "category": "game-servers",
+      "icon": "tf2",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 232250)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 14336,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/tf2/egg.json",
+      "egg_download_v1": "eggs/game-servers/tf2/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/tf2/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "tshock",
+      "name": "Vietnam Hosting — Terraria TShock",
+      "description": "Official Pryaxis TShock Terraria server downloaded from GitHub Releases (Linux x64, AMD64 only).",
+      "category": "game-servers",
+      "icon": "tshock",
+      "version": "1.0.0",
+      "supported_versions": [
+        "5.x (Official GitHub Release)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/tshock/egg.json",
+      "egg_download_v1": "eggs/game-servers/tshock/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/tshock/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "unturned",
+      "name": "Vietnam Hosting — Unturned Dedicated Server",
+      "description": "Official Smartly Dressed Games Unturned Linux Dedicated Server via SteamCMD (AppID 1110390, AMD64 only).",
+      "category": "game-servers",
+      "icon": "unturned",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 1110390)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 6144,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/unturned/egg.json",
+      "egg_download_v1": "eggs/game-servers/unturned/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/unturned/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "valheim",
+      "name": "Vietnam Hosting — Valheim Dedicated Server",
+      "description": "Official Valheim Linux dedicated server via SteamCMD (AppID 896660, AMD64 only).",
+      "category": "game-servers",
+      "icon": "valheim",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest SteamCMD (AppID 896660)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 2048,
+      "recommended_ram_mb": 4096,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "upstream_documented",
+      "docker_images": {
+        "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/game-servers/valheim/egg.json",
+      "egg_download_v1": "eggs/game-servers/valheim/egg-ptdl-v1.json",
+      "documentation_url": "eggs/game-servers/valheim/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}

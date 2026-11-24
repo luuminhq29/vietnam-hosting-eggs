@@ -1,0 +1,67 @@
+# ==============================================================================
+# Vietnam Hosting — Reference Pterodactyl Wings Hardening Profile
+# Host OS: Ubuntu 24.04 LTS | Runtime: Docker + Pterodactyl Wings
+#
+# NOTE: Resource quotas, PID limits, Docker isolation, AppArmor/Seccomp, and
+# network firewalling MUST be enforced at the Wings / Docker / Host layer.
+# Eggs alone cannot enforce host-level kernel isolation or DDoS protection.
+# ==============================================================================
+
+docker:
+  network:
+    interface: 172.18.0.1
+    name: pterodactyl_nw
+    ispn: false
+    driver: bridge
+    network_mode: pterodactyl_nw
+    is_internal: false
+    enable_icc: false # Prevent lateral container-to-container traffic on shared nodes!
+    network_mtu: 1500
+  domainname: ""
+  registries: {}
+  tmpfs_size: 100
+  container_pid_limit: 512 # Enforce PID limit against fork bombs
+  installer_limits:
+    memory: 1024
+    cpu: 100
+  overhead:
+    override: false
+    default_multiplier: 1.05
+  use_performant_inspect: true
+  userns_mode: ""
+  log_config:
+    type: json-file
+    config:
+      max-size: "10m" # Prevent disk exhaustion from runaway container logs
+      max-file: "3"
+
+system:
+  root_directory: /var/lib/pterodactyl
+  log_directory: /var/log/pterodactyl
+  data: /var/lib/pterodactyl/volumes
+  archive_directory: /var/lib/pterodactyl/archives
+  backup_directory: /var/lib/pterodactyl/backups
+  tmp_directory: /tmp/pterodactyl
+  username: pterodactyl
+  timezone: Asia/Ho_Chi_Minh
+  user:
+    rootless:
+      enabled: false
+      container_uid: 1000
+      container_gid: 1000
+  disk_check_interval: 150
+  activity_send_interval: 60
+  activity_send_count: 100
+  check_permissions_on_boot: true
+  enable_log_rotate: true
+  sftp:
+    bind_address: 0.0.0.0
+    bind_port: 2022
+    read_only: false
+  crash_detection:
+    enabled: true
+    detect_clean_exit_as_crash: false
+    timeout: 60
+
+allowed_mounts: [] # Never mount /var/run/docker.sock or host paths!
+allow_cors_private_network: false

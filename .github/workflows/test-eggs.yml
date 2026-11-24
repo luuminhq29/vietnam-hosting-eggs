@@ -1,0 +1,42 @@
+name: Egg Container Runtime Smoke Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  container-smoke-tests:
+    name: Runtime Smoke Test (Unprivileged User, Entrypoint, Signal Handling)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build Base Debian 13 and Base Alpine 3.23
+        run: |
+          docker build -f docker/base/debian-13/Dockerfile -t vnh-test/base_debian13:ci .
+          docker build -f docker/base/alpine-3.23/Dockerfile -t vnh-test/base_alpine3.23:ci .
+      - name: Verify non-root execution, /home/container workdir, and secret redaction
+        run: |
+          for img in vnh-test/base_debian13:ci vnh-test/base_alpine3.23:ci; do
+            echo "=== Testing ${img} ==="
+            UID_OUT="$(docker run --rm --entrypoint id "${img}" -u)"
+            test "${UID_OUT}" != "0"
+            PWD_OUT="$(docker run --rm --entrypoint pwd "${img}")"
+            test "${PWD_OUT}" = "/home/container"
+            OUT="$(docker run --rm -e SERVER_MEMORY=512 -e SERVER_PORT=8080 -e API_TOKEN=supersecretvalue123 -e STARTUP='echo "SMOKE_OK port={{SERVER_PORT}} mem={{SERVER_MEMORY}}"' "${img}")"
+            echo "${OUT}" | grep -q "VIETNAM HOSTING — UNIVERSAL RUNTIME"
+            echo "${OUT}" | grep -q "SMOKE_OK port=8080 mem=512"
+            ! echo "${OUT}" | grep -q "supersecretvalue123"
+          done
+      - name: Run vnh-egg static test report
+        run: python3 -m generator test --report dist/ci-test-report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: egg-test-report
+          path: dist/ci-test-report.json

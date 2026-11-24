@@ -1,0 +1,20 @@
+{
+  "egg_id": "grafana",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/grafana/Dockerfile",
+  "docker_images": {
+    "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+  ],
+  "custom_ghcr_targets": {
+    "Grafana 11.5 OSS": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

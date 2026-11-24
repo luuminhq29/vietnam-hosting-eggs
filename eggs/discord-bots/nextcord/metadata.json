@@ -1,0 +1,61 @@
+{
+  "id": "nextcord",
+  "name": "Vietnam Hosting — Nextcord Bot",
+  "description": "Dedicated Nextcord Bot hosting with isolated Python .venv, automatic dependency install, Git deployment, secret-safe token handling, and exponential-backoff supervision.",
+  "category": "discord-bots",
+  "icon": "nextcord",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Python 3.11",
+    "Python 3.12",
+    "Python 3.13",
+    "Python 3.14"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 128,
+  "recommended_ram_mb": 256,
+  "minimum_disk_mb": 512,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+    "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
+    "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+  },
+  "custom_docker_images": {
+    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13",
+    "Python 3.14": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+  },
+  "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": false,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://github.com/nextcord/nextcord",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

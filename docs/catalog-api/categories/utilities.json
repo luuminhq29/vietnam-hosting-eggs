@@ -1,0 +1,217 @@
+{
+  "category": "utilities",
+  "count": 5,
+  "eggs": [
+    {
+      "id": "api-worker",
+      "name": "Vietnam Hosting — API Worker",
+      "description": "Lightweight microservice API worker supporting Python or Node.js bound to 0.0.0.0:{{SERVER_PORT}} behind reverse proxy.",
+      "category": "utilities",
+      "icon": "api",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.13",
+        "Node.js 24 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/utilities/api-worker/egg.json",
+      "egg_download_v1": "eggs/utilities/api-worker/egg-ptdl-v1.json",
+      "documentation_url": "eggs/utilities/api-worker/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "backup-worker",
+      "name": "Vietnam Hosting — Backup Worker",
+      "description": "Scheduled outbound backup worker running encrypted archive/sync jobs from /home/container/jobs without host privileges.",
+      "category": "utilities",
+      "icon": "backup",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Debian 13 / Bash + Python"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/utilities/backup-worker/egg.json",
+      "egg_download_v1": "eggs/utilities/backup-worker/egg-ptdl-v1.json",
+      "documentation_url": "eggs/utilities/backup-worker/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "queue-worker",
+      "name": "Vietnam Hosting — Queue Worker",
+      "description": "Outbound asynchronous queue consumer worker (Redis/Valkey/RabbitMQ) with exponential backoff and graceful SIGTERM drain.",
+      "category": "utilities",
+      "icon": "queue",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.13",
+        "Node.js 24 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/utilities/queue-worker/egg.json",
+      "egg_download_v1": "eggs/utilities/queue-worker/egg-ptdl-v1.json",
+      "documentation_url": "eggs/utilities/queue-worker/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "sftp-storage",
+      "name": "Vietnam Hosting — SFTP Storage Vault",
+      "description": "Dedicated persistent SFTP storage box powered natively by Pterodactyl Wings SFTP daemon (no root SSH daemon required). Reports disk usage and integrity status in Console.",
+      "category": "utilities",
+      "icon": "storage",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Debian 13 / Wings Native SFTP"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 5120,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
+        "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/utilities/sftp-storage/egg.json",
+      "egg_download_v1": "eggs/utilities/sftp-storage/egg-ptdl-v1.json",
+      "documentation_url": "eggs/utilities/sftp-storage/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "webhook-receiver",
+      "name": "Vietnam Hosting — Webhook Receiver",
+      "description": "Production HTTP webhook ingestion service on Python 3.13 bound to 0.0.0.0:{{SERVER_PORT}} with HMAC-SHA256 signature verification.",
+      "category": "utilities",
+      "icon": "webhook",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.13"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/utilities/webhook-receiver/egg.json",
+      "egg_download_v1": "eggs/utilities/webhook-receiver/egg-ptdl-v1.json",
+      "documentation_url": "eggs/utilities/webhook-receiver/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}

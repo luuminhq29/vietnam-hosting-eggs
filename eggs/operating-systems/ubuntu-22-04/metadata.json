@@ -1,0 +1,55 @@
+{
+  "id": "ubuntu-22-04",
+  "name": "Vietnam Hosting — Ubuntu 22.04 LTS (NAT Linux Container)",
+  "description": "Unprivileged Ubuntu 22.04 LTS NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+  "category": "operating-systems",
+  "icon": "ubuntu",
+  "version": "1.0.0",
+  "supported_versions": [
+    "22.04 LTS (Jammy)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Ubuntu 22.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_22.04"
+  },
+  "custom_docker_images": {
+    "Ubuntu 22.04 LTS": "ghcr.io/vietnam-hosting/yolks:ubuntu_22.04"
+  },
+  "dockerfile_path": "docker/linux/ubuntu-22.04/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "GPL/Ubuntu-Main",
+  "upstream_url": "https://ubuntu.com",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": "Unprivileged NAT container with persistent SSH host keys and Wings SFTP."
+}

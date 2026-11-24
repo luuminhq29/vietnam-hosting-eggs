@@ -1,0 +1,52 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — MTA:SA Server",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Official Multi Theft Auto: San Andreas Linux x64 server downloaded from linux.multitheftauto.com (AMD64 only).",
+  "features": null,
+  "docker_images": {
+    "Debian Official Yolk (AMD64)": "ghcr.io/pterodactyl/yolks:debian"
+  },
+  "file_denylist": [],
+  "startup": "exec ./mta-server64 -n -t --port {{SERVER_PORT}} --httpport \"${HTTP_PORT}\" --maxplayers \"${MAX_PLAYERS}\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Server started and is ready to accept connections!\"}",
+    "logs": "{}",
+    "stop": "shutdown"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — MTA:SA Server (mta-sa)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — MTA:SA Server. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — MTA:SA Server.\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nif [[ \"$(uname -m)\" != \"x86_64\" ]]; then\n    echo \"[VNH][INSTALL][ERROR] MTA:SA Linux server binaries are x86_64 (amd64) only.\" >&2\n    exit 1\nfi\nvnh_download \"https://linux.multitheftauto.com/dl/multitheftauto_linux_x64.tar.gz\" \"/tmp/mta.tar.gz\"\ntar -xzf /tmp/mta.tar.gz --strip-components=1 -C /mnt/server\nrm -f /tmp/mta.tar.gz\nif [[ ! -f /mnt/server/mods/deathmatch/mtaserver.conf ]]; then\n    vnh_download \"https://linux.multitheftauto.com/dl/baseconfig.tar.gz\" \"/tmp/mta-cfg.tar.gz\"\n    mkdir -p /mnt/server/mods/deathmatch\n    tar -xzf /tmp/mta-cfg.tar.gz --strip-components=1 -C /mnt/server/mods/deathmatch\n    rm -f /tmp/mta-cfg.tar.gz\nfi\nchmod +x /mnt/server/mta-server64\n\n{\n    printf 'egg_id=%s\\n' \"mta-sa\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — MTA:SA Server.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "HTTP Download Port",
+      "description": "Additional allocation port for MTA HTTP resource downloads.",
+      "env_variable": "HTTP_PORT",
+      "default_value": "22005",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1024,65535",
+      "field_type": "text"
+    },
+    {
+      "name": "Max Players",
+      "description": "Player slot count.",
+      "env_variable": "MAX_PLAYERS",
+      "default_value": "32",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1,4096",
+      "field_type": "text"
+    }
+  ]
+}

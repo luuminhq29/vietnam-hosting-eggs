@@ -1,0 +1,55 @@
+{
+  "id": "jupyterlab",
+  "name": "Vietnam Hosting — JupyterLab Workspace",
+  "description": "Interactive JupyterLab Python data-science notebook server bound to 0.0.0.0:{{SERVER_PORT}} with mandatory token authentication (no Docker Socket / no GPU by default).",
+  "category": "applications",
+  "icon": "jupyter",
+  "version": "1.0.0",
+  "supported_versions": [
+    "JupyterLab 4 (Python 3.12/3.13)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 1024,
+  "recommended_ram_mb": 2048,
+  "minimum_disk_mb": 4096,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+  },
+  "custom_docker_images": {
+    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13"
+  },
+  "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "CPU-only unprivileged notebook workspace. GPU passthrough and Docker Socket are NOT enabled by default and require explicit admin Node configuration."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "BSD-3-Clause",
+  "upstream_url": "https://jupyter.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

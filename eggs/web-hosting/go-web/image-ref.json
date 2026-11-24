@@ -1,0 +1,22 @@
+{
+  "egg_id": "go-web",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "hybrid_official_and_ghcr",
+  "dockerfile_path": "docker/languages/go/1.25/Dockerfile",
+  "docker_images": {
+    "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
+    "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/pterodactyl/yolks:go_1.23",
+    "ghcr.io/vietnam-hosting/yolks:go_1.25"
+  ],
+  "custom_ghcr_targets": {
+    "Go 1.25": "ghcr.io/vietnam-hosting/yolks:go_1.25"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

@@ -1,0 +1,20 @@
+{
+  "egg_id": "sqlite-workspace",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/sqlite-workspace/Dockerfile",
+  "docker_images": {
+    "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+  ],
+  "custom_ghcr_targets": {
+    "SQLite 3 Workspace": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

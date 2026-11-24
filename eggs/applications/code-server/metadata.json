@@ -1,0 +1,55 @@
+{
+  "id": "code-server",
+  "name": "Vietnam Hosting — Code Server (VS Code Web)",
+  "description": "Browser-based VS Code (code-server) workspace running unprivileged in /home/container/workspace with mandatory password auth (no Docker Socket).",
+  "category": "applications",
+  "icon": "vscode",
+  "version": "1.0.0",
+  "supported_versions": [
+    "4.98+"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 1024,
+  "recommended_ram_mb": 2048,
+  "minimum_disk_mb": 4096,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+  },
+  "custom_docker_images": {
+    "Base Debian 13": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+  },
+  "dockerfile_path": null,
+  "image_source": "upstream_official_yolk",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Unprivileged workspace only. Docker-in-Docker and Docker Socket access are NOT supported by default."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://coder.com",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

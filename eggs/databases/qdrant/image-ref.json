@@ -1,0 +1,20 @@
+{
+  "egg_id": "qdrant",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/qdrant/Dockerfile",
+  "docker_images": {
+    "Qdrant 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+  ],
+  "custom_ghcr_targets": {
+    "Qdrant 1.13": "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

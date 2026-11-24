@@ -1,0 +1,61 @@
+{
+  "id": "php-fpm",
+  "name": "Vietnam Hosting — PHP-FPM Dedicated Pool",
+  "description": "Dedicated rootless PHP-FPM + Nginx web hosting stack supporting PHP 8.2–8.5 and Composer.",
+  "category": "web-hosting",
+  "icon": "php",
+  "version": "1.0.0",
+  "supported_versions": [
+    "8.2",
+    "8.3",
+    "8.4",
+    "8.5"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "PHP-FPM 8.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
+    "PHP-FPM 8.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
+    "PHP-FPM 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3",
+    "PHP-FPM 8.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.2"
+  },
+  "custom_docker_images": {
+    "PHP-FPM 8.4": "ghcr.io/vietnam-hosting/yolks:php_8.4"
+  },
+  "dockerfile_path": "docker/languages/php/8.4/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "PHP-3.01",
+  "upstream_url": "https://www.php.net",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

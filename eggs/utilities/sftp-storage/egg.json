@@ -1,0 +1,32 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — SFTP Storage Vault",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Dedicated persistent SFTP storage box powered natively by Pterodactyl Wings SFTP daemon (no root SSH daemon required). Reports disk usage and integrity status in Console.",
+  "features": null,
+  "docker_images": {
+    "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
+    "Base Debian 13 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+  },
+  "file_denylist": [],
+  "startup": "mkdir -p /home/container/storage; echo \"VIETNAM HOSTING SFTP Storage Vault Ready — connect via Pterodactyl Wings SFTP credentials.\"; du -sh /home/container/storage 2>/dev/null || true; trap \"exit 0\" TERM INT; while true; do sleep 3600; done",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"VIETNAM HOSTING SFTP Storage Vault Ready\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — SFTP Storage Vault (sftp-storage)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — SFTP Storage Vault. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — SFTP Storage Vault.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/storage\necho \"[VNH][INSTALL] SFTP Storage Vault initialized under /mnt/server/storage (managed via Wings SFTP).\"\n\n{\n    printf 'egg_id=%s\\n' \"sftp-storage\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — SFTP Storage Vault.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
+}

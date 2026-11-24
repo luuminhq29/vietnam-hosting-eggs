@@ -1,0 +1,43 @@
+{
+  "egg_id": "php",
+  "category": "languages",
+  "schema_versions": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "requires_inbound_port": true,
+  "expected_startup_done": "VIETNAM HOSTING PHP-FPM|Ready",
+  "stop_signal": "^C",
+  "healthcheck": {
+    "mode": "process",
+    "target": ""
+  },
+  "checklist": {
+    "ptdl_v1_schema_valid": "STATIC_VALIDATED",
+    "ptdl_v2_schema_valid": "STATIC_VALIDATED",
+    "panel_import": "UNVERIFIED",
+    "install_script_execution": "UNVERIFIED",
+    "docker_image_pull": "UNVERIFIED",
+    "server_startup": "UNVERIFIED",
+    "startup_detection": "UNVERIFIED",
+    "console_io": "UNVERIFIED",
+    "graceful_stop": "UNVERIFIED",
+    "restart_data_persistence": "UNVERIFIED",
+    "reinstall_behavior": "UNVERIFIED",
+    "wings_sftp": "UNVERIFIED",
+    "port_allocation": "UNVERIFIED",
+    "ram_cpu_limits": "UNVERIFIED",
+    "unprivileged_execution": "STATIC_VALIDATED",
+    "secret_redaction": "STATIC_VALIDATED",
+    "container_isolation": "UNVERIFIED",
+    "backup_restore": "UNVERIFIED",
+    "multi_arch_matrix": {
+      "amd64": "UNVERIFIED",
+      "arm64": "UNVERIFIED"
+    }
+  }
+}

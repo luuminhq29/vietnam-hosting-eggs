@@ -1,0 +1,18 @@
+{
+  "egg_id": "palworld",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "upstream_official_yolk",
+  "dockerfile_path": null,
+  "docker_images": {
+    "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/parkervcp/games:source"
+  ],
+  "custom_ghcr_targets": {},
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

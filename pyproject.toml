@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vnh-egg"
+version = "1.0.0"
+description = "Vietnam Hosting Universal Pterodactyl Egg Generator, Validator, and Packager"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Vietnam Hosting", email = "eggs@vietnam-hosting.net" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["jsonschema>=4.20.0", "pytest>=8.0.0"]
+
+[project.scripts]
+vnh-egg = "generator.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["generator*"]

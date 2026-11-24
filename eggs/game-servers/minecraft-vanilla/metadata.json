@@ -1,0 +1,63 @@
+{
+  "id": "minecraft-vanilla",
+  "name": "Vietnam Hosting — Minecraft Vanilla",
+  "description": "Official Mojang Minecraft Java Edition Vanilla dedicated server downloaded directly from piston-meta.mojang.com with SHA1 integrity check.",
+  "category": "game-servers",
+  "icon": "minecraft",
+  "version": "1.0.0",
+  "supported_versions": [
+    "1.20.x",
+    "1.21.x",
+    "latest"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 1024,
+  "recommended_ram_mb": 2048,
+  "minimum_disk_mb": 4096,
+  "resource_basis": "upstream_documented",
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+    "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+    "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+  },
+  "custom_docker_images": {
+    "Java 21 LTS": "ghcr.io/vietnam-hosting/yolks:java_21",
+    "Java 25 LTS": "ghcr.io/vietnam-hosting/yolks:java_25",
+    "Java 17 LTS": "ghcr.io/vietnam-hosting/yolks:java_17"
+  },
+  "dockerfile_path": "docker/languages/java/21/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Minecraft EULA",
+  "upstream_url": "https://www.minecraft.net/en-us/download/server",
+  "eula_required": true,
+  "steam_app_id": null,
+  "notes": ""
+}

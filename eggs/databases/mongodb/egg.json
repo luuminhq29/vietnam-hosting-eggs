@@ -1,0 +1,52 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — MongoDB 8.0",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Unprivileged MongoDB 8.0 document database with WiredTiger cache cap respecting container RAM and auth enforcement.",
+  "features": null,
+  "docker_images": {
+    "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mongodb_8"
+  },
+  "file_denylist": [],
+  "startup": "mkdir -p /home/container/data /home/container/logs; exec mongod --dbpath /home/container/data --port {{SERVER_PORT}} --bind_ip \"${BIND_ADDRESS}\" --wiredTigerCacheSizeGB \"${WT_CACHE_GB}\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Waiting for connections\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — MongoDB 8.0 (mongodb)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — MongoDB 8.0. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — MongoDB 8.0.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data /mnt/server/logs /mnt/server/backups\n\n{\n    printf 'egg_id=%s\\n' \"mongodb\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — MongoDB 8.0.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "WiredTiger Cache (GB)",
+      "description": "WiredTiger memory cap (e.g. 0.5 for 1GB container).",
+      "env_variable": "WT_CACHE_GB",
+      "default_value": "0.5",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|numeric|between:0.25,64",
+      "field_type": "text"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled bind_ip (default 127.0.0.1).",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0",
+      "field_type": "text"
+    }
+  ]
+}

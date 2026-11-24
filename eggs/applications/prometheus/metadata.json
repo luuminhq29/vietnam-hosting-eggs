@@ -1,0 +1,55 @@
+{
+  "id": "prometheus",
+  "name": "Vietnam Hosting — Prometheus Monitoring",
+  "description": "Prometheus TSDB metrics collector downloaded from official GitHub Releases (AMD64 & ARM64).",
+  "category": "applications",
+  "icon": "prometheus",
+  "version": "1.0.0",
+  "supported_versions": [
+    "3.2+"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 4096,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+  },
+  "custom_docker_images": {
+    "Base Debian 13": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+  },
+  "dockerfile_path": null,
+  "image_source": "upstream_official_yolk",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Apache-2.0",
+  "upstream_url": "https://prometheus.io",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

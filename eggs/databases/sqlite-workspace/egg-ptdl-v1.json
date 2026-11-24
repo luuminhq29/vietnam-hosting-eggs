@@ -1,0 +1,40 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — SQLite Workspace (File & CLI)",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Embedded SQLite 3 file & CLI management workspace for local .db files, schema migrations, WAL integrity checks, and `.backup` snapshots. NOTE: SQLite is an embedded file database, NOT a standalone networked database server.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+  ],
+  "startup": "mkdir -p /home/container/databases /home/container/backups; sqlite3 \"/home/container/databases/${DB_FILE}\" \"PRAGMA journal_mode=WAL; PRAGMA integrity_check;\"; echo \"VIETNAM HOSTING SQLite Workspace Ready (file: /home/container/databases/${DB_FILE}, no network port)\"; exec sqlite3 \"/home/container/databases/${DB_FILE}\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"VIETNAM HOSTING SQLite Workspace Ready\"}",
+    "logs": "{}",
+    "stop": ".quit"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — SQLite Workspace (File & CLI) (sqlite-workspace)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — SQLite Workspace (File & CLI). Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — SQLite Workspace (File & CLI).\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/databases /mnt/server/backups\necho \"[VNH][INSTALL] SQLite file workspace initialized (embedded database, no TCP port).\"\n\n{\n    printf 'egg_id=%s\\n' \"sqlite-workspace\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — SQLite Workspace (File & CLI).\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Database Filename",
+      "description": "SQLite .db filename inside /home/container/databases/.",
+      "env_variable": "DB_FILE",
+      "default_value": "workspace.db",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:128"
+    }
+  ]
+}

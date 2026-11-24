@@ -1,0 +1,30 @@
+{
+  "egg_id": "minecraft-purpur",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "hybrid_official_and_ghcr",
+  "dockerfile_path": "docker/languages/java/21/Dockerfile",
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+    "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+    "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/pterodactyl/yolks:java_21",
+    "ghcr.io/pterodactyl/yolks:java_25",
+    "ghcr.io/pterodactyl/yolks:java_17",
+    "ghcr.io/pterodactyl/yolks:java_11",
+    "ghcr.io/pterodactyl/yolks:java_8"
+  ],
+  "custom_ghcr_targets": {
+    "Java 21 LTS": "ghcr.io/vietnam-hosting/yolks:java_21",
+    "Java 25 LTS": "ghcr.io/vietnam-hosting/yolks:java_25",
+    "Java 17 LTS": "ghcr.io/vietnam-hosting/yolks:java_17"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

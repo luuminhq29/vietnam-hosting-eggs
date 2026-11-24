@@ -1,0 +1,55 @@
+{
+  "id": "sqlite-workspace",
+  "name": "Vietnam Hosting — SQLite Workspace (File & CLI)",
+  "description": "Embedded SQLite 3 file & CLI management workspace for local .db files, schema migrations, WAL integrity checks, and `.backup` snapshots. NOTE: SQLite is an embedded file database, NOT a standalone networked database server.",
+  "category": "databases",
+  "icon": "sqlite",
+  "version": "1.0.0",
+  "supported_versions": [
+    "SQLite 3 (Debian 13)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 128,
+  "recommended_ram_mb": 256,
+  "minimum_disk_mb": 512,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+  },
+  "custom_docker_images": {
+    "SQLite 3 Workspace": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+  },
+  "dockerfile_path": "docker/services/sqlite-workspace/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": false,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Public Domain",
+  "upstream_url": "https://www.sqlite.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": "Embedded file/CLI SQLite workspace — NOT a standalone TCP database server."
+}

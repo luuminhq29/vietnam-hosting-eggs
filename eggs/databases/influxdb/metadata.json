@@ -1,0 +1,55 @@
+{
+  "id": "influxdb",
+  "name": "Vietnam Hosting — InfluxDB 2.7",
+  "description": "InfluxDB 2.7 time-series database running unprivileged with BoltDB/TSM storage under /home/container/data.",
+  "category": "databases",
+  "icon": "influxdb",
+  "version": "1.0.0",
+  "supported_versions": [
+    "2.7"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 2048,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+  },
+  "custom_docker_images": {
+    "InfluxDB 2.7": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+  },
+  "dockerfile_path": "docker/services/influxdb/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://www.influxdata.com",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

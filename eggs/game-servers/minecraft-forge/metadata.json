@@ -1,0 +1,64 @@
+{
+  "id": "minecraft-forge",
+  "name": "Vietnam Hosting — Minecraft Forge",
+  "description": "Minecraft Forge modded server downloaded from official maven.minecraftforge.net with modern @unix_args.txt support.",
+  "category": "game-servers",
+  "icon": "forge",
+  "version": "1.0.0",
+  "supported_versions": [
+    "1.18.x",
+    "1.19.x",
+    "1.20.x",
+    "1.21.x"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 2048,
+  "recommended_ram_mb": 6144,
+  "minimum_disk_mb": 6144,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+    "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+    "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+  },
+  "custom_docker_images": {
+    "Java 21 LTS": "ghcr.io/vietnam-hosting/yolks:java_21",
+    "Java 25 LTS": "ghcr.io/vietnam-hosting/yolks:java_25",
+    "Java 17 LTS": "ghcr.io/vietnam-hosting/yolks:java_17"
+  },
+  "dockerfile_path": "docker/languages/java/21/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "LGPL-2.1",
+  "upstream_url": "https://files.minecraftforge.net",
+  "eula_required": true,
+  "steam_app_id": null,
+  "notes": ""
+}

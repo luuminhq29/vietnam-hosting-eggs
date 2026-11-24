@@ -1,0 +1,55 @@
+{
+  "id": "typesense",
+  "name": "Vietnam Hosting — Typesense 28.0",
+  "description": "Open-source in-memory search engine Typesense 28.0 with mandatory API key and persistent data directory.",
+  "category": "databases",
+  "icon": "typesense",
+  "version": "1.0.0",
+  "supported_versions": [
+    "28.0"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 2048,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Typesense 28.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:typesense_28"
+  },
+  "custom_docker_images": {
+    "Typesense 28.0": "ghcr.io/vietnam-hosting/yolks:typesense_28"
+  },
+  "dockerfile_path": "docker/services/typesense/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "GPL-3.0",
+  "upstream_url": "https://typesense.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

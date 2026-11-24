@@ -1,0 +1,955 @@
+{
+  "category": "web-hosting",
+  "count": 22,
+  "eggs": [
+    {
+      "id": "apache",
+      "name": "Vietnam Hosting — Apache HTTP Server",
+      "description": "Rootless Apache HTTP Server 2.4 with .htaccess support, mod_rewrite, and custom httpd.conf in /home/container.",
+      "category": "web-hosting",
+      "icon": "apache",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.4"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Apache HTTPD 2.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:apache_2.4"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/apache/egg.json",
+      "egg_download_v1": "eggs/web-hosting/apache/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/apache/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "aspnet-core",
+      "name": "Vietnam Hosting — ASP.NET Core Hosting",
+      "description": "Production ASP.NET Core Kestrel hosting on .NET 10 LTS / 11 STS bound to http://0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "dotnet",
+      "version": "1.0.0",
+      "supported_versions": [
+        ".NET 8.0",
+        ".NET 10.0 LTS",
+        ".NET 11.0 STS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
+        ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_11"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/aspnet-core/egg.json",
+      "egg_download_v1": "eggs/web-hosting/aspnet-core/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/aspnet-core/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "astro",
+      "name": "Vietnam Hosting — Astro Production Hosting",
+      "description": "Astro SSR/static production hosting bound to 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "astro",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/astro/egg.json",
+      "egg_download_v1": "eggs/web-hosting/astro/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/astro/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "caddy",
+      "name": "Vietnam Hosting — Caddy Web Server",
+      "description": "Modern Caddy 2.9 rootless web server & reverse proxy configured via Caddyfile bound to :{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "caddy",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.9"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/caddy/egg.json",
+      "egg_download_v1": "eggs/web-hosting/caddy/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/caddy/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "django",
+      "name": "Vietnam Hosting — Django Hosting (Gunicorn)",
+      "description": "Production Django web hosting running Gunicorn WSGI bound to 0.0.0.0:{{SERVER_PORT}} with collectstatic and migrate options.",
+      "category": "web-hosting",
+      "icon": "django",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11–3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/django/egg.json",
+      "egg_download_v1": "eggs/web-hosting/django/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/django/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "express-js",
+      "name": "Vietnam Hosting — Express.js Hosting",
+      "description": "Production Express.js API & web hosting on Node.js LTS bound to 0.0.0.0:{{SERVER_PORT}} without nodemon.",
+      "category": "web-hosting",
+      "icon": "express-js",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/express-js/egg.json",
+      "egg_download_v1": "eggs/web-hosting/express-js/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/express-js/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "fastapi",
+      "name": "Vietnam Hosting — FastAPI Hosting (Uvicorn)",
+      "description": "Production FastAPI ASGI hosting with Uvicorn bound to 0.0.0.0:{{SERVER_PORT}}, proxy headers enabled, and .venv isolation.",
+      "category": "web-hosting",
+      "icon": "fastapi",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11–3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/fastapi/egg.json",
+      "egg_download_v1": "eggs/web-hosting/fastapi/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/fastapi/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "flask",
+      "name": "Vietnam Hosting — Flask Hosting (Gunicorn)",
+      "description": "Production Flask hosting using Gunicorn WSGI (never Flask dev server) bound to 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "flask",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11–3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/flask/egg.json",
+      "egg_download_v1": "eggs/web-hosting/flask/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/flask/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "go-web",
+      "name": "Vietnam Hosting — Go Web Server",
+      "description": "High-concurrency Go HTTP/Gin/Fiber/Echo web server compiled cleanly and bound to 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "go",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Go 1.23",
+        "Go 1.25"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
+        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/go-web/egg.json",
+      "egg_download_v1": "eggs/web-hosting/go-web/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/go-web/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "laravel",
+      "name": "Vietnam Hosting — Laravel Hosting",
+      "description": "Production Laravel hosting on PHP 8.3–8.5 + Nginx + PHP-FPM with Composer, artisan cache optimization, and Git deploy.",
+      "category": "web-hosting",
+      "icon": "laravel",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Laravel 11/12 (PHP 8.3–8.5)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
+        "PHP 8.5 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
+        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/laravel/egg.json",
+      "egg_download_v1": "eggs/web-hosting/laravel/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/laravel/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "nextjs",
+      "name": "Vietnam Hosting — Next.js Production Hosting",
+      "description": "Next.js production SSR/standalone hosting with build step and 0.0.0.0:{{SERVER_PORT}} binding.",
+      "category": "web-hosting",
+      "icon": "nextjs",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/nextjs/egg.json",
+      "egg_download_v1": "eggs/web-hosting/nextjs/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/nextjs/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "nginx",
+      "name": "Vietnam Hosting — Nginx Web Server",
+      "description": "Customizable rootless Nginx 1.28 HTTP server and application reverse proxy bound to 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "nginx",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.28"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/nginx/egg.json",
+      "egg_download_v1": "eggs/web-hosting/nginx/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/nginx/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "nuxtjs",
+      "name": "Vietnam Hosting — Nuxt.js Production Hosting",
+      "description": "Nuxt 3/4 Nitro SSR production hosting bound to 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "nuxtjs",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/nuxtjs/egg.json",
+      "egg_download_v1": "eggs/web-hosting/nuxtjs/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/nuxtjs/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "php-fpm",
+      "name": "Vietnam Hosting — PHP-FPM Dedicated Pool",
+      "description": "Dedicated rootless PHP-FPM + Nginx web hosting stack supporting PHP 8.2–8.5 and Composer.",
+      "category": "web-hosting",
+      "icon": "php",
+      "version": "1.0.0",
+      "supported_versions": [
+        "8.2",
+        "8.3",
+        "8.4",
+        "8.5"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "PHP-FPM 8.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
+        "PHP-FPM 8.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
+        "PHP-FPM 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3",
+        "PHP-FPM 8.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.2"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/php-fpm/egg.json",
+      "egg_download_v1": "eggs/web-hosting/php-fpm/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/php-fpm/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "react-production",
+      "name": "Vietnam Hosting — React Production Hosting",
+      "description": "React SPA production build and static serving on 0.0.0.0:{{SERVER_PORT}} (no dev server).",
+      "category": "web-hosting",
+      "icon": "react-production",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/react-production/egg.json",
+      "egg_download_v1": "eggs/web-hosting/react-production/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/react-production/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "rust-actix-web",
+      "name": "Vietnam Hosting — Rust Actix Web Hosting",
+      "description": "Rust Actix Web high-throughput server hosting with release build throttling and 0.0.0.0:{{SERVER_PORT}} binding.",
+      "category": "web-hosting",
+      "icon": "rust",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Rust Stable 1.86"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/rust-actix-web/egg.json",
+      "egg_download_v1": "eggs/web-hosting/rust-actix-web/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/rust-actix-web/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "rust-axum",
+      "name": "Vietnam Hosting — Rust Axum Web Hosting",
+      "description": "Rust Axum async web server hosting with bounded CARGO_BUILD_JOBS release build and 0.0.0.0:{{SERVER_PORT}} binding.",
+      "category": "web-hosting",
+      "icon": "rust",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Rust Stable 1.86"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/rust-axum/egg.json",
+      "egg_download_v1": "eggs/web-hosting/rust-axum/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/rust-axum/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "spring-boot",
+      "name": "Vietnam Hosting — Spring Boot Hosting",
+      "description": "Production Spring Boot hosting on Eclipse Temurin JDK 17/21/25 with automatic JVM heap sizing and reverse-proxy header support.",
+      "category": "web-hosting",
+      "icon": "spring",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Java 17",
+        "Java 21 LTS",
+        "Java 25 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/spring-boot/egg.json",
+      "egg_download_v1": "eggs/web-hosting/spring-boot/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/spring-boot/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "static-web",
+      "name": "Vietnam Hosting — Static HTML/CSS/JS Hosting",
+      "description": "High-speed rootless Nginx static website hosting with SPA fallback option, gzip, /healthz endpoint, and Git deploy.",
+      "category": "web-hosting",
+      "icon": "html5",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Nginx 1.28"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/static-web/egg.json",
+      "egg_download_v1": "eggs/web-hosting/static-web/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/static-web/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "sveltekit",
+      "name": "Vietnam Hosting — SvelteKit Production Hosting",
+      "description": "SvelteKit adapter-node production hosting bound to 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "sveltekit",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/sveltekit/egg.json",
+      "egg_download_v1": "eggs/web-hosting/sveltekit/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/sveltekit/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "vue-production",
+      "name": "Vietnam Hosting — Vue Production Hosting",
+      "description": "Vue 3 SPA production build and static serving on 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "web-hosting",
+      "icon": "vue-production",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/vue-production/egg.json",
+      "egg_download_v1": "eggs/web-hosting/vue-production/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/vue-production/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "wordpress",
+      "name": "Vietnam Hosting — WordPress Hosting",
+      "description": "Production WordPress hosting on rootless Nginx + PHP-FPM 8.3/8.4 with non-destructive reinstall preserving wp-content and wp-config.php.",
+      "category": "web-hosting",
+      "icon": "wordpress",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Latest Official Tarball (PHP 8.3/8.4)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
+        "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/web-hosting/wordpress/egg.json",
+      "egg_download_v1": "eggs/web-hosting/wordpress/egg-ptdl-v1.json",
+      "documentation_url": "eggs/web-hosting/wordpress/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}

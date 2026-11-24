@@ -1,0 +1,49 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — FiveM (Cfx.re FXServer)",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Official Cfx.re FiveM Linux x86_64 FXServer runtime with txAdmin port option and Cfx.re license key (AMD64 only).",
+  "features": null,
+  "images": [
+    "ghcr.io/pterodactyl/yolks:debian"
+  ],
+  "startup": "exec ./alpine/opt/cfx-server/ld-musl-x86_64.so.1 --library-path \"./alpine/usr/lib/v8/:./alpine/lib/:./alpine/usr/lib/\" -- ./alpine/opt/cfx-server/FXServer +set citizen_dir /home/container/alpine/opt/cfx-server/citizen/ +set sv_licenseKey \"${FIVEM_LICENSE}\" +set netPort {{SERVER_PORT}} +exec server.cfg",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Started resource|Authenticated with cfx.re Nucleus\"}",
+    "logs": "{}",
+    "stop": "quit"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — FiveM (Cfx.re FXServer) (fivem)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — FiveM (Cfx.re FXServer). Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — FiveM (Cfx.re FXServer).\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nif [[ \"$(uname -m)\" != \"x86_64\" ]]; then\n    echo \"[VNH][INSTALL][ERROR] Cfx.re FXServer Linux artifacts support x86_64 (amd64) only.\" >&2\n    exit 1\nfi\nART_URL=\"${FIVEM_ARTIFACT_URL:-}\"\nif [[ -z \"${ART_URL}\" ]]; then\n    CHANGELOG=\"$(curl -fsSL https://changelogs-live.fivem.net/api/changelog/versions/linux/server)\"\n    ART_URL=\"$(printf '%s' \"${CHANGELOG}\" | jq -r '.recommended_download')\"\nfi\nvnh_download \"${ART_URL}\" \"/tmp/fx.tar.xz\"\ntar -xf /tmp/fx.tar.xz -C /mnt/server\nrm -f /tmp/fx.tar.xz\nif [[ ! -f /mnt/server/server.cfg ]]; then\n    cat > /mnt/server/server.cfg <<'EOF'\nendpoint_add_tcp \"0.0.0.0:{{SERVER_PORT}}\"\nendpoint_add_udp \"0.0.0.0:{{SERVER_PORT}}\"\nsv_hostname \"Vietnam Hosting FiveM Server\"\nsv_maxclients 32\nEOF\nfi\n\n{\n    printf 'egg_id=%s\\n' \"fivem\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — FiveM (Cfx.re FXServer).\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Cfx.re License Key",
+      "description": "Official license key from portal.cfx.re (never logged).",
+      "env_variable": "FIVEM_LICENSE",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128"
+    },
+    {
+      "name": "Custom Artifact URL",
+      "description": "Optional direct https://runtime.fivem.net/artifacts/... URL.",
+      "env_variable": "FIVEM_ARTIFACT_URL",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:512"
+    }
+  ]
+}

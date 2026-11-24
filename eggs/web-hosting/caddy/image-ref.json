@@ -1,0 +1,20 @@
+{
+  "egg_id": "caddy",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/caddy/Dockerfile",
+  "docker_images": {
+    "Caddy 2.9 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+  ],
+  "custom_ghcr_targets": {
+    "Caddy 2.9": "ghcr.io/vietnam-hosting/yolks:caddy_2.9"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

@@ -1,0 +1,23 @@
+{
+  "egg_id": "background-worker",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "hybrid_official_and_ghcr",
+  "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
+  "docker_images": {
+    "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+    "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/pterodactyl/yolks:python_3.13",
+    "ghcr.io/pterodactyl/yolks:nodejs_24"
+  ],
+  "custom_ghcr_targets": {
+    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13",
+    "Node.js 24 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_24"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

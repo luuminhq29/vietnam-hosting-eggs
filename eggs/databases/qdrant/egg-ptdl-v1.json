@@ -1,0 +1,49 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Qdrant Vector Database",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "High-performance Qdrant 1.13 vector similarity search engine with API key authentication and snapshot storage.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+  ],
+  "startup": "mkdir -p /home/container/storage /home/container/snapshots; if [[ ! -f /home/container/.api_key ]]; then   KEY=\"${QDRANT_API_KEY:-$(openssl rand -hex 24)}\"; printf \"%s\" \"${KEY}\" > /home/container/.api_key; chmod 600 /home/container/.api_key; fi; export QDRANT__SERVICE__HOST=\"${BIND_ADDRESS}\" QDRANT__SERVICE__HTTP_PORT=\"{{SERVER_PORT}}\" QDRANT__STORAGE__STORAGE_PATH=\"/home/container/storage\" QDRANT__STORAGE__SNAPSHOTS_PATH=\"/home/container/snapshots\" QDRANT__SERVICE__API_KEY=\"$(cat /home/container/.api_key)\"; exec /qdrant/qdrant",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Qdrant HTTP listening on\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Qdrant Vector Database (qdrant)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Qdrant Vector Database. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Qdrant Vector Database.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/storage /mnt/server/snapshots\n\n{\n    printf 'egg_id=%s\\n' \"qdrant\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Qdrant Vector Database.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Qdrant API Key",
+      "description": "API key required for all requests (auto-generated if blank).",
+      "env_variable": "QDRANT_API_KEY",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:16|max:128"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled host binding.",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0"
+    }
+  ]
+}

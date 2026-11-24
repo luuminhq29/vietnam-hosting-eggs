@@ -1,0 +1,58 @@
+{
+  "id": "aspnet-core",
+  "name": "Vietnam Hosting — ASP.NET Core Hosting",
+  "description": "Production ASP.NET Core Kestrel hosting on .NET 10 LTS / 11 STS bound to http://0.0.0.0:{{SERVER_PORT}}.",
+  "category": "web-hosting",
+  "icon": "dotnet",
+  "version": "1.0.0",
+  "supported_versions": [
+    ".NET 8.0",
+    ".NET 10.0 LTS",
+    ".NET 11.0 STS"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 2048,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
+    ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_11"
+  },
+  "custom_docker_images": {
+    ".NET 10.0 LTS": "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+  },
+  "dockerfile_path": "docker/languages/dotnet/10/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://dotnet.microsoft.com/apps/aspnet",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

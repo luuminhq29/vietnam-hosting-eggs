@@ -1,0 +1,31 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — WordPress Hosting",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Production WordPress hosting on rootless Nginx + PHP-FPM 8.3/8.4 with non-destructive reinstall preserving wp-content and wp-config.php.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:php_8.4",
+    "ghcr.io/vietnam-hosting/yolks:php_8.3"
+  ],
+  "startup": "mkdir -p /home/container/tmp /home/container/logs; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__DOCROOT__|/home/container/wordpress|g\" /home/container/nginx/nginx.conf.tpl > /home/container/tmp/nginx.conf; php-fpm --fpm-config /home/container/php/php-fpm.conf --daemonize; echo \"VIETNAM HOSTING WordPress Ready on 0.0.0.0:{{SERVER_PORT}}\"; exec nginx -c /home/container/tmp/nginx.conf -g \"daemon off;\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"VIETNAM HOSTING WordPress Ready\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — WordPress Hosting (wordpress)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — WordPress Hosting. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — WordPress Hosting.\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nmkdir -p /mnt/server/wordpress /mnt/server/nginx /mnt/server/php /mnt/server/tmp /mnt/server/logs\nif [[ ! -f /mnt/server/wordpress/wp-login.php ]]; then\n    vnh_download \"https://wordpress.org/latest.tar.gz\" \"/tmp/wordpress.tar.gz\"\n    tar -xzf /tmp/wordpress.tar.gz -C /mnt/server\n    rm -f /tmp/wordpress.tar.gz\nelse\n    echo \"[VNH][INSTALL] Existing WordPress files detected; preserving wp-config.php and wp-content.\"\nfi\ncat > /mnt/server/nginx/nginx.conf.tpl <<'EOF'\nworker_processes auto;\npid /home/container/tmp/nginx.pid;\nerror_log /home/container/logs/nginx-error.log warn;\nevents { worker_connections 1024; }\nhttp {\n    include /etc/nginx/mime.types;\n    default_type application/octet-stream;\n    access_log /home/container/logs/nginx-access.log;\n    client_max_body_size 64M;\n    client_body_temp_path /home/container/tmp/body;\n    proxy_temp_path /home/container/tmp/proxy;\n    fastcgi_temp_path /home/container/tmp/fastcgi;\n    uwsgi_temp_path /home/container/tmp/uwsgi;\n    scgi_temp_path /home/container/tmp/scgi;\n    server {\n        listen 0.0.0.0:__PORT__;\n        root __DOCROOT__;\n        index index.php index.html;\n        location = /healthz { return 200 \"ok\\n\"; }\n        location / { try_files $uri $uri/ /index.php?$args; }\n        location ~ \\.php$ {\n            include /etc/nginx/fastcgi_params;\n            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n            fastcgi_pass unix:/home/container/tmp/php-fpm.sock;\n        }\n        location ~ /\\.(?!well-known).* { deny all; }\n    }\n}\nEOF\ncat > /mnt/server/php/php-fpm.conf <<'EOF'\n[global]\npid = /home/container/tmp/php-fpm.pid\nerror_log = /home/container/logs/php-fpm.log\n[www]\nlisten = /home/container/tmp/php-fpm.sock\npm = dynamic\npm.max_children = 10\npm.start_servers = 2\npm.min_spare_servers = 1\npm.max_spare_servers = 4\nclear_env = no\nEOF\n\n{\n    printf 'egg_id=%s\\n' \"wordpress\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — WordPress Hosting.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
+}

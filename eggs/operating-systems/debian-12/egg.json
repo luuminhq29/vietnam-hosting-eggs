@@ -1,0 +1,95 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Debian 12 (Bookworm) (NAT Linux Container)",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Unprivileged Debian 12 (Bookworm) NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+  "features": [
+    "pid_limit"
+  ],
+  "docker_images": {
+    "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
+    "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_12"
+  },
+  "file_denylist": [],
+  "startup": "if [[ -x /opt/vnh/nat-ssh.sh ]]; then exec /bin/bash /opt/vnh/nat-ssh.sh; else echo \"VIETNAM HOSTING CONTAINER READY (Fallback Shell)\"; exec /bin/bash; fi",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"VIETNAM HOSTING CONTAINER READY\"}",
+    "logs": "{}",
+    "stop": "shutdown"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Debian 12 (Bookworm) (NAT Linux Container) (debian-12)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Debian 12 (Bookworm) (NAT Linux Container). Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Debian 12 (Bookworm) (NAT Linux Container).\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/.ssh/host_keys /mnt/server/.local/bin /mnt/server/scripts /mnt/server/run\nchmod 700 /mnt/server/.ssh /mnt/server/.ssh/host_keys\n\nif [[ ! -f /mnt/server/startup.sh ]]; then\n    cat > /mnt/server/startup.sh <<'EOF'\n#!/usr/bin/env bash\n# Vietnam Hosting NAT Linux Container — User Startup Script\n# Add your long-running user-space services here (runs under restart-loop protection).\nset -euo pipefail\necho \"[USER] Startup script initialized inside /home/container.\"\nEOF\n    chmod 755 /mnt/server/startup.sh\nfi\n\nif [[ ! -f /mnt/server/crontab ]]; then\n    cat > /mnt/server/crontab <<'EOF'\n# Vietnam Hosting Container User-Space Scheduled Tasks\n# Syntax: <interval_seconds> <command>\n# Example (commented):\n# 3600 /bin/bash /home/container/scripts/example-job.sh\nEOF\nfi\n\nif [[ ! -f /mnt/server/.bashrc ]]; then\n    cat > /mnt/server/.bashrc <<'EOF'\nexport PATH=\"$HOME/.local/bin:$PATH\"\nexport PS1='[\\u@vietnam-hosting \\W]\\$ '\nEOF\nfi\n\n{\n    printf 'egg_id=%s\\n' \"debian-12\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Debian 12 (Bookworm) (NAT Linux Container).\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Enable Unprivileged SSH",
+      "description": "Set to 1 to start user-space Dropbear/OpenSSH daemon on SSH_PORT (public-key only, root & password disabled).",
+      "env_variable": "ENABLE_SSH",
+      "default_value": "1",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "SSH Allocation Port",
+      "description": "Dedicated Pterodactyl allocation port for SSH (leave blank to reuse SERVER_PORT).",
+      "env_variable": "SSH_PORT",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|integer|between:1024,65535",
+      "field_type": "text"
+    },
+    {
+      "name": "SSH Authorized Public Key",
+      "description": "OpenSSH public key (ssh-ed25519 / ssh-rsa) added to ~/.ssh/authorized_keys.",
+      "env_variable": "SSH_AUTHORIZED_KEYS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:2048",
+      "field_type": "text"
+    },
+    {
+      "name": "Enable User-Space Scheduler",
+      "description": "Set to 1 to enable container-safe scheduled tasks from ~/crontab.",
+      "env_variable": "ENABLE_CRON",
+      "default_value": "1",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "User Startup Script",
+      "description": "Relative path to user startup script managed with restart-loop protection.",
+      "env_variable": "STARTUP_SCRIPT",
+      "default_value": "startup.sh",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Max Restart Attempts",
+      "description": "Maximum restarts within 60 seconds before halting to prevent restart loops.",
+      "env_variable": "VNH_MAX_RESTARTS",
+      "default_value": "5",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1,20",
+      "field_type": "text"
+    }
+  ]
+}

@@ -1,0 +1,754 @@
+{
+  "category": "discord-bots",
+  "count": 17,
+  "eggs": [
+    {
+      "id": "automation-worker",
+      "name": "Vietnam Hosting — Automation Worker",
+      "description": "Outbound automation worker for API polling, ETL syncs, and webhooks using Python .venv with exponential backoff.",
+      "category": "discord-bots",
+      "icon": "workflow",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.12",
+        "Python 3.13",
+        "Python 3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/automation-worker/egg.json",
+      "egg_download_v1": "eggs/discord-bots/automation-worker/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/automation-worker/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "background-worker",
+      "name": "Vietnam Hosting — Background Worker",
+      "description": "Long-running background job consumer (Celery, BullMQ, Dramatiq, or custom worker) with graceful SIGTERM drain.",
+      "category": "discord-bots",
+      "icon": "cogs",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.13",
+        "Node.js 24 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/background-worker/egg.json",
+      "egg_download_v1": "eggs/discord-bots/background-worker/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/background-worker/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "discord-js",
+      "name": "Vietnam Hosting — Discord.js Bot",
+      "description": "Dedicated Discord.js Bot hosting on Node.js LTS with NPM/Yarn/PNPM lockfile support, Git deployment, secret-safe token environment handling, and clean SIGTERM shutdown.",
+      "category": "discord-bots",
+      "icon": "discord-js",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/discord-js/egg.json",
+      "egg_download_v1": "eggs/discord-bots/discord-js/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/discord-js/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "discord-net",
+      "name": "Vietnam Hosting — Discord.NET Bot",
+      "description": "Discord.NET C# bot hosting on .NET LTS/STS with Release publish and secure token env injection.",
+      "category": "discord-bots",
+      "icon": "dotnet",
+      "version": "1.0.0",
+      "supported_versions": [
+        ".NET 8.0",
+        ".NET 10.0 LTS",
+        ".NET 11.0 STS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
+        ".NET 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_8"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/discord-net/egg.json",
+      "egg_download_v1": "eggs/discord-bots/discord-net/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/discord-net/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "discord-py",
+      "name": "Vietnam Hosting — Discord.py Bot",
+      "description": "Dedicated Discord.py Bot hosting with isolated Python .venv, automatic dependency install, Git deployment, secret-safe token handling, and exponential-backoff supervision.",
+      "category": "discord-bots",
+      "icon": "discord-py",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11",
+        "Python 3.12",
+        "Python 3.13",
+        "Python 3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/discord-py/egg.json",
+      "egg_download_v1": "eggs/discord-bots/discord-py/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/discord-py/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "discordgo",
+      "name": "Vietnam Hosting — DiscordGo Bot",
+      "description": "Lightweight Go Discord bot hosting using DiscordGo with go.mod builds and minimal RAM footprint.",
+      "category": "discord-bots",
+      "icon": "go",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Go 1.23",
+        "Go 1.25"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
+        "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/discordgo/egg.json",
+      "egg_download_v1": "eggs/discord-bots/discordgo/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/discordgo/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "dsharpplus",
+      "name": "Vietnam Hosting — DSharpPlus Bot",
+      "description": "DSharpPlus C#/.NET Discord bot hosting with Release publish and secret-safe token injection.",
+      "category": "discord-bots",
+      "icon": "dotnet",
+      "version": "1.0.0",
+      "supported_versions": [
+        ".NET 8.0",
+        ".NET 10.0 LTS",
+        ".NET 11.0 STS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/dsharpplus/egg.json",
+      "egg_download_v1": "eggs/discord-bots/dsharpplus/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/dsharpplus/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "eris",
+      "name": "Vietnam Hosting — Eris Discord Bot",
+      "description": "Dedicated Eris Discord Bot hosting on Node.js LTS with NPM/Yarn/PNPM lockfile support, Git deployment, secret-safe token environment handling, and clean SIGTERM shutdown.",
+      "category": "discord-bots",
+      "icon": "eris",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/eris/egg.json",
+      "egg_download_v1": "eggs/discord-bots/eris/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/eris/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "generic-bot",
+      "name": "Vietnam Hosting — Generic Bot Hosting",
+      "description": "Multi-runtime outbound bot container supporting Python, Node.js, or compiled binaries with restart-loop protection.",
+      "category": "discord-bots",
+      "icon": "robot",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Debian 13 / Python / Node.js"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/generic-bot/egg.json",
+      "egg_download_v1": "eggs/discord-bots/generic-bot/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/generic-bot/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "jda",
+      "name": "Vietnam Hosting — JDA Discord Bot (Java)",
+      "description": "Java Discord API (JDA) bot hosting with automatic JVM heap headroom, Maven/Gradle build, and Git deployment.",
+      "category": "discord-bots",
+      "icon": "jda",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Java 17",
+        "Java 21 LTS",
+        "Java 25 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/jda/egg.json",
+      "egg_download_v1": "eggs/discord-bots/jda/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/jda/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "nextcord",
+      "name": "Vietnam Hosting — Nextcord Bot",
+      "description": "Dedicated Nextcord Bot hosting with isolated Python .venv, automatic dependency install, Git deployment, secret-safe token handling, and exponential-backoff supervision.",
+      "category": "discord-bots",
+      "icon": "nextcord",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11",
+        "Python 3.12",
+        "Python 3.13",
+        "Python 3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/nextcord/egg.json",
+      "egg_download_v1": "eggs/discord-bots/nextcord/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/nextcord/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "pycord",
+      "name": "Vietnam Hosting — Pycord Bot",
+      "description": "Dedicated Pycord Bot hosting with isolated Python .venv, automatic dependency install, Git deployment, secret-safe token handling, and exponential-backoff supervision.",
+      "category": "discord-bots",
+      "icon": "pycord",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11",
+        "Python 3.12",
+        "Python 3.13",
+        "Python 3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/pycord/egg.json",
+      "egg_download_v1": "eggs/discord-bots/pycord/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/pycord/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "scheduled-script",
+      "name": "Vietnam Hosting — Scheduled Script Hosting",
+      "description": "Container-native interval task runner executing Bash/Python/Node scripts on a schedule without root crond/systemd.",
+      "category": "discord-bots",
+      "icon": "clock",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Debian 13 / Python 3.13 / Node.js 24"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/scheduled-script/egg.json",
+      "egg_download_v1": "eggs/discord-bots/scheduled-script/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/scheduled-script/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "serenity-rust",
+      "name": "Vietnam Hosting — Serenity Rust Discord Bot",
+      "description": "Serenity Rust Discord bot hosting with bounded CARGO_BUILD_JOBS compilation and native release binary execution.",
+      "category": "discord-bots",
+      "icon": "rust",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Rust Stable 1.86"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/serenity-rust/egg.json",
+      "egg_download_v1": "eggs/discord-bots/serenity-rust/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/serenity-rust/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "telegram-bot-nodejs",
+      "name": "Vietnam Hosting — Telegram Bot (Node.js)",
+      "description": "Dedicated Telegram Bot (Node.js) hosting on Node.js LTS with NPM/Yarn/PNPM lockfile support, Git deployment, secret-safe token environment handling, and clean SIGTERM shutdown.",
+      "category": "discord-bots",
+      "icon": "telegram-bot-nodejs",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Node.js 22 LTS",
+        "Node.js 24 LTS",
+        "Node.js 26 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+        "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/telegram-bot-nodejs/egg.json",
+      "egg_download_v1": "eggs/discord-bots/telegram-bot-nodejs/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/telegram-bot-nodejs/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "telegram-bot-python",
+      "name": "Vietnam Hosting — Telegram Bot (Python)",
+      "description": "Dedicated Telegram Bot (Python) hosting with isolated Python .venv, automatic dependency install, Git deployment, secret-safe token handling, and exponential-backoff supervision.",
+      "category": "discord-bots",
+      "icon": "telegram-bot-python",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Python 3.11",
+        "Python 3.12",
+        "Python 3.13",
+        "Python 3.14"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+        "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
+        "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/telegram-bot-python/egg.json",
+      "egg_download_v1": "eggs/discord-bots/telegram-bot-python/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/telegram-bot-python/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "twilight-rust",
+      "name": "Vietnam Hosting — Twilight Rust Discord Bot",
+      "description": "Twilight modular Rust Discord bot hosting with release compilation and CPU-bounded Cargo jobs.",
+      "category": "discord-bots",
+      "icon": "rust",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Rust Stable 1.86"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/discord-bots/twilight-rust/egg.json",
+      "egg_download_v1": "eggs/discord-bots/twilight-rust/egg-ptdl-v1.json",
+      "documentation_url": "eggs/discord-bots/twilight-rust/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}

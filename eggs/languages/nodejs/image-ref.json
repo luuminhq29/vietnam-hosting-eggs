@@ -1,0 +1,29 @@
+{
+  "egg_id": "nodejs",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "hybrid_official_and_ghcr",
+  "dockerfile_path": "docker/languages/nodejs/24/Dockerfile",
+  "docker_images": {
+    "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+    "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+    "Node.js 20 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_20",
+    "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/pterodactyl/yolks:nodejs_24",
+    "ghcr.io/pterodactyl/yolks:nodejs_22",
+    "ghcr.io/pterodactyl/yolks:nodejs_20",
+    "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+  ],
+  "custom_ghcr_targets": {
+    "Node.js 26 Active LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_26",
+    "Node.js 24 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_24",
+    "Node.js 22 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_22",
+    "Node.js 20 (Legacy)": "ghcr.io/vietnam-hosting/yolks:nodejs_20"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

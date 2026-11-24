@@ -1,0 +1,30 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Uptime Kuma",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Self-hosted Uptime Kuma monitoring dashboard on Node.js LTS bound to 0.0.0.0:{{SERVER_PORT}} with persistent SQLite data.",
+  "features": null,
+  "images": [
+    "ghcr.io/pterodactyl/yolks:nodejs_22"
+  ],
+  "startup": "export UPTIME_KUMA_HOST=0.0.0.0 UPTIME_KUMA_PORT={{SERVER_PORT}} DATA_DIR=/home/container/data/; exec node server/server.js",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Listening on\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Uptime Kuma (uptime-kuma)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Uptime Kuma. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Uptime Kuma.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data\nif [[ ! -d /mnt/server/.git ]]; then\n    git clone --depth 1 https://github.com/louislam/uptime-kuma.git /tmp/kuma\n    cp -an /tmp/kuma/. /mnt/server/\n    rm -rf /tmp/kuma\nelse\n    git -C /mnt/server pull --ff-only || true\nfi\ncd /mnt/server\nnpm run setup || npm ci --omit=dev\n\n{\n    printf 'egg_id=%s\\n' \"uptime-kuma\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Uptime Kuma.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
+}

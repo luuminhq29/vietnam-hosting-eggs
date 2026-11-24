@@ -1,0 +1,580 @@
+{
+  "category": "databases",
+  "count": 14,
+  "eggs": [
+    {
+      "id": "clickhouse",
+      "name": "Vietnam Hosting — ClickHouse 25 LTS",
+      "description": "Columnar OLAP ClickHouse 25 LTS analytics server with container-scoped data directory and memory limits.",
+      "category": "databases",
+      "icon": "clickhouse",
+      "version": "1.0.0",
+      "supported_versions": [
+        "25.3 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/clickhouse/egg.json",
+      "egg_download_v1": "eggs/databases/clickhouse/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/clickhouse/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "couchdb",
+      "name": "Vietnam Hosting — Apache CouchDB 3.4",
+      "description": "Apache CouchDB 3.4 JSON document database with HTTP API, Fauxton UI, and mandatory admin credentials.",
+      "category": "databases",
+      "icon": "couchdb",
+      "version": "1.0.0",
+      "supported_versions": [
+        "3.4"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "CouchDB 3.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:couchdb_3.4"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/couchdb/egg.json",
+      "egg_download_v1": "eggs/databases/couchdb/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/couchdb/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "influxdb",
+      "name": "Vietnam Hosting — InfluxDB 2.7",
+      "description": "InfluxDB 2.7 time-series database running unprivileged with BoltDB/TSM storage under /home/container/data.",
+      "category": "databases",
+      "icon": "influxdb",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.7"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "InfluxDB 2.7 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:influxdb_2.7"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/influxdb/egg.json",
+      "egg_download_v1": "eggs/databases/influxdb/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/influxdb/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "mariadb",
+      "name": "Vietnam Hosting — MariaDB 11.4 LTS",
+      "description": "Unprivileged MariaDB 11.4 LTS container with idempotent initialization, least-privilege app grants, and graceful shutdown.",
+      "category": "databases",
+      "icon": "mariadb",
+      "version": "1.0.0",
+      "supported_versions": [
+        "11.4 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "MariaDB 11.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mariadb_11.4"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/mariadb/egg.json",
+      "egg_download_v1": "eggs/databases/mariadb/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/mariadb/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "meilisearch",
+      "name": "Vietnam Hosting — Meilisearch 1.13",
+      "description": "Fast typo-tolerant Meilisearch 1.13 search engine running in production mode with mandatory master key.",
+      "category": "databases",
+      "icon": "meilisearch",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.13"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Meilisearch 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:meilisearch_1.13"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/meilisearch/egg.json",
+      "egg_download_v1": "eggs/databases/meilisearch/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/meilisearch/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "mongodb",
+      "name": "Vietnam Hosting — MongoDB 8.0",
+      "description": "Unprivileged MongoDB 8.0 document database with WiredTiger cache cap respecting container RAM and auth enforcement.",
+      "category": "databases",
+      "icon": "mongodb",
+      "version": "1.0.0",
+      "supported_versions": [
+        "8.0"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "MongoDB 8.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mongodb_8"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/mongodb/egg.json",
+      "egg_download_v1": "eggs/databases/mongodb/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/mongodb/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "mysql",
+      "name": "Vietnam Hosting — MySQL 8.4 LTS",
+      "description": "Unprivileged MySQL 8.4 LTS database container with first-boot initialization, random strong credentials, least-privilege app user, and graceful SIGTERM shutdown.",
+      "category": "databases",
+      "icon": "mysql",
+      "version": "1.0.0",
+      "supported_versions": [
+        "8.4 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "MySQL 8.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mysql_8.4"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/mysql/egg.json",
+      "egg_download_v1": "eggs/databases/mysql/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/mysql/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "postgresql",
+      "name": "Vietnam Hosting — PostgreSQL 17",
+      "description": "Unprivileged PostgreSQL 17 server with scram-sha-256 auth, PG_VERSION upgrade guard, and clean SIGINT/SIGTERM fast shutdown.",
+      "category": "databases",
+      "icon": "postgresql",
+      "version": "1.0.0",
+      "supported_versions": [
+        "17"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "PostgreSQL 17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:postgresql_17"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/postgresql/egg.json",
+      "egg_download_v1": "eggs/databases/postgresql/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/postgresql/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "qdrant",
+      "name": "Vietnam Hosting — Qdrant Vector Database",
+      "description": "High-performance Qdrant 1.13 vector similarity search engine with API key authentication and snapshot storage.",
+      "category": "databases",
+      "icon": "qdrant",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.13"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Qdrant 1.13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:qdrant_1.13"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/qdrant/egg.json",
+      "egg_download_v1": "eggs/databases/qdrant/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/qdrant/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "redis",
+      "name": "Vietnam Hosting — Redis 7.4",
+      "description": "Unprivileged Redis 7.4 in-memory store with mandatory strong authentication, RDB/AOF persistence, and maxmemory cap.",
+      "category": "databases",
+      "icon": "redis",
+      "version": "1.0.0",
+      "supported_versions": [
+        "7.4"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Redis 7.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:redis_7.4"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/redis/egg.json",
+      "egg_download_v1": "eggs/databases/redis/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/redis/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "sqlite-workspace",
+      "name": "Vietnam Hosting — SQLite Workspace (File & CLI)",
+      "description": "Embedded SQLite 3 file & CLI management workspace for local .db files, schema migrations, WAL integrity checks, and `.backup` snapshots. NOTE: SQLite is an embedded file database, NOT a standalone networked database server.",
+      "category": "databases",
+      "icon": "sqlite",
+      "version": "1.0.0",
+      "supported_versions": [
+        "SQLite 3 (Debian 13)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "SQLite 3 Workspace (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:sqlite_workspace"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/sqlite-workspace/egg.json",
+      "egg_download_v1": "eggs/databases/sqlite-workspace/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/sqlite-workspace/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "timescaledb",
+      "name": "Vietnam Hosting — TimescaleDB (PostgreSQL 17)",
+      "description": "PostgreSQL 17 with TimescaleDB hypertable extension preloaded, SCRAM-SHA-256 auth, and PG_VERSION safety check.",
+      "category": "databases",
+      "icon": "timescaledb",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.18 (PostgreSQL 17)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "TimescaleDB PG17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:timescaledb_pg17"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/timescaledb/egg.json",
+      "egg_download_v1": "eggs/databases/timescaledb/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/timescaledb/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "typesense",
+      "name": "Vietnam Hosting — Typesense 28.0",
+      "description": "Open-source in-memory search engine Typesense 28.0 with mandatory API key and persistent data directory.",
+      "category": "databases",
+      "icon": "typesense",
+      "version": "1.0.0",
+      "supported_versions": [
+        "28.0"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Typesense 28.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:typesense_28"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/typesense/egg.json",
+      "egg_download_v1": "eggs/databases/typesense/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/typesense/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "valkey",
+      "name": "Vietnam Hosting — Valkey 8.1 (BSD Open-Source)",
+      "description": "Linux Foundation Valkey 8.1 Redis-compatible BSD-3-Clause in-memory store with strong auth and AOF persistence.",
+      "category": "databases",
+      "icon": "valkey",
+      "version": "1.0.0",
+      "supported_versions": [
+        "8.1"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Valkey 8.1 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:valkey_8.1"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/databases/valkey/egg.json",
+      "egg_download_v1": "eggs/databases/valkey/egg-ptdl-v1.json",
+      "documentation_url": "eggs/databases/valkey/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}

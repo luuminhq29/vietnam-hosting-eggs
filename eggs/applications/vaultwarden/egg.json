@@ -1,0 +1,62 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Vaultwarden Password Manager",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Lightweight Rust Bitwarden-compatible Vaultwarden server (must be fronted by HTTPS reverse proxy for WebCrypto).",
+  "features": null,
+  "docker_images": {
+    "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+  },
+  "file_denylist": [],
+  "startup": "export ROCKET_ADDRESS=0.0.0.0 ROCKET_PORT={{SERVER_PORT}} DATA_FOLDER=/home/container/data SIGNUPS_ALLOWED=\"${SIGNUPS_ALLOWED}\"; exec /vaultwarden",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Rocket has launched from\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Vaultwarden Password Manager (vaultwarden)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Vaultwarden Password Manager. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Vaultwarden Password Manager.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data\n\n{\n    printf 'egg_id=%s\\n' \"vaultwarden\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Vaultwarden Password Manager.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Allow New Signups",
+      "description": "Set to false after creating initial accounts.",
+      "env_variable": "SIGNUPS_ALLOWED",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "Domain URL",
+      "description": "Public HTTPS URL managed by platform reverse proxy.",
+      "env_variable": "DOMAIN",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:256",
+      "field_type": "text"
+    },
+    {
+      "name": "Admin Token (Argon2 PHC)",
+      "description": "Optional Argon2id hashed admin token (never plaintext).",
+      "env_variable": "ADMIN_TOKEN",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:512",
+      "field_type": "text"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "egg_id": "ollama-cpu",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/ollama-cpu/Dockerfile",
+  "docker_images": {
+    "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+  ],
+  "custom_ghcr_targets": {
+    "Ollama CPU 0.6": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

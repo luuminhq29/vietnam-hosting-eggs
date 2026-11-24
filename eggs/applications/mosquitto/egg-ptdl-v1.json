@@ -1,0 +1,30 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Mosquitto MQTT Broker",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Lightweight Eclipse Mosquitto 2.0 MQTT broker enforcing authenticated connections (allow_anonymous false).",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+  ],
+  "startup": "sed \"s|__PORT__|{{SERVER_PORT}}|g\" /home/container/mosquitto.conf.tpl > /home/container/mosquitto.conf; exec mosquitto -c /home/container/mosquitto.conf",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"mosquitto version .* running\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Mosquitto MQTT Broker (mosquitto)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Mosquitto MQTT Broker. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Mosquitto MQTT Broker.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data /mnt/server/logs\nif [[ ! -f /mnt/server/mosquitto.conf.tpl ]]; then\ncat > /mnt/server/mosquitto.conf.tpl <<'EOF'\nlistener __PORT__ 0.0.0.0\nallow_anonymous false\npassword_file /home/container/passwd\npersistence true\npersistence_location /home/container/data/\nEOF\nfi\ntouch /mnt/server/passwd && chmod 600 /mnt/server/passwd\n\n{\n    printf 'egg_id=%s\\n' \"mosquitto\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Mosquitto MQTT Broker.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
+}

@@ -1,0 +1,20 @@
+{
+  "egg_id": "code-server",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "upstream_official_yolk",
+  "dockerfile_path": null,
+  "docker_images": {
+    "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/pterodactyl/yolks:debian"
+  ],
+  "custom_ghcr_targets": {
+    "Base Debian 13": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

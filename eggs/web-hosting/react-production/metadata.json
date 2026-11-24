@@ -1,0 +1,60 @@
+{
+  "id": "react-production",
+  "name": "Vietnam Hosting — React Production Hosting",
+  "description": "React SPA production build and static serving on 0.0.0.0:{{SERVER_PORT}} (no dev server).",
+  "category": "web-hosting",
+  "icon": "react-production",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Node.js 22 LTS",
+    "Node.js 24 LTS",
+    "Node.js 26 LTS"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24",
+    "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22",
+    "Node.js 26 LTS (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+  },
+  "custom_docker_images": {
+    "Node.js 24 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_24",
+    "Node.js 26 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_26"
+  },
+  "dockerfile_path": "docker/languages/nodejs/24/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://react.dev",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

@@ -1,0 +1,60 @@
+{
+  "id": "go",
+  "name": "Vietnam Hosting — Go Hosting",
+  "description": "Golang runtime with Go Modules (`go.mod`) auto-detection, static binary compilation, and web/API/bot support.",
+  "category": "languages",
+  "icon": "go",
+  "version": "1.0.0",
+  "supported_versions": [
+    "1.23",
+    "1.24",
+    "1.25"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Go 1.23 (Official Yolk)": "ghcr.io/pterodactyl/yolks:go_1.23",
+    "Go 1.25 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.25",
+    "Go 1.24 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:go_1.24"
+  },
+  "custom_docker_images": {
+    "Go 1.25": "ghcr.io/vietnam-hosting/yolks:go_1.25",
+    "Go 1.24": "ghcr.io/vietnam-hosting/yolks:go_1.24"
+  },
+  "dockerfile_path": "docker/languages/go/1.25/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "BSD-3-Clause",
+  "upstream_url": "https://go.dev",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

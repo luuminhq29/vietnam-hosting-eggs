@@ -1,0 +1,55 @@
+{
+  "id": "open-webui",
+  "name": "Vietnam Hosting — Open WebUI (CPU / Remote LLM)",
+  "description": "Open WebUI chat interface connecting to Ollama CPU or OpenAI-compatible APIs (CPU-only by default; GPU requires admin Node setup).",
+  "category": "applications",
+  "icon": "open-webui",
+  "version": "1.0.0",
+  "supported_versions": [
+    "0.5.x"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 1024,
+  "recommended_ram_mb": 2048,
+  "minimum_disk_mb": 4096,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+  },
+  "custom_docker_images": {
+    "Open WebUI 0.5": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+  },
+  "dockerfile_path": "docker/services/open-webui/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs in CPU mode / remote API client mode. Local GPU inference requires dedicated GPU Node configuration by administrator."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT (Open WebUI License)",
+  "upstream_url": "https://openwebui.com",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

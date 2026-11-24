@@ -1,0 +1,20 @@
+{
+  "egg_id": "open-webui",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/open-webui/Dockerfile",
+  "docker_images": {
+    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+  ],
+  "custom_ghcr_targets": {
+    "Open WebUI 0.5": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

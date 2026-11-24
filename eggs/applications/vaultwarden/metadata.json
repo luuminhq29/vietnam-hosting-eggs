@@ -1,0 +1,55 @@
+{
+  "id": "vaultwarden",
+  "name": "Vietnam Hosting — Vaultwarden Password Manager",
+  "description": "Lightweight Rust Bitwarden-compatible Vaultwarden server (must be fronted by HTTPS reverse proxy for WebCrypto).",
+  "category": "applications",
+  "icon": "vaultwarden",
+  "version": "1.0.0",
+  "supported_versions": [
+    "1.33"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+  },
+  "custom_docker_images": {
+    "Vaultwarden 1.33": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+  },
+  "dockerfile_path": "docker/services/vaultwarden/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "GPL-3.0",
+  "upstream_url": "https://github.com/dani-garcia/vaultwarden",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

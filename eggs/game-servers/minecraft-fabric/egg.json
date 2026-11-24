@@ -1,0 +1,90 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Minecraft Fabric",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Lightweight modular Minecraft Fabric server installed directly from official meta.fabricmc.net API.",
+  "features": [
+    "eula",
+    "java_version",
+    "pid_limit"
+  ],
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+    "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+    "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+  },
+  "file_denylist": [],
+  "startup": "MEM={{SERVER_MEMORY}}; OVERHEAD=${JVM_OVERHEAD_MB:-512}; HEAP=$(( MEM - OVERHEAD )); (( HEAP < 512 )) && HEAP=$(( MEM * 80 / 100 )); (( HEAP < 256 )) && HEAP=256; exec java -Xms256M -Xmx\"${HEAP}M\" -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -Dterminal.jline=false -Dterminal.ansi=true -jar \"${SERVER_JARFILE}\" nogui",
+  "config": {
+    "files": "{\n    \"server.properties\": {\n        \"parser\": \"properties\",\n        \"find\": {\n            \"server-ip\": \"0.0.0.0\",\n            \"server-port\": \"{{server.build.default.port}}\",\n            \"query.port\": \"{{server.build.default.port}}\"\n        }\n    }\n}",
+    "startup": "{\"done\": \")! For help, type \"}",
+    "logs": "{}",
+    "stop": "stop"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Minecraft Fabric (minecraft-fabric)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Minecraft Fabric. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Minecraft Fabric.\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nMC_VER=\"${MC_VERSION:-latest}\"\nif [[ \"${MC_VER}\" == \"latest\" ]]; then\n    MC_VER=\"$(curl -fsSL https://meta.fabricmc.net/v2/versions/game | jq -r '[.[] | select(.stable == true)][0].version')\"\nfi\nLOADER_VER=\"${FABRIC_VERSION:-latest}\"\nif [[ \"${LOADER_VER}\" == \"latest\" ]]; then\n    LOADER_VER=\"$(curl -fsSL https://meta.fabricmc.net/v2/versions/loader | jq -r '[.[] | select(.stable == true)][0].version')\"\nfi\nINST_VER=\"${LOADER_INSTALLER:-latest}\"\nif [[ \"${INST_VER}\" == \"latest\" ]]; then\n    INST_VER=\"$(curl -fsSL https://meta.fabricmc.net/v2/versions/installer | jq -r '[.[] | select(.stable == true)][0].version')\"\nfi\nvnh_download \"https://meta.fabricmc.net/v2/versions/loader/${MC_VER}/${LOADER_VER}/${INST_VER}/server/jar\" \"/mnt/server/${SERVER_JARFILE}\"\nmkdir -p /mnt/server/mods\n\n{\n    printf 'egg_id=%s\\n' \"minecraft-fabric\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Minecraft Fabric.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Minecraft Version",
+      "description": "Minecraft version or `latest`.",
+      "env_variable": "MC_VERSION",
+      "default_value": "latest",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Fabric Loader Version",
+      "description": "Fabric loader version or `latest`.",
+      "env_variable": "FABRIC_VERSION",
+      "default_value": "latest",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Fabric Installer Version",
+      "description": "Fabric installer version or `latest`.",
+      "env_variable": "LOADER_INSTALLER",
+      "default_value": "latest",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Server JAR File",
+      "description": "Target launcher JAR filename.",
+      "env_variable": "SERVER_JARFILE",
+      "default_value": "fabric-server-launch.jar",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM Off-Heap Reserve (MiB)",
+      "description": "Off-heap RAM headroom.",
+      "env_variable": "JVM_OVERHEAD_MB",
+      "default_value": "512",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:128,4096",
+      "field_type": "text"
+    }
+  ]
+}

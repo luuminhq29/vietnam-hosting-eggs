@@ -1,0 +1,62 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — TimescaleDB (PostgreSQL 17)",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "PostgreSQL 17 with TimescaleDB hypertable extension preloaded, SCRAM-SHA-256 auth, and PG_VERSION safety check.",
+  "features": null,
+  "docker_images": {
+    "TimescaleDB PG17 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:timescaledb_pg17"
+  },
+  "file_denylist": [],
+  "startup": "export PGDATA=/home/container/pgdata; mkdir -p /home/container/run; if [[ ! -f \"${PGDATA}/PG_VERSION\" ]]; then   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf \"%s\" \"${PW}\" > /home/container/run/.pwfile; chmod 600 /home/container/run/.pwfile;   initdb -D \"${PGDATA}\" -U \"${DB_USER}\" --auth-local=scram-sha-256 --auth-host=scram-sha-256 --pwfile=/home/container/run/.pwfile --encoding=UTF8;   rm -f /home/container/run/.pwfile;   echo \"shared_preload_libraries = 'timescaledb'\" >> \"${PGDATA}/postgresql.conf\";   echo \"host all all 0.0.0.0/0 scram-sha-256\" >> \"${PGDATA}/pg_hba.conf\"; fi; exec postgres -D \"${PGDATA}\" -p {{SERVER_PORT}} -h \"${BIND_ADDRESS}\" -k /home/container/run",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"database system is ready to accept connections\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — TimescaleDB (PostgreSQL 17) (timescaledb)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — TimescaleDB (PostgreSQL 17). Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — TimescaleDB (PostgreSQL 17).\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/pgdata /mnt/server/run /mnt/server/backups\nchmod 700 /mnt/server/pgdata\n\n{\n    printf 'egg_id=%s\\n' \"timescaledb\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — TimescaleDB (PostgreSQL 17).\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Database User",
+      "description": "Primary TimescaleDB role.",
+      "env_variable": "DB_USER",
+      "default_value": "tsdb_user",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Database Password",
+      "description": "Strong password (auto-generated if empty).",
+      "env_variable": "DB_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled bind address.",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0",
+      "field_type": "text"
+    }
+  ]
+}

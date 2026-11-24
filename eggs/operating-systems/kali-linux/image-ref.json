@@ -1,0 +1,20 @@
+{
+  "egg_id": "kali-linux",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/linux/kali-linux/Dockerfile",
+  "docker_images": {
+    "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+  ],
+  "custom_ghcr_targets": {
+    "Kali Linux Minimal": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

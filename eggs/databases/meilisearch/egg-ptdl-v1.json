@@ -1,0 +1,49 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Meilisearch 1.13",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Fast typo-tolerant Meilisearch 1.13 search engine running in production mode with mandatory master key.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:meilisearch_1.13"
+  ],
+  "startup": "mkdir -p /home/container/data.ms /home/container/dumps /home/container/snapshots; if [[ ! -f /home/container/.master_key ]]; then   KEY=\"${MEILI_MASTER_KEY:-$(openssl rand -hex 24)}\"; printf \"%s\" \"${KEY}\" > /home/container/.master_key; chmod 600 /home/container/.master_key; fi; exec meilisearch --env production --no-analytics --http-addr \"${BIND_ADDRESS}:{{SERVER_PORT}}\" --db-path /home/container/data.ms --dump-dir /home/container/dumps --snapshot-dir /home/container/snapshots --master-key \"$(cat /home/container/.master_key)\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Server listening on:\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Meilisearch 1.13 (meilisearch)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Meilisearch 1.13. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Meilisearch 1.13.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data.ms /mnt/server/dumps /mnt/server/snapshots\n\n{\n    printf 'egg_id=%s\\n' \"meilisearch\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Meilisearch 1.13.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Master Key",
+      "description": "Meilisearch production master key (min 16 chars; auto-generated if empty).",
+      "env_variable": "MEILI_MASTER_KEY",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:16|max:128"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled bind address.",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0"
+    }
+  ]
+}

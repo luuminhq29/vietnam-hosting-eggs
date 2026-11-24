@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vietnam-hosting.net/schemas/metadata.schema.json",
+  "title": "Vietnam Hosting Egg Metadata Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "description",
+    "category",
+    "icon",
+    "version",
+    "supported_versions",
+    "supported_architectures",
+    "minimum_ram_mb",
+    "recommended_ram_mb",
+    "minimum_disk_mb",
+    "resource_basis",
+    "docker_images",
+    "image_source",
+    "requires_inbound_port",
+    "privileged_requirements",
+    "supported_panel_versions",
+    "supported_wings_versions",
+    "status",
+    "verification_status",
+    "supported_schemas",
+    "last_updated",
+    "upstream_license",
+    "upstream_url"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "category": {
+      "type": "string",
+      "enum": [
+        "languages",
+        "operating-systems",
+        "discord-bots",
+        "web-hosting",
+        "databases",
+        "game-servers",
+        "applications",
+        "utilities"
+      ]
+    },
+    "icon": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "supported_versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "supported_architectures": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "enum": ["amd64", "arm64"] },
+      "uniqueItems": true
+    },
+    "minimum_ram_mb": { "type": "integer", "minimum": 64 },
+    "recommended_ram_mb": { "type": "integer", "minimum": 128 },
+    "minimum_disk_mb": { "type": "integer", "minimum": 128 },
+    "resource_basis": {
+      "type": "string",
+      "enum": ["recommended_estimate", "upstream_documented", "benchmarked"]
+    },
+    "docker_images": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string" }
+    },
+    "custom_docker_images": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "dockerfile_path": { "type": ["string", "null"] },
+    "image_source": {
+      "type": "string",
+      "enum": ["upstream_official_yolk", "hybrid_official_and_ghcr", "requires_ghcr_build"]
+    },
+    "requires_inbound_port": { "type": "boolean" },
+    "privileged_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requires_privileged", "requires_docker_socket", "requires_gpu", "requires_kernel_features", "notes"],
+      "properties": {
+        "requires_privileged": { "type": "boolean" },
+        "requires_docker_socket": { "type": "boolean" },
+        "requires_gpu": { "type": "boolean" },
+        "requires_kernel_features": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "supported_panel_versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "supported_wings_versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Stable", "Beta", "Experimental", "Legacy", "Deprecated"]
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": ["UNVERIFIED", "STATIC_VALIDATED", "INTEGRATION_VERIFIED"]
+    },
+    "supported_schemas": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "enum": ["PTDL_v1", "PTDL_v2"] },
+      "uniqueItems": true
+    },
+    "last_updated": { "type": "string" },
+    "upstream_license": { "type": "string" },
+    "upstream_url": { "type": "string" },
+    "eula_required": { "type": "boolean" },
+    "steam_app_id": { "type": ["integer", "null"] },
+    "notes": { "type": "string" }
+  }
+}

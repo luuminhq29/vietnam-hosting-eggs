@@ -1,0 +1,22 @@
+{
+  "egg_id": "aspnet-core",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/languages/dotnet/10/Dockerfile",
+  "docker_images": {
+    ".NET 10.0 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_10",
+    ".NET 11.0 STS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:dotnet_11"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:dotnet_10",
+    "ghcr.io/vietnam-hosting/yolks:dotnet_11"
+  ],
+  "custom_ghcr_targets": {
+    ".NET 10.0 LTS": "ghcr.io/vietnam-hosting/yolks:dotnet_10"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

@@ -1,0 +1,42 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Open WebUI (CPU / Remote LLM)",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Open WebUI chat interface connecting to Ollama CPU or OpenAI-compatible APIs (CPU-only by default; GPU requires admin Node setup).",
+  "features": null,
+  "docker_images": {
+    "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+  },
+  "file_denylist": [],
+  "startup": "export PORT={{SERVER_PORT}} HOST=0.0.0.0 DATA_DIR=/home/container/data OLLAMA_BASE_URL=\"${OLLAMA_BASE_URL}\" WEBUI_AUTH=true; exec uvicorn open_webui.main:app --host 0.0.0.0 --port {{SERVER_PORT}}",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Application startup complete|Uvicorn running\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Open WebUI (CPU / Remote LLM) (open-webui)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Open WebUI (CPU / Remote LLM). Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Open WebUI (CPU / Remote LLM).\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data\n\n{\n    printf 'egg_id=%s\\n' \"open-webui\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Open WebUI (CPU / Remote LLM).\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Ollama Base URL",
+      "description": "Upstream Ollama API endpoint (e.g. http://127.0.0.1:11434).",
+      "env_variable": "OLLAMA_BASE_URL",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:256",
+      "field_type": "text"
+    }
+  ]
+}

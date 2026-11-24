@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vietnam-hosting.net/schemas/catalog.schema.json",
+  "title": "Vietnam Hosting Egg Catalog API Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "provider", "website", "generated_at", "total_eggs", "categories", "eggs"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "provider": { "type": "string" },
+    "website": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "total_eggs": { "type": "integer", "minimum": 1 },
+    "categories": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "eggs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "description",
+          "category",
+          "icon",
+          "version",
+          "supported_versions",
+          "supported_architectures",
+          "minimum_ram_mb",
+          "recommended_ram_mb",
+          "minimum_disk_mb",
+          "resource_basis",
+          "docker_images",
+          "image_source",
+          "supported_schemas",
+          "egg_download",
+          "egg_download_v1",
+          "documentation_url",
+          "supported_panel_versions",
+          "supported_wings_versions",
+          "status",
+          "verification_status",
+          "last_updated"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "category": { "type": "string" },
+          "icon": { "type": "string" },
+          "version": { "type": "string" },
+          "supported_versions": { "type": "array", "items": { "type": "string" } },
+          "supported_architectures": { "type": "array", "items": { "type": "string" } },
+          "minimum_ram_mb": { "type": "integer" },
+          "recommended_ram_mb": { "type": "integer" },
+          "minimum_disk_mb": { "type": "integer" },
+          "resource_basis": { "type": "string" },
+          "docker_images": { "type": "object", "additionalProperties": { "type": "string" } },
+          "image_source": { "type": "string" },
+          "supported_schemas": { "type": "array", "items": { "type": "string", "enum": ["PTDL_v1", "PTDL_v2"] } },
+          "egg_download": { "type": "string" },
+          "egg_download_v1": { "type": "string" },
+          "documentation_url": { "type": "string" },
+          "supported_panel_versions": { "type": "array", "items": { "type": "string" } },
+          "supported_wings_versions": { "type": "array", "items": { "type": "string" } },
+          "status": { "type": "string", "enum": ["Stable", "Beta", "Experimental", "Legacy", "Deprecated"] },
+          "verification_status": { "type": "string" },
+          "last_updated": { "type": "string" }
+        }
+      }
+    }
+  }
+}

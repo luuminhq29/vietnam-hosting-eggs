@@ -1,0 +1,67 @@
+{
+  "id": "python",
+  "name": "Vietnam Hosting — Python Hosting",
+  "description": "Production Python runtime (3.10–3.14) with Virtual Environment, pip, pipx, Poetry, uv, automatic requirements.txt & pyproject.toml detection, Git deployment, and support for discord.py, Flask, Django, and FastAPI.",
+  "category": "languages",
+  "icon": "python",
+  "version": "1.0.0",
+  "supported_versions": [
+    "3.10",
+    "3.11",
+    "3.12",
+    "3.13",
+    "3.14"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+    "Python 3.12 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.12",
+    "Python 3.11 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.11",
+    "Python 3.10 Legacy (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.10",
+    "Python 3.14 (Vietnam Hosting GHCR - Build Required)": "ghcr.io/vietnam-hosting/yolks:python_3.14"
+  },
+  "custom_docker_images": {
+    "Python 3.14": "ghcr.io/vietnam-hosting/yolks:python_3.14",
+    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13",
+    "Python 3.12": "ghcr.io/vietnam-hosting/yolks:python_3.12",
+    "Python 3.11": "ghcr.io/vietnam-hosting/yolks:python_3.11",
+    "Python 3.10 (Legacy)": "ghcr.io/vietnam-hosting/yolks:python_3.10"
+  },
+  "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "PSF-2.0",
+  "upstream_url": "https://www.python.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

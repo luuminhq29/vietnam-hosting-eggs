@@ -1,0 +1,40 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Code Server (VS Code Web)",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Browser-based VS Code (code-server) workspace running unprivileged in /home/container/workspace with mandatory password auth (no Docker Socket).",
+  "features": null,
+  "images": [
+    "ghcr.io/pterodactyl/yolks:debian"
+  ],
+  "startup": "if [[ ! -f /home/container/.cs_password ]]; then   PW=\"${CS_PASSWORD:-$(openssl rand -base64 20 | tr -dc A-Za-z0-9 | head -c 20)}\";   printf \"%s\" \"${PW}\" > /home/container/.cs_password; chmod 600 /home/container/.cs_password; fi; export PASSWORD=\"$(cat /home/container/.cs_password)\"; exec ./code-server/bin/code-server --bind-addr \"0.0.0.0:{{SERVER_PORT}}\" --user-data-dir /home/container/.local/share/code-server --extensions-dir /home/container/.local/share/code-server/extensions /home/container/workspace",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"HTTP server listening on\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Code Server (VS Code Web) (code-server)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Code Server (VS Code Web). Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Code Server (VS Code Web).\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nARCH=\"$(uname -m)\"; [[ \"${ARCH}\" == \"aarch64\" ]] && CARCH=\"arm64\" || CARCH=\"amd64\"\nURL=\"$(curl -fsSL https://api.github.com/repos/coder/code-server/releases/latest | jq -r --arg a \"linux-${CARCH}.tar.gz\" '.assets[] | select(.name | endswith($a)) | .browser_download_url' | head -n1)\"\nvnh_download \"${URL}\" \"/tmp/cs.tar.gz\"\nmkdir -p /mnt/server/code-server /mnt/server/workspace\ntar -xzf /tmp/cs.tar.gz --strip-components=1 -C /mnt/server/code-server\nrm -f /tmp/cs.tar.gz\n\n{\n    printf 'egg_id=%s\\n' \"code-server\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Code Server (VS Code Web).\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Web IDE Password",
+      "description": "Strong login password (auto-generated into .cs_password if empty).",
+      "env_variable": "CS_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128"
+    }
+  ]
+}

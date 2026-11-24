@@ -1,0 +1,786 @@
+{
+  "category": "applications",
+  "count": 19,
+  "eggs": [
+    {
+      "id": "code-server",
+      "name": "Vietnam Hosting — Code Server (VS Code Web)",
+      "description": "Browser-based VS Code (code-server) workspace running unprivileged in /home/container/workspace with mandatory password auth (no Docker Socket).",
+      "category": "applications",
+      "icon": "vscode",
+      "version": "1.0.0",
+      "supported_versions": [
+        "4.98+"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/code-server/egg.json",
+      "egg_download_v1": "eggs/applications/code-server/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/code-server/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "filebrowser",
+      "name": "Vietnam Hosting — File Browser",
+      "description": "Web-based File Browser scoped strictly to /home/container/files with auto-generated admin password.",
+      "category": "applications",
+      "icon": "filebrowser",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.32+"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/filebrowser/egg.json",
+      "egg_download_v1": "eggs/applications/filebrowser/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/filebrowser/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "forgejo",
+      "name": "Vietnam Hosting — Forgejo Git Forge",
+      "description": "Community-governed GPL Forgejo self-hosted Git forge downloaded from official codeberg.org/forgejo/forgejo releases.",
+      "category": "applications",
+      "icon": "forgejo",
+      "version": "1.0.0",
+      "supported_versions": [
+        "10.0 LTS"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/forgejo/egg.json",
+      "egg_download_v1": "eggs/applications/forgejo/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/forgejo/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "gitea",
+      "name": "Vietnam Hosting — Gitea Git Server",
+      "description": "Lightweight Go-based Gitea self-hosted Git service downloaded directly from official dl.gitea.com (AMD64 & ARM64).",
+      "category": "applications",
+      "icon": "gitea",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.23.x"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/gitea/egg.json",
+      "egg_download_v1": "eggs/applications/gitea/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/gitea/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "grafana",
+      "name": "Vietnam Hosting — Grafana Observability",
+      "description": "Grafana OSS 11.5 visualization dashboard running unprivileged with persistent data and plugins inside /home/container.",
+      "category": "applications",
+      "icon": "grafana",
+      "version": "1.0.0",
+      "supported_versions": [
+        "11.5"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Grafana 11.5 OSS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:grafana_11.5"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/grafana/egg.json",
+      "egg_download_v1": "eggs/applications/grafana/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/grafana/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "jupyterlab",
+      "name": "Vietnam Hosting — JupyterLab Workspace",
+      "description": "Interactive JupyterLab Python data-science notebook server bound to 0.0.0.0:{{SERVER_PORT}} with mandatory token authentication (no Docker Socket / no GPU by default).",
+      "category": "applications",
+      "icon": "jupyter",
+      "version": "1.0.0",
+      "supported_versions": [
+        "JupyterLab 4 (Python 3.12/3.13)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/jupyterlab/egg.json",
+      "egg_download_v1": "eggs/applications/jupyterlab/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/jupyterlab/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "lavalink",
+      "name": "Vietnam Hosting — Lavalink Audio Server",
+      "description": "Standalone Lavalink v4 audio sending node for Discord music bots with auto-generated strong password and JVM heap cap.",
+      "category": "applications",
+      "icon": "lavalink",
+      "version": "1.0.0",
+      "supported_versions": [
+        "v4 (Java 17/21)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+        "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/lavalink/egg.json",
+      "egg_download_v1": "eggs/applications/lavalink/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/lavalink/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "minio",
+      "name": "Vietnam Hosting — MinIO S3 Object Storage",
+      "description": "S3-compatible MinIO object storage server with mandatory strong root credentials and console allocation port.",
+      "category": "applications",
+      "icon": "minio",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Official MinIO Release"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/minio/egg.json",
+      "egg_download_v1": "eggs/applications/minio/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/minio/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "mosquitto",
+      "name": "Vietnam Hosting — Mosquitto MQTT Broker",
+      "description": "Lightweight Eclipse Mosquitto 2.0 MQTT broker enforcing authenticated connections (allow_anonymous false).",
+      "category": "applications",
+      "icon": "mosquitto",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.0.21"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 512,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/mosquitto/egg.json",
+      "egg_download_v1": "eggs/applications/mosquitto/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/mosquitto/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "n8n",
+      "name": "Vietnam Hosting — n8n Workflow Automation",
+      "description": "Fair-code n8n workflow automation platform bound to 0.0.0.0:{{SERVER_PORT}} (Docker Socket execution disabled in shared Wings).",
+      "category": "applications",
+      "icon": "n8n",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.x (Node.js 22 LTS)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/n8n/egg.json",
+      "egg_download_v1": "eggs/applications/n8n/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/n8n/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "ntfy",
+      "name": "Vietnam Hosting — ntfy Push Notification Server",
+      "description": "Self-hosted HTTP pub-sub push notification server (ntfy) downloaded from official GitHub Releases.",
+      "category": "applications",
+      "icon": "ntfy",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2.11+"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 128,
+      "recommended_ram_mb": 256,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/ntfy/egg.json",
+      "egg_download_v1": "eggs/applications/ntfy/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/ntfy/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "ollama-cpu",
+      "name": "Vietnam Hosting — Ollama CPU Inference Server",
+      "description": "CPU-only Ollama 0.6 local LLM inference server storing models in /home/container/.ollama/models (GPU acceleration is NOT enabled by default).",
+      "category": "applications",
+      "icon": "ollama",
+      "version": "1.0.0",
+      "supported_versions": [
+        "0.6.2 (CPU Only)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 4096,
+      "recommended_ram_mb": 8192,
+      "minimum_disk_mb": 16384,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Ollama CPU 0.6 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ollama_cpu_0.6"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/ollama-cpu/egg.json",
+      "egg_download_v1": "eggs/applications/ollama-cpu/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/ollama-cpu/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "open-webui",
+      "name": "Vietnam Hosting — Open WebUI (CPU / Remote LLM)",
+      "description": "Open WebUI chat interface connecting to Ollama CPU or OpenAI-compatible APIs (CPU-only by default; GPU requires admin Node setup).",
+      "category": "applications",
+      "icon": "open-webui",
+      "version": "1.0.0",
+      "supported_versions": [
+        "0.5.x"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 1024,
+      "recommended_ram_mb": 2048,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Open WebUI 0.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:open_webui_0.5"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/open-webui/egg.json",
+      "egg_download_v1": "eggs/applications/open-webui/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/open-webui/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "prometheus",
+      "name": "Vietnam Hosting — Prometheus Monitoring",
+      "description": "Prometheus TSDB metrics collector downloaded from official GitHub Releases (AMD64 & ARM64).",
+      "category": "applications",
+      "icon": "prometheus",
+      "version": "1.0.0",
+      "supported_versions": [
+        "3.2+"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 4096,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/prometheus/egg.json",
+      "egg_download_v1": "eggs/applications/prometheus/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/prometheus/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "rabbitmq",
+      "name": "Vietnam Hosting — RabbitMQ 4.0",
+      "description": "Enterprise RabbitMQ 4.0 AMQP message broker with container-scoped mnesia data and management plugin.",
+      "category": "applications",
+      "icon": "rabbitmq",
+      "version": "1.0.0",
+      "supported_versions": [
+        "4.0"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/rabbitmq/egg.json",
+      "egg_download_v1": "eggs/applications/rabbitmq/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/rabbitmq/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "searxng",
+      "name": "Vietnam Hosting — SearXNG Privacy Metasearch",
+      "description": "Privacy-respecting SearXNG metasearch engine with auto-generated secret key and persistent settings.yml.",
+      "category": "applications",
+      "icon": "searxng",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2025/2026 Pinned"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:searxng_2026"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/searxng/egg.json",
+      "egg_download_v1": "eggs/applications/searxng/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/searxng/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "syncthing",
+      "name": "Vietnam Hosting — Syncthing",
+      "description": "Continuous decentralized file synchronization with Syncthing web GUI on 0.0.0.0:{{SERVER_PORT}}.",
+      "category": "applications",
+      "icon": "syncthing",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.29+"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+      },
+      "image_source": "upstream_official_yolk",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/syncthing/egg.json",
+      "egg_download_v1": "eggs/applications/syncthing/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/syncthing/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "Vietnam Hosting — Uptime Kuma",
+      "description": "Self-hosted Uptime Kuma monitoring dashboard on Node.js LTS bound to 0.0.0.0:{{SERVER_PORT}} with persistent SQLite data.",
+      "category": "applications",
+      "icon": "uptime-kuma",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.23.x / 2.x"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 512,
+      "recommended_ram_mb": 1024,
+      "minimum_disk_mb": 2048,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Node.js 22 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_22"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/uptime-kuma/egg.json",
+      "egg_download_v1": "eggs/applications/uptime-kuma/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/uptime-kuma/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "vaultwarden",
+      "name": "Vietnam Hosting — Vaultwarden Password Manager",
+      "description": "Lightweight Rust Bitwarden-compatible Vaultwarden server (must be fronted by HTTPS reverse proxy for WebCrypto).",
+      "category": "applications",
+      "icon": "vaultwarden",
+      "version": "1.0.0",
+      "supported_versions": [
+        "1.33"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Vaultwarden 1.33 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:vaultwarden_1.33"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/applications/vaultwarden/egg.json",
+      "egg_download_v1": "eggs/applications/vaultwarden/egg-ptdl-v1.json",
+      "documentation_url": "eggs/applications/vaultwarden/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Enforce LF line endings for Linux container scripts, Dockerfiles, and JSON/YAML
+* text=auto eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+bin/vnh-egg text eol=lf
+Makefile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.cmd text eol=crlf
+*.zip binary

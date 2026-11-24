@@ -1,0 +1,49 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — n8n Workflow Automation",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Fair-code n8n workflow automation platform bound to 0.0.0.0:{{SERVER_PORT}} (Docker Socket execution disabled in shared Wings).",
+  "features": null,
+  "images": [
+    "ghcr.io/pterodactyl/yolks:nodejs_22"
+  ],
+  "startup": "export N8N_HOST=0.0.0.0 N8N_PORT={{SERVER_PORT}} N8N_USER_FOLDER=/home/container/data N8N_DIAGNOSTICS_ENABLED=false; exec ./node_modules/.bin/n8n start",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Editor is now accessible via:|n8n ready on\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — n8n Workflow Automation (n8n)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — n8n Workflow Automation. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — n8n Workflow Automation.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data\ncd /mnt/server\nif [[ ! -f package.json ]]; then npm init -y >/dev/null; fi\nnpm install n8n --omit=dev\n\n{\n    printf 'egg_id=%s\\n' \"n8n\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — n8n Workflow Automation.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Public Webhook URL",
+      "description": "External HTTPS URL configured on platform reverse proxy.",
+      "env_variable": "WEBHOOK_URL",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:256"
+    },
+    {
+      "name": "Encryption Key",
+      "description": "Stable encryption key for n8n credentials (never logged).",
+      "env_variable": "N8N_ENCRYPTION_KEY",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128"
+    }
+  ]
+}

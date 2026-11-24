@@ -1,0 +1,72 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — MySQL 8.4 LTS",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Unprivileged MySQL 8.4 LTS database container with first-boot initialization, random strong credentials, least-privilege app user, and graceful SIGTERM shutdown.",
+  "features": null,
+  "docker_images": {
+    "MySQL 8.4 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mysql_8.4"
+  },
+  "file_denylist": [],
+  "startup": "mkdir -p /home/container/data /home/container/run /home/container/logs; if [[ ! -d /home/container/data/mysql ]]; then   mysqld --initialize-insecure --datadir=/home/container/data;   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   cat > /home/container/run/init.sql <<SQL\nCREATE DATABASE IF NOT EXISTS \\`${DB_NAME}\\`;\nCREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${PW}';\nGRANT ALL PRIVILEGES ON \\`${DB_NAME}\\`.* TO '${DB_USER}'@'%';\nFLUSH PRIVILEGES;\nSQL\n  chmod 600 /home/container/run/init.sql;   exec mysqld --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mysqld.sock --init-file=/home/container/run/init.sql; fi; rm -f /home/container/run/init.sql; exec mysqld --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mysqld.sock",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"ready for connections\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — MySQL 8.4 LTS (mysql)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — MySQL 8.4 LTS. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — MySQL 8.4 LTS.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data /mnt/server/run /mnt/server/logs /mnt/server/backups\necho \"[VNH][INSTALL] MySQL data directories prepared safely (no existing data overwritten).\"\n\n{\n    printf 'egg_id=%s\\n' \"mysql\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — MySQL 8.4 LTS.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Database Name",
+      "description": "Initial application database created on first boot.",
+      "env_variable": "DB_NAME",
+      "default_value": "app_db",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:64",
+      "field_type": "text"
+    },
+    {
+      "name": "Application User",
+      "description": "Least-privilege database user.",
+      "env_variable": "DB_USER",
+      "default_value": "app_user",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Application Password",
+      "description": "Strong password (leave blank to auto-generate securely on first boot).",
+      "env_variable": "DB_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Default 127.0.0.1 (admin may set 0.0.0.0 when external access is explicitly approved).",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0",
+      "field_type": "text"
+    }
+  ]
+}

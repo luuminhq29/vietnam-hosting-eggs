@@ -1,0 +1,55 @@
+{
+  "id": "perl",
+  "name": "Vietnam Hosting — Perl Hosting",
+  "description": "Perl 5.40 runtime with cpanm and local::lib user-space module management.",
+  "category": "languages",
+  "icon": "perl",
+  "version": "1.0.0",
+  "supported_versions": [
+    "5.40"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 128,
+  "recommended_ram_mb": 256,
+  "minimum_disk_mb": 512,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Perl 5.40 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+  },
+  "custom_docker_images": {
+    "Perl 5.40": "ghcr.io/vietnam-hosting/yolks:perl_5.40"
+  },
+  "dockerfile_path": "docker/languages/perl/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Artistic-1.0-Perl OR GPL-1.0-or-later",
+  "upstream_url": "https://www.perl.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

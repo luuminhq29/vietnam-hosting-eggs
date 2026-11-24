@@ -1,0 +1,55 @@
+{
+  "id": "amazon-linux",
+  "name": "Vietnam Hosting — Amazon Linux (NAT Linux Container)",
+  "description": "Unprivileged Amazon Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+  "category": "operating-systems",
+  "icon": "amazon",
+  "version": "1.0.0",
+  "supported_versions": [
+    "2023"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+  },
+  "custom_docker_images": {
+    "Amazon Linux": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+  },
+  "dockerfile_path": "docker/linux/amazon-linux/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT-0 / GPL",
+  "upstream_url": "https://aws.amazon.com/linux/amazon-linux-2023/",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": "Unprivileged NAT container with persistent SSH host keys and Wings SFTP."
+}

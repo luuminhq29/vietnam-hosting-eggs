@@ -1,0 +1,55 @@
+{
+  "id": "mosquitto",
+  "name": "Vietnam Hosting — Mosquitto MQTT Broker",
+  "description": "Lightweight Eclipse Mosquitto 2.0 MQTT broker enforcing authenticated connections (allow_anonymous false).",
+  "category": "applications",
+  "icon": "mosquitto",
+  "version": "1.0.0",
+  "supported_versions": [
+    "2.0.21"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 128,
+  "recommended_ram_mb": 256,
+  "minimum_disk_mb": 512,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Mosquitto 2.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+  },
+  "custom_docker_images": {
+    "Mosquitto 2.0": "ghcr.io/vietnam-hosting/yolks:mosquitto_2.0"
+  },
+  "dockerfile_path": "docker/services/mosquitto/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "EPL-2.0 / EDL-1.0",
+  "upstream_url": "https://mosquitto.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

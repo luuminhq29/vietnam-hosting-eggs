@@ -1,0 +1,42 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Prometheus Monitoring",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Prometheus TSDB metrics collector downloaded from official GitHub Releases (AMD64 & ARM64).",
+  "features": null,
+  "docker_images": {
+    "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian"
+  },
+  "file_denylist": [],
+  "startup": "exec ./prometheus --config.file=/home/container/prometheus.yml --storage.tsdb.path=/home/container/data --storage.tsdb.retention.time=\"${RETENTION_TIME}\" --web.listen-address=\"0.0.0.0:{{SERVER_PORT}}\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Server is ready to receive web requests\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Prometheus Monitoring (prometheus)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Prometheus Monitoring. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Prometheus Monitoring.\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nARCH=\"$(uname -m)\"; [[ \"${ARCH}\" == \"aarch64\" ]] && PARCH=\"arm64\" || PARCH=\"amd64\"\nURL=\"$(curl -fsSL https://api.github.com/repos/prometheus/prometheus/releases/latest | jq -r --arg a \"linux-${PARCH}.tar.gz\" '.assets[] | select(.name | endswith($a)) | .browser_download_url' | head -n1)\"\nvnh_download \"${URL}\" \"/tmp/prom.tar.gz\"\ntar -xzf /tmp/prom.tar.gz --strip-components=1 -C /mnt/server\nrm -f /tmp/prom.tar.gz\nmkdir -p /mnt/server/data\nif [[ ! -f /mnt/server/prometheus.yml ]]; then\n    printf \"global:\\n  scrape_interval: 15s\\nscrape_configs:\\n  - job_name: 'prometheus'\\n    static_configs:\\n      - targets: ['127.0.0.1:{{SERVER_PORT}}']\\n\" > /mnt/server/prometheus.yml\nfi\n\n{\n    printf 'egg_id=%s\\n' \"prometheus\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Prometheus Monitoring.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "TSDB Retention",
+      "description": "Data retention window (e.g. 15d, 30d).",
+      "env_variable": "RETENTION_TIME",
+      "default_value": "15d",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:16",
+      "field_type": "text"
+    }
+  ]
+}

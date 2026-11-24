@@ -1,0 +1,40 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — JupyterLab Workspace",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Interactive JupyterLab Python data-science notebook server bound to 0.0.0.0:{{SERVER_PORT}} with mandatory token authentication (no Docker Socket / no GPU by default).",
+  "features": null,
+  "images": [
+    "ghcr.io/pterodactyl/yolks:python_3.13"
+  ],
+  "startup": "if [[ ! -d .venv ]]; then python3 -m venv .venv; fi; source .venv/bin/activate; if [[ ! -f /home/container/.jupyter_token ]]; then   TOK=\"${JUPYTER_TOKEN:-$(openssl rand -hex 24)}\"; printf \"%s\" \"${TOK}\" > /home/container/.jupyter_token; chmod 600 /home/container/.jupyter_token; fi; exec jupyter lab --ip=0.0.0.0 --port={{SERVER_PORT}} --no-browser --notebook-dir=/home/container/notebooks --IdentityProvider.token=\"$(cat /home/container/.jupyter_token)\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Jupyter Server .* is running at:\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — JupyterLab Workspace (jupyterlab)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — JupyterLab Workspace. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — JupyterLab Workspace.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/notebooks\npython3 -m venv /mnt/server/.venv\n/mnt/server/.venv/bin/pip install --no-cache-dir --upgrade pip jupyterlab\n\n{\n    printf 'egg_id=%s\\n' \"jupyterlab\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — JupyterLab Workspace.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Jupyter Access Token",
+      "description": "Auth token (auto-generated into .jupyter_token if blank).",
+      "env_variable": "JUPYTER_TOKEN",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:16|max:128"
+    }
+  ]
+}

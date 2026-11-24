@@ -1,0 +1,56 @@
+{
+  "id": "lavalink",
+  "name": "Vietnam Hosting — Lavalink Audio Server",
+  "description": "Standalone Lavalink v4 audio sending node for Discord music bots with auto-generated strong password and JVM heap cap.",
+  "category": "applications",
+  "icon": "lavalink",
+  "version": "1.0.0",
+  "supported_versions": [
+    "v4 (Java 17/21)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17"
+  },
+  "custom_docker_images": {
+    "Java 21 LTS": "ghcr.io/vietnam-hosting/yolks:java_21"
+  },
+  "dockerfile_path": "docker/languages/java/21/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://lavalink.dev",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

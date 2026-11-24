@@ -1,0 +1,58 @@
+{
+  "id": "queue-worker",
+  "name": "Vietnam Hosting — Queue Worker",
+  "description": "Outbound asynchronous queue consumer worker (Redis/Valkey/RabbitMQ) with exponential backoff and graceful SIGTERM drain.",
+  "category": "utilities",
+  "icon": "queue",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Python 3.13",
+    "Node.js 24 LTS"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Python 3.13 (Official Yolk)": "ghcr.io/pterodactyl/yolks:python_3.13",
+    "Node.js 24 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:nodejs_24"
+  },
+  "custom_docker_images": {
+    "Python 3.13": "ghcr.io/vietnam-hosting/yolks:python_3.13",
+    "Node.js 24 LTS": "ghcr.io/vietnam-hosting/yolks:nodejs_24"
+  },
+  "dockerfile_path": "docker/languages/python/3.13/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": false,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "MIT",
+  "upstream_url": "https://vietnam-hosting.net",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

@@ -1,0 +1,28 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "{{EXPORTED_AT}}",
+  "name": "{{NAME}}",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "{{DESCRIPTION}}",
+  "features": null,
+  "images": [],
+  "startup": "{{STARTUP}}",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"READY\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\nset -euo pipefail\nmkdir -p /mnt/server\ncd /mnt/server\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
+}

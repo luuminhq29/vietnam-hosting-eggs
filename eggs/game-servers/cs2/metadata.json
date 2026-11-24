@@ -1,0 +1,52 @@
+{
+  "id": "cs2",
+  "name": "Vietnam Hosting — Counter-Strike 2",
+  "description": "Official Valve Counter-Strike 2 Linux dedicated server via SteamCMD (AppID 730, AMD64 only, requires Steam GSLT).",
+  "category": "game-servers",
+  "icon": "cs2",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Latest SteamCMD (AppID 730)"
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "minimum_ram_mb": 2048,
+  "recommended_ram_mb": 4096,
+  "minimum_disk_mb": 40960,
+  "resource_basis": "upstream_documented",
+  "docker_images": {
+    "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+  },
+  "custom_docker_images": {},
+  "dockerfile_path": null,
+  "image_source": "upstream_official_yolk",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Valve Steam Subscriber Agreement",
+  "upstream_url": "https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers",
+  "eula_required": false,
+  "steam_app_id": 730,
+  "notes": "AMD64 only. Requires >= 40 GiB disk space for CS2 depot."
+}

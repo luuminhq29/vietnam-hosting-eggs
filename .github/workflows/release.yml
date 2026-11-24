@@ -1,0 +1,48 @@
+name: Release Universal Eggs Package
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release-package:
+    name: Validate, Export, Package ZIP & SHA256
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Validate all eggs strictly before release
+        run: python3 -m generator validate --strict
+      - name: Run full unit test suite
+        run: python3 -m unittest discover -s tests -v
+      - name: Export clean PTDL_v2 Egg JSON bundle
+        run: python3 -m generator export --output dist/eggs
+      - name: Package vietnam-hosting-universal-eggs.zip with SHA256
+        run: python3 -m generator package --output dist/vietnam-hosting-universal-eggs.zip
+      - name: Verify SHA256 checksum
+        run: (cd dist && sha256sum -c vietnam-hosting-universal-eggs.zip.sha256)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vietnam-hosting-universal-eggs
+          path: |
+            dist/vietnam-hosting-universal-eggs.zip
+            dist/vietnam-hosting-universal-eggs.zip.sha256
+            dist/package-manifest.json
+      - name: Create GitHub Release (tags only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/vietnam-hosting-universal-eggs.zip
+            dist/vietnam-hosting-universal-eggs.zip.sha256
+            dist/package-manifest.json
+            catalog.json
+            compatibility.json

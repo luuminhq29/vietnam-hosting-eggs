@@ -1,0 +1,55 @@
+{
+  "id": "elixir",
+  "name": "Vietnam Hosting — Elixir Hosting",
+  "description": "Elixir 1.18 (Erlang/OTP 27) runtime with Mix, Hex, and Phoenix web/bot application support.",
+  "category": "languages",
+  "icon": "elixir",
+  "version": "1.0.0",
+  "supported_versions": [
+    "1.18 (OTP 27)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 256,
+  "recommended_ram_mb": 512,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Elixir 1.18 OTP 27 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:elixir_1.18"
+  },
+  "custom_docker_images": {
+    "Elixir 1.18 OTP 27": "ghcr.io/vietnam-hosting/yolks:elixir_1.18"
+  },
+  "dockerfile_path": "docker/languages/elixir/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Apache-2.0",
+  "upstream_url": "https://elixir-lang.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

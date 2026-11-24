@@ -1,0 +1,20 @@
+{
+  "egg_id": "rust-axum",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/languages/rust/stable/Dockerfile",
+  "docker_images": {
+    "Rust Stable 1.86 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:rust_stable"
+  ],
+  "custom_ghcr_targets": {
+    "Rust Stable 1.86": "ghcr.io/vietnam-hosting/yolks:rust_stable"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

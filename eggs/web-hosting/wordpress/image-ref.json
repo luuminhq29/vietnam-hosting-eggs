@@ -1,0 +1,22 @@
+{
+  "egg_id": "wordpress",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/languages/php/8.4/Dockerfile",
+  "docker_images": {
+    "PHP 8.4 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
+    "PHP 8.3 + Nginx (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:php_8.4",
+    "ghcr.io/vietnam-hosting/yolks:php_8.3"
+  ],
+  "custom_ghcr_targets": {
+    "PHP 8.4": "ghcr.io/vietnam-hosting/yolks:php_8.4"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

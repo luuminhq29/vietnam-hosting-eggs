@@ -1,0 +1,54 @@
+{
+  "id": "minecraft-bedrock",
+  "name": "Vietnam Hosting — Minecraft Bedrock Dedicated Server",
+  "description": "Official Mojang Minecraft Bedrock Dedicated Server for Linux x86_64 (AMD64 only — Mojang does not ship native ARM64 Linux binaries).",
+  "category": "game-servers",
+  "icon": "minecraft-bedrock",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Latest Official Mojang Linux x64"
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "minimum_ram_mb": 1024,
+  "recommended_ram_mb": 2048,
+  "minimum_disk_mb": 2048,
+  "resource_basis": "upstream_documented",
+  "docker_images": {
+    "Debian Official Yolk (AMD64)": "ghcr.io/pterodactyl/yolks:debian"
+  },
+  "custom_docker_images": {
+    "Base Debian 13 (AMD64)": "ghcr.io/vietnam-hosting/yolks:base_debian13"
+  },
+  "dockerfile_path": null,
+  "image_source": "upstream_official_yolk",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Minecraft EULA",
+  "upstream_url": "https://www.minecraft.net/en-us/download/server/bedrock",
+  "eula_required": true,
+  "steam_app_id": null,
+  "notes": "AMD64 only — Mojang publishes Linux x86_64 binaries exclusively."
+}

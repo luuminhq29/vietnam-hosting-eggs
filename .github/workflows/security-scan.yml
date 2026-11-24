@@ -1,0 +1,67 @@
+name: Security Scan & SBOM Generation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  trivy-config-and-fs:
+    name: Trivy IaC, Secret, and Filesystem Scan
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Trivy filesystem & misconfiguration scan
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          scan-type: "fs"
+          scan-ref: "."
+          scanners: "vuln,misconfig,secret"
+          severity: "CRITICAL,HIGH"
+          format: "sarif"
+          output: "trivy-fs-results.sarif"
+          trivy-config: "security/trivy.yaml"
+      - name: Upload Trivy SARIF report
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: "trivy-fs-results.sarif"
+
+  sample-image-scan-and-sbom:
+    name: Build Base Image, Trivy Scan & SPDX SBOM
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build base Debian 13 image locally
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/base/debian-13/Dockerfile
+          load: true
+          tags: vnh-scan/base_debian13:ci
+      - name: Trivy image vulnerability scan
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          image-ref: "vnh-scan/base_debian13:ci"
+          format: "table"
+          exit-code: "0"
+          severity: "CRITICAL,HIGH"
+      - name: Generate SPDX SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: "vnh-scan/base_debian13:ci"
+          format: "spdx-json"
+          output-file: "sbom-base-debian13.spdx.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom-base-debian13
+          path: sbom-base-debian13.spdx.json

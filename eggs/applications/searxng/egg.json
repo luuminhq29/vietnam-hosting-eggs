@@ -1,0 +1,31 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — SearXNG Privacy Metasearch",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Privacy-respecting SearXNG metasearch engine with auto-generated secret key and persistent settings.yml.",
+  "features": null,
+  "docker_images": {
+    "SearXNG (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:searxng_2026"
+  },
+  "file_denylist": [],
+  "startup": "export SEARXNG_SETTINGS_PATH=/home/container/settings.yml SEARXNG_BIND_ADDRESS=0.0.0.0 SEARXNG_PORT={{SERVER_PORT}}; exec granian --interface wsgi --host 0.0.0.0 --port {{SERVER_PORT}} searx.webapp:app",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Listening at:|Serving on\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — SearXNG Privacy Metasearch (searxng)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — SearXNG Privacy Metasearch. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — SearXNG Privacy Metasearch.\"\n    VNH_REINSTALL=0\nfi\n\nif [[ ! -f /mnt/server/settings.yml ]]; then\n    SEC=\"$(openssl rand -hex 32)\"\n    cat > /mnt/server/settings.yml <<EOF\nuse_default_settings: true\nserver:\n  secret_key: \"${SEC}\"\n  limiter: true\n  image_proxy: true\nEOF\n    chmod 600 /mnt/server/settings.yml\nfi\n\n{\n    printf 'egg_id=%s\\n' \"searxng\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — SearXNG Privacy Metasearch.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
+}

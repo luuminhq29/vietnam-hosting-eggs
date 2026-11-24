@@ -1,0 +1,58 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Minecraft Bedrock Dedicated Server",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Official Mojang Minecraft Bedrock Dedicated Server for Linux x86_64 (AMD64 only — Mojang does not ship native ARM64 Linux binaries).",
+  "features": null,
+  "images": [
+    "ghcr.io/pterodactyl/yolks:debian"
+  ],
+  "startup": "LD_LIBRARY_PATH=. exec ./bedrock_server",
+  "config": {
+    "files": "{\n    \"server.properties\": {\n        \"parser\": \"properties\",\n        \"find\": {\n            \"server-port\": \"{{server.build.default.port}}\",\n            \"server-name\": \"{{env.SERVER_NAME}}\",\n            \"gamemode\": \"{{env.GAMEMODE}}\"\n        }\n    }\n}",
+    "startup": "{\"done\": \"Server started.\"}",
+    "logs": "{}",
+    "stop": "stop"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Minecraft Bedrock Dedicated Server (minecraft-bedrock)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Minecraft Bedrock Dedicated Server. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Minecraft Bedrock Dedicated Server.\"\n    VNH_REINSTALL=0\nfi\n\nvnh_download() {\n    local url=\"$1\"\n    local dest=\"$2\"\n    local sha=\"${3:-}\"\n    if [[ ! \"$url\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] Only https:// URLs are permitted: $url\" >&2\n        return 1\n    fi\n    local tmp=\"${dest}.vnh.tmp\"\n    local attempt=1\n    while (( attempt <= 3 )); do\n        echo \"[VNH][INSTALL] Downloading (${attempt}/3): ${url}\"\n        if curl -fsSL --connect-timeout 15 --max-time 180 \\\n            -A \"VietnamHosting-UniversalEggs/1.0 (+https://vietnam-hosting.net)\" \\\n            -o \"$tmp\" \"$url\"; then\n            break\n        fi\n        rm -f \"$tmp\"\n        if (( attempt == 3 )); then\n            echo \"[VNH][INSTALL][ERROR] Failed to download ${url}\" >&2\n            return 1\n        fi\n        sleep $(( attempt * 2 ))\n        attempt=$(( attempt + 1 ))\n    done\n    if [[ -n \"$sha\" ]]; then\n        local got\n        got=\"$(sha256sum \"$tmp\" | awk '{print $1}')\"\n        if [[ \"${got,,}\" != \"${sha,,}\" ]]; then\n            rm -f \"$tmp\"\n            echo \"[VNH][INSTALL][ERROR] SHA256 mismatch for ${dest}: expected ${sha}, got ${got}\" >&2\n            return 1\n        fi\n        echo \"[VNH][INSTALL] Verified SHA256 for ${dest}.\"\n    fi\n    mv -f \"$tmp\" \"$dest\"\n}\nif [[ \"$(uname -m)\" != \"x86_64\" ]]; then\n    echo \"[VNH][INSTALL][ERROR] Minecraft Bedrock Dedicated Server officially supports Linux x86_64 (amd64) only.\" >&2\n    exit 1\nfi\nDL_URL=\"${BEDROCK_DOWNLOAD_URL:-}\"\nif [[ -z \"${DL_URL}\" ]]; then\n    DL_URL=\"$(curl -fsSL -A \"Mozilla/5.0\" \"https://net-secondary.web.minecraft-services.net/api/v1.0/download/links\" | jq -r '.result.links[] | select(.downloadType == \"serverBedrockLinux\") | .downloadUrl' | head -n1)\"\nfi\nif [[ -z \"${DL_URL}\" || \"${DL_URL}\" == \"null\" ]]; then\n    echo \"[VNH][INSTALL][ERROR] Could not resolve official Mojang Bedrock download URL. Supply BEDROCK_DOWNLOAD_URL explicitly.\" >&2\n    exit 1\nfi\nvnh_download \"${DL_URL}\" \"/tmp/bedrock-server.zip\"\n# Preserve existing server.properties, permissions.json, allowlist.json on reinstall\nunzip -n -q /tmp/bedrock-server.zip -d /mnt/server\nunzip -o -q /tmp/bedrock-server.zip bedrock_server -d /mnt/server\nchmod +x /mnt/server/bedrock_server\nrm -f /tmp/bedrock-server.zip\n\n{\n    printf 'egg_id=%s\\n' \"minecraft-bedrock\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Minecraft Bedrock Dedicated Server.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Server Name",
+      "description": "Bedrock server MOTD name.",
+      "env_variable": "SERVER_NAME",
+      "default_value": "Vietnam Hosting Bedrock",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:64"
+    },
+    {
+      "name": "Gamemode",
+      "description": "Default gamemode.",
+      "env_variable": "GAMEMODE",
+      "default_value": "survival",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:survival,creative,adventure"
+    },
+    {
+      "name": "Optional Official Zip URL",
+      "description": "Optional direct https://www.minecraft.net/bedrockdedicatedserver/... zip override.",
+      "env_variable": "BEDROCK_DOWNLOAD_URL",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:512"
+    }
+  ]
+}

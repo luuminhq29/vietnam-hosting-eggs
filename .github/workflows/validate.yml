@@ -1,0 +1,49 @@
+name: Validate Eggs, Scripts, and Dockerfiles
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-schema-and-tests:
+    name: PTDL_v2 Schema & Unit Test Suite
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Run vnh-egg strict validator
+        run: python3 -m generator validate --strict
+      - name: Run Python test suite
+        run: python3 -m unittest discover -s tests -v
+
+  shellcheck:
+    name: ShellCheck Lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends shellcheck
+      - name: Lint core, scripts, and egg install scripts
+        run: |
+          shellcheck -S warning core/*.sh scripts/*.sh
+          find eggs -name "install.sh" -print0 | xargs -0 -r shellcheck -S error
+
+  hadolint:
+    name: Hadolint Dockerfile Lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Hadolint
+        run: |
+          curl -fsSL https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 -o /tmp/hadolint
+          chmod +x /tmp/hadolint
+      - name: Lint all Dockerfiles
+        run: |
+          find docker -name "Dockerfile" -print0 | xargs -0 -n1 /tmp/hadolint --failure-threshold error

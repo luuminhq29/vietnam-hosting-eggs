@@ -1,0 +1,94 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Deno Hosting",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Secure-by-default Deno JavaScript & TypeScript runtime with configurable filesystem/network permission flags.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:deno_2"
+  ],
+  "startup": "IFS=\" \" read -r -a DENO_FLAGS <<< \"${DENO_PERMISSIONS}\"; exec deno run \"${DENO_FLAGS[@]}\" \"${MAIN_FILE}\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Listening on|Ready|VIETNAM HOSTING\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Deno Hosting (deno)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Deno Hosting. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Deno Hosting.\"\n    VNH_REINSTALL=0\nfi\n\n# Safe HTTPS Git deployment without logging credentials or wiping existing user data\nif [[ -n \"${GIT_ADDRESS:-}\" ]]; then\n    if [[ ! \"${GIT_ADDRESS}\" =~ ^https:// ]]; then\n        echo \"[VNH][INSTALL][ERROR] GIT_ADDRESS must use https:// scheme.\" >&2\n        exit 1\n    fi\n    ASKPASS_FILE=\"\"\n    if [[ -n \"${ACCESS_TOKEN:-}\" ]]; then\n        ASKPASS_FILE=\"$(mktemp /tmp/vnh-git-askpass.XXXXXX)\"\n        chmod 700 \"${ASKPASS_FILE}\"\n        cat > \"${ASKPASS_FILE}\" <<'VNH_EOF'\n#!/usr/bin/env sh\ncase \"$1\" in\n    *Username*) printf '%s\\n' \"${USERNAME:-git}\" ;;\n    *Password*) printf '%s\\n' \"${ACCESS_TOKEN:-}\" ;;\nesac\nVNH_EOF\n        export GIT_ASKPASS=\"${ASKPASS_FILE}\"\n        export GIT_TERMINAL_PROMPT=0\n    fi\n\n    if [[ -d /mnt/server/.git ]]; then\n        echo \"[VNH][INSTALL] Updating existing Git repository...\"\n        if [[ -n \"${BRANCH:-}\" ]]; then\n            git -C /mnt/server fetch --depth 1 origin \"${BRANCH}\"\n            git -C /mnt/server checkout -B \"${BRANCH}\" \"origin/${BRANCH}\"\n        else\n            git -C /mnt/server pull --ff-only\n        fi\n    else\n        echo \"[VNH][INSTALL] Cloning Git repository into /mnt/server...\"\n        CLONE_TMP=\"$(mktemp -d /tmp/vnh-clone.XXXXXX)\"\n        if [[ -n \"${BRANCH:-}\" ]]; then\n            git clone --depth 1 --branch \"${BRANCH}\" --single-branch \"${GIT_ADDRESS}\" \"${CLONE_TMP}\"\n        else\n            git clone --depth 1 \"${GIT_ADDRESS}\" \"${CLONE_TMP}\"\n        fi\n        cp -an \"${CLONE_TMP}/.\" /mnt/server/\n        rm -rf \"${CLONE_TMP}\"\n    fi\n\n    if [[ -n \"${ASKPASS_FILE}\" ]]; then\n        rm -f \"${ASKPASS_FILE}\"\n        unset GIT_ASKPASS\n    fi\nfi\nif [[ ! -f /mnt/server/main.ts ]] && [[ -z \"${GIT_ADDRESS:-}\" ]]; then\n    cat > /mnt/server/main.ts <<'EOF'\nconst port = Number(Deno.env.get(\"SERVER_PORT\") ?? \"8080\");\nconsole.log(`VIETNAM HOSTING Deno Listening on 0.0.0.0:${port}`);\nDeno.serve({ hostname: \"0.0.0.0\", port }, () => new Response(\"Vietnam Hosting Deno Ready\\n\"));\nEOF\nfi\n\n{\n    printf 'egg_id=%s\\n' \"deno\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Deno Hosting.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Main File",
+      "description": "Entrypoint TypeScript or JavaScript file.",
+      "env_variable": "MAIN_FILE",
+      "default_value": "main.ts",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:128"
+    },
+    {
+      "name": "Deno Permission Flags",
+      "description": "Explicit Deno permission flags (least privilege by default).",
+      "env_variable": "DENO_PERMISSIONS",
+      "default_value": "--allow-net --allow-env=SERVER_PORT,NODE_ENV --allow-read=.",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:256"
+    },
+    {
+      "name": "Git Repository URL",
+      "description": "Optional HTTPS Git repository URL to clone/pull on install or startup.",
+      "env_variable": "GIT_ADDRESS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:512"
+    },
+    {
+      "name": "Git Branch",
+      "description": "Git branch or tag to checkout (leave blank for repository default).",
+      "env_variable": "BRANCH",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128"
+    },
+    {
+      "name": "Git Username",
+      "description": "Optional username for private HTTPS Git repositories.",
+      "env_variable": "USERNAME",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128"
+    },
+    {
+      "name": "Git Access Token",
+      "description": "Optional Personal Access Token for private repositories (never logged).",
+      "env_variable": "ACCESS_TOKEN",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:256"
+    },
+    {
+      "name": "Auto Update Git on Boot",
+      "description": "Set to 1 to run `git pull --ff-only` automatically before starting.",
+      "env_variable": "AUTO_UPDATE",
+      "default_value": "0",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|boolean"
+    }
+  ]
+}

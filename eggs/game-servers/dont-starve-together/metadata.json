@@ -1,0 +1,52 @@
+{
+  "id": "dont-starve-together",
+  "name": "Vietnam Hosting — Don't Starve Together",
+  "description": "Official Klei Don't Starve Together dedicated server via SteamCMD (AppID 343050, AMD64 only, requires Klei cluster token).",
+  "category": "game-servers",
+  "icon": "dst",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Latest SteamCMD (AppID 343050)"
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "minimum_ram_mb": 1024,
+  "recommended_ram_mb": 2048,
+  "minimum_disk_mb": 4096,
+  "resource_basis": "upstream_documented",
+  "docker_images": {
+    "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+  },
+  "custom_docker_images": {},
+  "dockerfile_path": null,
+  "image_source": "upstream_official_yolk",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Klei Entertainment EULA",
+  "upstream_url": "https://accounts.klei.com",
+  "eula_required": false,
+  "steam_app_id": 343050,
+  "notes": "AMD64 only."
+}

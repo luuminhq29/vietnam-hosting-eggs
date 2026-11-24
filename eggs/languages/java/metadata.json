@@ -1,0 +1,67 @@
+{
+  "id": "java",
+  "name": "Vietnam Hosting — Java Hosting",
+  "description": "Multi-version Java hosting (Eclipse Temurin / OpenJDK 8, 11, 17, 21, 25) with Maven/Gradle support, Spring Boot compatibility, and automatic JVM heap tuning reserving off-heap/metaspace headroom.",
+  "category": "languages",
+  "icon": "java",
+  "version": "1.0.0",
+  "supported_versions": [
+    "8",
+    "11",
+    "17",
+    "21 LTS",
+    "25 LTS"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 2048,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17",
+    "Java 11 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_11",
+    "Java 8 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_8"
+  },
+  "custom_docker_images": {
+    "Java 25 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_25",
+    "Java 21 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_21",
+    "Java 17 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_17",
+    "Java 11 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_11",
+    "Java 8 LTS (Temurin)": "ghcr.io/vietnam-hosting/yolks:java_8"
+  },
+  "dockerfile_path": "docker/languages/java/21/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "GPL-2.0-with-classpath-exception",
+  "upstream_url": "https://adoptium.net",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

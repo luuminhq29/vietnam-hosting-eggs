@@ -1,0 +1,52 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — RabbitMQ 4.0",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Enterprise RabbitMQ 4.0 AMQP message broker with container-scoped mnesia data and management plugin.",
+  "features": null,
+  "docker_images": {
+    "RabbitMQ 4.0 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rabbitmq_4.0"
+  },
+  "file_denylist": [],
+  "startup": "export RABBITMQ_MNESIA_BASE=/home/container/mnesia RABBITMQ_LOG_BASE=/home/container/logs RABBITMQ_NODE_PORT={{SERVER_PORT}} RABBITMQ_CONFIG_FILE=/home/container/rabbitmq.conf; exec rabbitmq-server",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Server startup complete\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — RabbitMQ 4.0 (rabbitmq)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — RabbitMQ 4.0. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — RabbitMQ 4.0.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/mnesia /mnt/server/logs\nif [[ ! -f /mnt/server/rabbitmq.conf ]]; then\n    PW=\"${RABBITMQ_DEFAULT_PASS:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\"\n    cat > /mnt/server/rabbitmq.conf <<EOF\nlisteners.tcp.default = 0.0.0.0:{{SERVER_PORT}}\ndefault_user = ${RABBITMQ_DEFAULT_USER:-vnhmq}\ndefault_pass = ${PW}\nloopback_users = none\nEOF\n    chmod 600 /mnt/server/rabbitmq.conf\nfi\n\n{\n    printf 'egg_id=%s\\n' \"rabbitmq\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — RabbitMQ 4.0.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Default User",
+      "description": "Initial RabbitMQ user.",
+      "env_variable": "RABBITMQ_DEFAULT_USER",
+      "default_value": "vnhmq",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Default Password",
+      "description": "Strong initial password (auto-generated if blank).",
+      "env_variable": "RABBITMQ_DEFAULT_PASS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128",
+      "field_type": "text"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "egg_id": "php-fpm",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/languages/php/8.4/Dockerfile",
+  "docker_images": {
+    "PHP-FPM 8.5 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.5",
+    "PHP-FPM 8.4 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.4",
+    "PHP-FPM 8.3 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.3",
+    "PHP-FPM 8.2 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:php_8.2"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:php_8.5",
+    "ghcr.io/vietnam-hosting/yolks:php_8.4",
+    "ghcr.io/vietnam-hosting/yolks:php_8.3",
+    "ghcr.io/vietnam-hosting/yolks:php_8.2"
+  ],
+  "custom_ghcr_targets": {
+    "PHP-FPM 8.4": "ghcr.io/vietnam-hosting/yolks:php_8.4"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vietnam-hosting.net/schemas/ptdl_v2.schema.json",
+  "title": "Pterodactyl Panel PTDL_v2 Egg Schema",
+  "description": "Strict validation schema for Pterodactyl Panel 1.x PTDL_v2 Egg JSON export/import files.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "_comment",
+    "meta",
+    "exported_at",
+    "name",
+    "author",
+    "description",
+    "features",
+    "docker_images",
+    "file_denylist",
+    "startup",
+    "config",
+    "scripts",
+    "variables"
+  ],
+  "properties": {
+    "_comment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "update_url"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "const": "PTDL_v2"
+        },
+        "update_url": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "exported_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 191
+    },
+    "author": {
+      "type": "string",
+      "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    "description": {
+      "type": ["string", "null"]
+    },
+    "features": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "string",
+        "enum": [
+          "eula",
+          "java_version",
+          "pid_limit",
+          "steam_disk_space",
+          "gsl_token"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "docker_images": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9._/-]*(:[a-zA-Z0-9._-]+)?(@sha256:[a-f0-9]{64})?$"
+      }
+    },
+    "file_denylist": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "startup": {
+      "type": "string",
+      "minLength": 1
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["files", "startup", "logs", "stop"],
+      "properties": {
+        "files": {
+          "type": "string"
+        },
+        "startup": {
+          "type": "string"
+        },
+        "logs": {
+          "type": "string"
+        },
+        "stop": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scripts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["installation"],
+      "properties": {
+        "installation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["script", "container", "entrypoint"],
+          "properties": {
+            "script": {
+              "type": "string",
+              "minLength": 1
+            },
+            "container": {
+              "type": "string",
+              "minLength": 1
+            },
+            "entrypoint": {
+              "type": "string",
+              "enum": ["bash", "ash", "sh", "/bin/bash", "/bin/ash", "/bin/sh"]
+            }
+          }
+        }
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description",
+          "env_variable",
+          "default_value",
+          "user_viewable",
+          "user_editable",
+          "rules",
+          "field_type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 191
+          },
+          "description": {
+            "type": "string"
+          },
+          "env_variable": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]{0,190}$"
+          },
+          "default_value": {
+            "type": "string"
+          },
+          "user_viewable": {
+            "type": "boolean"
+          },
+          "user_editable": {
+            "type": "boolean"
+          },
+          "rules": {
+            "type": "string",
+            "minLength": 1
+          },
+          "field_type": {
+            "type": "string",
+            "enum": ["text"]
+          }
+        }
+      }
+    }
+  }
+}

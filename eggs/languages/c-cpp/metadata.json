@@ -1,0 +1,55 @@
+{
+  "id": "c-cpp",
+  "name": "Vietnam Hosting — C/C++ Hosting",
+  "description": "C and C++ build/runtime environment with GCC, G++, Clang, Make, CMake, and parallel job throttling.",
+  "category": "languages",
+  "icon": "cpp",
+  "version": "1.0.0",
+  "supported_versions": [
+    "GCC 14 / Clang 19 (Debian 13)"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "C/C++ Debian 13 (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ccpp_debian13"
+  },
+  "custom_docker_images": {
+    "C/C++ Debian 13": "ghcr.io/vietnam-hosting/yolks:ccpp_debian13"
+  },
+  "dockerfile_path": "docker/languages/c-cpp/Dockerfile",
+  "image_source": "requires_ghcr_build",
+  "requires_inbound_port": true,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "GPL-3.0 / Apache-2.0",
+  "upstream_url": "https://gcc.gnu.org",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

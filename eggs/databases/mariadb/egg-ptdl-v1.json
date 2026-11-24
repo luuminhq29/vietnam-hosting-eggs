@@ -1,0 +1,67 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — MariaDB 11.4 LTS",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Unprivileged MariaDB 11.4 LTS container with idempotent initialization, least-privilege app grants, and graceful shutdown.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:mariadb_11.4"
+  ],
+  "startup": "mkdir -p /home/container/data /home/container/run /home/container/logs; if [[ ! -d /home/container/data/mysql ]]; then   mariadb-install-db --datadir=/home/container/data --auth-root-authentication-method=normal;   PW=\"${DB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf 'CREATE DATABASE IF NOT EXISTS `%s`; CREATE USER IF NOT EXISTS \"%s\"@\"%%\" IDENTIFIED BY \"%s\"; GRANT ALL PRIVILEGES ON `%s`.* TO \"%s\"@\"%%\"; FLUSH PRIVILEGES;\\n'     \"${DB_NAME}\" \"${DB_USER}\" \"${PW}\" \"${DB_NAME}\" \"${DB_USER}\" > /home/container/run/init.sql;   chmod 600 /home/container/run/init.sql;   exec mariadbd --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mariadb.sock --init-file=/home/container/run/init.sql; fi; rm -f /home/container/run/init.sql; exec mariadbd --datadir=/home/container/data --port={{SERVER_PORT}} --bind-address=\"${BIND_ADDRESS}\" --socket=/home/container/run/mariadb.sock",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"ready for connections\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — MariaDB 11.4 LTS (mariadb)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — MariaDB 11.4 LTS. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — MariaDB 11.4 LTS.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data /mnt/server/run /mnt/server/logs /mnt/server/backups\n\n{\n    printf 'egg_id=%s\\n' \"mariadb\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — MariaDB 11.4 LTS.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Database Name",
+      "description": "Initial application database.",
+      "env_variable": "DB_NAME",
+      "default_value": "app_db",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:64"
+    },
+    {
+      "name": "Application User",
+      "description": "Least-privilege database user.",
+      "env_variable": "DB_USER",
+      "default_value": "app_user",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:32"
+    },
+    {
+      "name": "Application Password",
+      "description": "Strong password (auto-generated if empty).",
+      "env_variable": "DB_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled network bind address.",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0"
+    }
+  ]
+}

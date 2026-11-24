@@ -1,0 +1,60 @@
+{
+  "id": "jda",
+  "name": "Vietnam Hosting — JDA Discord Bot (Java)",
+  "description": "Java Discord API (JDA) bot hosting with automatic JVM heap headroom, Maven/Gradle build, and Git deployment.",
+  "category": "discord-bots",
+  "icon": "jda",
+  "version": "1.0.0",
+  "supported_versions": [
+    "Java 17",
+    "Java 21 LTS",
+    "Java 25 LTS"
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "minimum_ram_mb": 512,
+  "recommended_ram_mb": 1024,
+  "minimum_disk_mb": 1024,
+  "resource_basis": "recommended_estimate",
+  "docker_images": {
+    "Java 21 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_21",
+    "Java 25 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_25",
+    "Java 17 LTS (Official Yolk)": "ghcr.io/pterodactyl/yolks:java_17"
+  },
+  "custom_docker_images": {
+    "Java 21 LTS": "ghcr.io/vietnam-hosting/yolks:java_21",
+    "Java 25 LTS": "ghcr.io/vietnam-hosting/yolks:java_25"
+  },
+  "dockerfile_path": "docker/languages/java/21/Dockerfile",
+  "image_source": "hybrid_official_and_ghcr",
+  "requires_inbound_port": false,
+  "privileged_requirements": {
+    "requires_privileged": false,
+    "requires_docker_socket": false,
+    "requires_gpu": false,
+    "requires_kernel_features": false,
+    "notes": "Runs completely unprivileged inside standard Pterodactyl Wings isolation."
+  },
+  "supported_panel_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "supported_wings_versions": [
+    "1.11.x",
+    "1.12.x"
+  ],
+  "status": "Stable",
+  "verification_status": "UNVERIFIED",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "last_updated": "2026-11-24",
+  "upstream_license": "Apache-2.0",
+  "upstream_url": "https://github.com/discord-jda/JDA",
+  "eula_required": false,
+  "steam_app_id": null,
+  "notes": ""
+}

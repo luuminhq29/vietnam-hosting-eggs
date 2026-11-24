@@ -1,0 +1,52 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — ClickHouse 25 LTS",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Columnar OLAP ClickHouse 25 LTS analytics server with container-scoped data directory and memory limits.",
+  "features": null,
+  "docker_images": {
+    "ClickHouse 25.3 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:clickhouse_25"
+  },
+  "file_denylist": [],
+  "startup": "mkdir -p /home/container/data /home/container/tmp /home/container/logs; sed \"s|__PORT__|{{SERVER_PORT}}|g; s|__BIND__|${BIND_ADDRESS}|g\" /home/container/config.xml.tpl > /home/container/config.xml; exec clickhouse-server --config-file=/home/container/config.xml",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Ready for connections\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — ClickHouse 25 LTS (clickhouse)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — ClickHouse 25 LTS. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — ClickHouse 25 LTS.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data /mnt/server/tmp /mnt/server/logs /mnt/server/backups\nif [[ ! -f /mnt/server/config.xml.tpl ]]; then\ncat > /mnt/server/config.xml.tpl <<'EOF'\n<clickhouse>\n    <logger><level>information</level><console>1</console></logger>\n    <http_port>__PORT__</http_port>\n    <listen_host>__BIND__</listen_host>\n    <path>/home/container/data/</path>\n    <tmp_path>/home/container/tmp/</tmp_path>\n    <user_files_path>/home/container/data/user_files/</user_files_path>\n    <format_schema_path>/home/container/data/format_schemas/</format_schema_path>\n    <users_config>users.xml</users_config>\n</clickhouse>\nEOF\nfi\nif [[ ! -f /mnt/server/users.xml ]]; then\n    PW=\"${CLICKHOUSE_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\"\n    SHA=\"$(printf '%s' \"${PW}\" | sha256sum | awk '{print $1}')\"\n    cat > /mnt/server/users.xml <<EOF\n<clickhouse>\n    <profiles><default/></profiles>\n    <quotas><default/></quotas>\n    <users>\n        <default>\n            <password_sha256_hex>${SHA}</password_sha256_hex>\n            <networks><ip>::/0</ip></networks>\n            <profile>default</profile>\n            <quota>default</quota>\n        </default>\n    </users>\n</clickhouse>\nEOF\n    chmod 600 /mnt/server/users.xml\nfi\n\n{\n    printf 'egg_id=%s\\n' \"clickhouse\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — ClickHouse 25 LTS.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Default User Password",
+      "description": "Hashed to SHA256 in users.xml (auto-generated if blank).",
+      "env_variable": "CLICKHOUSE_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled listen_host.",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0",
+      "field_type": "text"
+    }
+  ]
+}

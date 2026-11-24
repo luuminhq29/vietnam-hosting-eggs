@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-11-24T03:32:19.486337+00:00",
+  "host_os": "Windows-10-10.0.19045-SP0",
+  "docker_available": false,
+  "pterodactyl_live_environment": false,
+  "static_validation": {
+    "status": "PASS",
+    "checked_eggs": 147,
+    "checked_dockerfiles": 90,
+    "errors": 0,
+    "warnings": 0
+  },
+  "runtime_integration_tests": {
+    "status": "UNVERIFIED",
+    "reason": "No live Pterodactyl Panel/Wings + Docker runtime attached to local test host."
+  },
+  "eggs_tested": 147
+}

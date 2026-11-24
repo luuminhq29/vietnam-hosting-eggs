@@ -1,0 +1,20 @@
+{
+  "egg_id": "opensuse",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/linux/opensuse/Dockerfile",
+  "docker_images": {
+    "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+  ],
+  "custom_ghcr_targets": {
+    "openSUSE Leap": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

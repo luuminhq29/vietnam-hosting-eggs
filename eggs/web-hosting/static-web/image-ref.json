@@ -1,0 +1,20 @@
+{
+  "egg_id": "static-web",
+  "supported_schemas": [
+    "PTDL_v1",
+    "PTDL_v2"
+  ],
+  "image_source": "requires_ghcr_build",
+  "dockerfile_path": "docker/services/nginx/Dockerfile",
+  "docker_images": {
+    "Nginx 1.28 Rootless (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+  },
+  "ptdl_v1_images": [
+    "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+  ],
+  "custom_ghcr_targets": {
+    "Nginx 1.28": "ghcr.io/vietnam-hosting/yolks:nginx_1.28"
+  },
+  "ghcr_published": false,
+  "note": "Custom ghcr.io/vietnam-hosting/yolks:* images must be built and published before production use."
+}

@@ -1,0 +1,58 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v1)",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Apache CouchDB 3.4",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Apache CouchDB 3.4 JSON document database with HTTP API, Fauxton UI, and mandatory admin credentials.",
+  "features": null,
+  "images": [
+    "ghcr.io/vietnam-hosting/yolks:couchdb_3.4"
+  ],
+  "startup": "mkdir -p /home/container/data /home/container/etc; if [[ ! -f /home/container/etc/local.ini ]]; then   PW=\"${COUCHDB_PASSWORD:-$(openssl rand -base64 24 | tr -dc A-Za-z0-9 | head -c 24)}\";   printf \"[chttpd]\\nport = {{SERVER_PORT}}\\nbind_address = %s\\n[couchdb]\\ndatabase_dir = /home/container/data\\nview_index_dir = /home/container/data\\n[admins]\\n%s = %s\\n\"     \"${BIND_ADDRESS}\" \"${COUCHDB_USER}\" \"${PW}\" > /home/container/etc/local.ini; chmod 600 /home/container/etc/local.ini; fi; export ERL_FLAGS=\"-couch_ini /opt/couchdb/etc/default.ini /home/container/etc/local.ini\"; exec /opt/couchdb/bin/couchdb",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Apache CouchDB has started\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Apache CouchDB 3.4 (couchdb)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Apache CouchDB 3.4. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Apache CouchDB 3.4.\"\n    VNH_REINSTALL=0\nfi\n\nmkdir -p /mnt/server/data /mnt/server/etc /mnt/server/backups\n\n{\n    printf 'egg_id=%s\\n' \"couchdb\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Apache CouchDB 3.4.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Admin Username",
+      "description": "CouchDB admin username.",
+      "env_variable": "COUCHDB_USER",
+      "default_value": "vnhadmin",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:32"
+    },
+    {
+      "name": "Admin Password",
+      "description": "Strong password (auto-generated if blank).",
+      "env_variable": "COUCHDB_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|min:12|max:128"
+    },
+    {
+      "name": "Bind Address",
+      "description": "Admin-controlled bind_address.",
+      "env_variable": "BIND_ADDRESS",
+      "default_value": "127.0.0.1",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|in:127.0.0.1,0.0.0.0"
+    }
+  ]
+}

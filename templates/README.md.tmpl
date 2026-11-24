@@ -1,0 +1,65 @@
+# {{NAME}}
+
+> **Nhà cung cấp:** Vietnam Hosting ([https://vietnam-hosting.net](https://vietnam-hosting.net))  
+> **Mã Egg:** `{{ID}}` | **Danh mục:** `{{CATEGORY}}` | **Phiên bản:** `{{VERSION}}`  
+> **Trạng thái:** `{{STATUS}}` | **Kiểm thử tích hợp:** `{{VERIFICATION_STATUS}}`  
+> **Định dạng Schema:** `PTDL_v2` (`egg.json` — Pterodactyl 1.7–1.12+) & `PTDL_v1` (`egg-ptdl-v1.json` — Pterodactyl 1.0–1.6+ tương thích ngược)
+
+## 1. Tổng quan
+
+{{DESCRIPTION}}
+
+- **Phiên bản hỗ trợ:** {{SUPPORTED_VERSIONS}}
+- **Kiến trúc CPU:** {{SUPPORTED_ARCHITECTURES}}
+- **Cổng mạng inbound:** {{INBOUND_PORT_TEXT}}
+- **Nguồn Docker Image:** {{IMAGE_SOURCE_TEXT}}
+- **Dự án upstream:** {{UPSTREAM_URL}} (Giấy phép: `{{UPSTREAM_LICENSE}}`)
+
+## 2. Yêu cầu tài nguyên (Khuyến nghị)
+
+> [!NOTE]
+> Các thông số dưới đây là **{{RESOURCE_BASIS_TEXT}}**, không phải kết quả benchmark trực tiếp trên phần cứng khách hàng cụ thể. Quản trị viên cần điều chỉnh theo lưu lượng thực tế.
+
+| Tài nguyên | Mức tối thiểu | Mức khuyến nghị |
+| :--- | :---: | :---: |
+| RAM | {{MINIMUM_RAM_MB}} MiB | {{RECOMMENDED_RAM_MB}} MiB |
+| Ổ cứng | {{MINIMUM_DISK_MB}} MiB | ≥ {{RECOMMENDED_DISK_MB}} MiB |
+
+## 3. Docker Images
+
+{{DOCKER_IMAGES_TABLE}}
+
+{{DOCKERFILE_NOTE}}
+
+## 4. Biến môi trường (Egg Variables)
+
+{{VARIABLES_TABLE}}
+
+## 5. Lệnh khởi động & Dừng an toàn
+
+- **Startup Command:** `{{STARTUP}}`
+- **Stop Command:** `{{STOP_COMMAND}}`
+- **Startup Detection:** `{{STARTUP_DONE}}`
+
+## 6. Hành vi Cài đặt, Khởi động lại & Reinstall
+
+- **Cài đặt lần đầu:** Thiết lập môi trường trong `/mnt/server`, tải thành phần cần thiết (nếu có) với timeout/retry và tạo file đánh dấu `.vnh_installed`.
+- **Khởi động lại (Restart):** Không ghi đè dữ liệu người dùng hoặc cấu hình hiện có trong `/home/container`.
+- **Cài đặt lại (Reinstall):** Phát hiện `.vnh_installed` và bảo toàn dữ liệu người dùng mặc định; chỉ cập nhật binary/dependencies theo cấu hình biến môi trường.
+
+## 7. Ranh giới bảo mật & Vận hành
+
+{{SECURITY_NOTES}}
+
+- Container chạy không đặc quyền (`container` user, `/home/container`), không yêu cầu `--privileged`, không mount Docker Socket, không dùng `host` network và không thay đổi firewall/iptables của Node.
+- Giới hạn CPU, RAM, PID, Disk Quota và bảo vệ mạng tầng Host do **Pterodactyl Wings, Docker Daemon và Firewall của Node** đảm nhiệm.
+- Không hiển thị mật khẩu, token hoặc API key ra console.
+
+## 8. Sao lưu và Phục hồi (Backup & Restore)
+
+{{BACKUP_NOTES}}
+
+## 9. Trạng thái kiểm thử
+
+- Kiểm tra tĩnh (Schema `PTDL_v2`, kiểm tra biến môi trường, kiểm tra cú pháp script): Chạy bằng `vnh-egg validate`.
+- Kiểm tra tích hợp thực tế trên Pterodactyl Panel / Wings & Docker runtime: `{{VERIFICATION_STATUS}}` (xem chi tiết tại `test.config.json` và `docs/TEST_REPORT.md`).

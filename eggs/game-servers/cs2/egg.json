@@ -1,0 +1,125 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY VIETNAM HOSTING UNIVERSAL EGG SYSTEM (PTDL_v2)",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Vietnam Hosting — Counter-Strike 2",
+  "author": "eggs@vietnam-hosting.net",
+  "description": "Official Valve Counter-Strike 2 Linux dedicated server via SteamCMD (AppID 730, AMD64 only, requires Steam GSLT).",
+  "features": [
+    "gsl_token",
+    "steam_disk_space"
+  ],
+  "docker_images": {
+    "Source / SteamCMD Runtime (Official Parkervcp Game Image)": "ghcr.io/parkervcp/games:source"
+  },
+  "file_denylist": [],
+  "startup": "exec ./game/bin/linuxsteamrt64/cs2 -dedicated -ip 0.0.0.0 -port {{SERVER_PORT}} +map \"${SRCDS_MAP}\" -maxplayers \"${MAX_PLAYERS}\" +sv_setsteamaccount \"${STEAM_ACC}\"",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"Connection to Steam servers successful|SV:  Spawn Server\"}",
+    "logs": "{}",
+    "stop": "quit"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/usr/bin/env bash\n# ==============================================================================\n# Vietnam Hosting — Egg Installation Script Template\n# Egg: Vietnam Hosting — Counter-Strike 2 (cs2)\n# Website: https://vietnam-hosting.net\n# ==============================================================================\nset -euo pipefail\n\nSERVER_DIR=\"/mnt/server\"\nINSTALL_MARKER=\"${SERVER_DIR}/.vnh_installed\"\nmkdir -p \"${SERVER_DIR}\"\ncd \"${SERVER_DIR}\"\n\nif [[ -f \"${INSTALL_MARKER}\" ]]; then\n    echo \"[VNH][INSTALL] Reinstall detected for Vietnam Hosting — Counter-Strike 2. Preserving user data.\"\n    VNH_REINSTALL=1\nelse\n    echo \"[VNH][INSTALL] First-time installation for Vietnam Hosting — Counter-Strike 2.\"\n    VNH_REINSTALL=0\nfi\n\n# Standard SteamCMD installer (AMD64 native Linux binaries)\nARCH=\"$(uname -m)\"\nif [[ \"${ARCH}\" != \"x86_64\" ]]; then\n    echo \"[VNH][INSTALL][ERROR] SteamCMD and this game server require x86_64 (amd64); detected ${ARCH}.\" >&2\n    exit 1\nfi\n\nSTEAM_USER=\"${STEAM_USER:-anonymous}\"\nSTEAM_PASS=\"${STEAM_PASS:-}\"\nSTEAM_AUTH=\"${STEAM_AUTH:-}\"\n\nmkdir -p /mnt/server/steamcmd /mnt/server/steamapps /mnt/server/.steam/sdk32 /mnt/server/.steam/sdk64\nif [[ ! -x /mnt/server/steamcmd/steamcmd.sh ]]; then\n    curl -fsSL --connect-timeout 15 --max-time 120 \\\n        -o /tmp/steamcmd_linux.tar.gz \\\n        \"https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz\"\n    tar -xzf /tmp/steamcmd_linux.tar.gz -C /mnt/server/steamcmd\n    rm -f /tmp/steamcmd_linux.tar.gz\nfi\n\ncd /mnt/server/steamcmd\n./steamcmd.sh \\\n    +force_install_dir /mnt/server \\\n    +login \"${STEAM_USER}\" \"${STEAM_PASS}\" \"${STEAM_AUTH}\" \\\n    +app_update \"${SRCDS_APPID}\" ${SRCDS_BETAID:+-beta \"${SRCDS_BETAID}\"} ${SRCDS_BETAPASS:+-betapassword \"${SRCDS_BETAPASS}\"} validate \\\n    +quit\n\ncp -f /mnt/server/steamcmd/linux32/steamclient.so /mnt/server/.steam/sdk32/steamclient.so 2>/dev/null || true\ncp -f /mnt/server/steamcmd/linux64/steamclient.so /mnt/server/.steam/sdk64/steamclient.so 2>/dev/null || true\ncd /mnt/server\n\n{\n    printf 'egg_id=%s\\n' \"cs2\"\n    printf 'version=%s\\n' \"1.0.0\"\n    printf 'installed_at=%s\\n' \"$(date -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || printf 'unknown')\"\n} > \"${INSTALL_MARKER}\"\n\necho \"[VNH][INSTALL] Completed installation for Vietnam Hosting — Counter-Strike 2.\"\n",
+      "container": "ghcr.io/parkervcp/installers:debian",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Steam AppID",
+      "description": "Official Valve Steam Dedicated Server AppID (admin-locked).",
+      "env_variable": "SRCDS_APPID",
+      "default_value": "730",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "Steam Beta Branch",
+      "description": "Optional Steam beta branch name.",
+      "env_variable": "SRCDS_BETAID",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:64",
+      "field_type": "text"
+    },
+    {
+      "name": "Steam Beta Password",
+      "description": "Optional Steam beta branch password.",
+      "env_variable": "SRCDS_BETAPASS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Steam Username",
+      "description": "Steam account username (leave blank for anonymous login).",
+      "env_variable": "STEAM_USER",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Steam Password",
+      "description": "Steam account password (leave blank for anonymous login; never logged).",
+      "env_variable": "STEAM_PASS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128",
+      "field_type": "text"
+    },
+    {
+      "name": "Steam Guard Code",
+      "description": "Optional Steam Guard auth code.",
+      "env_variable": "STEAM_AUTH",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:32",
+      "field_type": "text"
+    },
+    {
+      "name": "Start Map",
+      "description": "Initial CS2 map (e.g. de_dust2, de_mirage).",
+      "env_variable": "SRCDS_MAP",
+      "default_value": "de_dust2",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|alpha_dash|max:64",
+      "field_type": "text"
+    },
+    {
+      "name": "Max Players",
+      "description": "Maximum players.",
+      "env_variable": "MAX_PLAYERS",
+      "default_value": "16",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:2,64",
+      "field_type": "text"
+    },
+    {
+      "name": "Steam GSLT Token",
+      "description": "Valve Game Server Login Token (never logged).",
+      "env_variable": "STEAM_ACC",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:128",
+      "field_type": "text"
+    }
+  ]
+}

@@ -1,0 +1,622 @@
+{
+  "category": "operating-systems",
+  "count": 15,
+  "eggs": [
+    {
+      "id": "almalinux",
+      "name": "Vietnam Hosting — AlmaLinux (NAT Linux Container)",
+      "description": "Unprivileged AlmaLinux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "almalinux",
+      "version": "1.0.0",
+      "supported_versions": [
+        "9"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "AlmaLinux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:almalinux_9"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/almalinux/egg.json",
+      "egg_download_v1": "eggs/operating-systems/almalinux/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/almalinux/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "alpine",
+      "name": "Vietnam Hosting — Alpine Linux (NAT Linux Container)",
+      "description": "Unprivileged Alpine Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "alpine",
+      "version": "1.0.0",
+      "supported_versions": [
+        "3.23"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Alpine Official Yolk": "ghcr.io/pterodactyl/yolks:alpine",
+        "Alpine Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:alpine_3.23"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/alpine/egg.json",
+      "egg_download_v1": "eggs/operating-systems/alpine/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/alpine/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "amazon-linux",
+      "name": "Vietnam Hosting — Amazon Linux (NAT Linux Container)",
+      "description": "Unprivileged Amazon Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "amazon",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2023"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Amazon Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:amazonlinux_2023"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/amazon-linux/egg.json",
+      "egg_download_v1": "eggs/operating-systems/amazon-linux/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/amazon-linux/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "arch-linux",
+      "name": "Vietnam Hosting — Arch Linux (NAT Linux Container)",
+      "description": "Unprivileged Arch Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode). Official Docker Hub archlinux:base image supports AMD64 only (ARM64 is not officially published by Arch Linux).",
+      "category": "operating-systems",
+      "icon": "arch",
+      "version": "1.0.0",
+      "supported_versions": [
+        "Rolling (Pinned Snapshot)"
+      ],
+      "supported_architectures": [
+        "amd64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Arch Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:arch_base"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/arch-linux/egg.json",
+      "egg_download_v1": "eggs/operating-systems/arch-linux/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/arch-linux/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "debian-12",
+      "name": "Vietnam Hosting — Debian 12 (Bookworm) (NAT Linux Container)",
+      "description": "Unprivileged Debian 12 (Bookworm) NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "debian",
+      "version": "1.0.0",
+      "supported_versions": [
+        "12 (Bookworm)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian Official Yolk": "ghcr.io/pterodactyl/yolks:debian",
+        "Debian 12 (Bookworm) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_12"
+      },
+      "image_source": "hybrid_official_and_ghcr",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/debian-12/egg.json",
+      "egg_download_v1": "eggs/operating-systems/debian-12/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/debian-12/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "debian-13",
+      "name": "Vietnam Hosting — Debian 13 (Trixie) (NAT Linux Container)",
+      "description": "Unprivileged Debian 13 (Trixie) NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "debian",
+      "version": "1.0.0",
+      "supported_versions": [
+        "13 (Trixie)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Debian 13 (Trixie) (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:debian_13"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/debian-13/egg.json",
+      "egg_download_v1": "eggs/operating-systems/debian-13/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/debian-13/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "fedora",
+      "name": "Vietnam Hosting — Fedora Linux (NAT Linux Container)",
+      "description": "Unprivileged Fedora Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "fedora",
+      "version": "1.0.0",
+      "supported_versions": [
+        "44"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Fedora Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:fedora_44"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/fedora/egg.json",
+      "egg_download_v1": "eggs/operating-systems/fedora/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/fedora/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "kali-linux",
+      "name": "Vietnam Hosting — Kali Linux Minimal (NAT Linux Container)",
+      "description": "Unprivileged Kali Linux Minimal NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode). Minimal authorized security-testing container only. Raw packet capture / kernel modules are blocked by standard Wings isolation.",
+      "category": "operating-systems",
+      "icon": "kali",
+      "version": "1.0.0",
+      "supported_versions": [
+        "2026.3 Minimal"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Kali Linux Minimal (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:kali_minimal"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/kali-linux/egg.json",
+      "egg_download_v1": "eggs/operating-systems/kali-linux/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/kali-linux/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "opensuse",
+      "name": "Vietnam Hosting — openSUSE Leap (NAT Linux Container)",
+      "description": "Unprivileged openSUSE Leap NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "opensuse",
+      "version": "1.0.0",
+      "supported_versions": [
+        "15.6"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "openSUSE Leap (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:opensuse_15.6"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/opensuse/egg.json",
+      "egg_download_v1": "eggs/operating-systems/opensuse/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/opensuse/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "oracle-linux",
+      "name": "Vietnam Hosting — Oracle Linux (NAT Linux Container)",
+      "description": "Unprivileged Oracle Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "oracle",
+      "version": "1.0.0",
+      "supported_versions": [
+        "9"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Oracle Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:oraclelinux_9"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/oracle-linux/egg.json",
+      "egg_download_v1": "eggs/operating-systems/oracle-linux/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/oracle-linux/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "rocky-linux",
+      "name": "Vietnam Hosting — Rocky Linux (NAT Linux Container)",
+      "description": "Unprivileged Rocky Linux NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "rocky",
+      "version": "1.0.0",
+      "supported_versions": [
+        "9"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Rocky Linux (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:rocky_9"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/rocky-linux/egg.json",
+      "egg_download_v1": "eggs/operating-systems/rocky-linux/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/rocky-linux/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "ubuntu-20-04",
+      "name": "Vietnam Hosting — Ubuntu 20.04 Legacy (NAT Linux Container)",
+      "description": "Unprivileged Ubuntu 20.04 Legacy NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode). Standard support ended May 2025 (ESM only). Migrate to Ubuntu 24.04 or 26.04 LTS for new workloads.",
+      "category": "operating-systems",
+      "icon": "ubuntu",
+      "version": "1.0.0",
+      "supported_versions": [
+        "20.04 LTS (ESM Legacy)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Ubuntu 20.04 Legacy (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_20.04"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/ubuntu-20-04/egg.json",
+      "egg_download_v1": "eggs/operating-systems/ubuntu-20-04/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/ubuntu-20-04/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Legacy",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "ubuntu-22-04",
+      "name": "Vietnam Hosting — Ubuntu 22.04 LTS (NAT Linux Container)",
+      "description": "Unprivileged Ubuntu 22.04 LTS NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "ubuntu",
+      "version": "1.0.0",
+      "supported_versions": [
+        "22.04 LTS (Jammy)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Ubuntu 22.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_22.04"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/ubuntu-22-04/egg.json",
+      "egg_download_v1": "eggs/operating-systems/ubuntu-22-04/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/ubuntu-22-04/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "ubuntu-24-04",
+      "name": "Vietnam Hosting — Ubuntu 24.04 LTS (NAT Linux Container)",
+      "description": "Unprivileged Ubuntu 24.04 LTS NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "ubuntu",
+      "version": "1.0.0",
+      "supported_versions": [
+        "24.04 LTS (Noble)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Ubuntu 24.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_24.04"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/ubuntu-24-04/egg.json",
+      "egg_download_v1": "eggs/operating-systems/ubuntu-24-04/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/ubuntu-24-04/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    },
+    {
+      "id": "ubuntu-26-04",
+      "name": "Vietnam Hosting — Ubuntu 26.04 LTS (NAT Linux Container)",
+      "description": "Unprivileged Ubuntu 26.04 LTS NAT Linux container compatible with Pterodactyl Console, Wings SFTP, user-space SSH (pubkey-only), persistent storage, and container-safe task scheduling. Not a KVM VPS (no root/systemd/privileged mode).",
+      "category": "operating-systems",
+      "icon": "ubuntu",
+      "version": "1.0.0",
+      "supported_versions": [
+        "26.04 LTS (Resolute)"
+      ],
+      "supported_architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "minimum_ram_mb": 256,
+      "recommended_ram_mb": 512,
+      "minimum_disk_mb": 1024,
+      "resource_basis": "recommended_estimate",
+      "docker_images": {
+        "Ubuntu 26.04 LTS (Vietnam Hosting GHCR)": "ghcr.io/vietnam-hosting/yolks:ubuntu_26.04"
+      },
+      "image_source": "requires_ghcr_build",
+      "supported_schemas": [
+        "PTDL_v1",
+        "PTDL_v2"
+      ],
+      "egg_download": "eggs/operating-systems/ubuntu-26-04/egg.json",
+      "egg_download_v1": "eggs/operating-systems/ubuntu-26-04/egg-ptdl-v1.json",
+      "documentation_url": "eggs/operating-systems/ubuntu-26-04/README.md",
+      "supported_panel_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "supported_wings_versions": [
+        "1.11.x",
+        "1.12.x"
+      ],
+      "status": "Stable",
+      "verification_status": "UNVERIFIED",
+      "last_updated": "2026-11-24"
+    }
+  ]
+}
