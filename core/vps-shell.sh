@@ -31,6 +31,7 @@ if [[ "${ENABLE_PROOT:-1}" == "1" ]] && command -v proot >/dev/null 2>&1 && [[ -
     export PROOT_NO_SECCOMP=1
     export HOME="/root"
     export USER="root"
+    export SHELL="/bin/bash"
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
     BIND_ARGS=(-b /dev -b /proc -b /sys)
